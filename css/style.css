@@ -98,13 +98,15 @@ body {
     align-self: center;
     height: 200px;
     width: 250px;
+    margin-top: -10px;
 }
 
 .logo-footer {
     justify-self: end;
     margin-right: 60px;
     grid-column: 3;
-    object-fit: cover;   
+    object-fit: cover;  
+    margin-top: 10px; 
 }
 
 .logo-footer img {
@@ -148,6 +150,7 @@ body {
     color: white;
     font-family: 'Avenir-Medium';
     text-decoration: none;
+    line-height: 1;
     width: 150px;
     display: block;
     align-content: center;
@@ -166,6 +169,3 @@ body {
     background-color: rgba(223, 93, 5, 0.9); /* Чуть темнее при наведении */
 }
 
-.selection-a {
-    line-height: 15px;
-}

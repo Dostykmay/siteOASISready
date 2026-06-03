@@ -1,0 +1,165 @@
+html{
+    background-color: red !important; /* временно для проверки */
+}
+main {
+    background-color: red;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(210, 230, 200, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 90% 70%, rgba(170, 200, 150, 0.15) 0%, transparent 25%),
+        linear-gradient(135deg, #f8f6f0 0%, #f0efe7 100%);
+}
+
+/* ========== ОСНОВНОЙ БЛОК ========== */
+.first-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin: 0;
+    padding: 40px 0;
+    align-items: center;
+    width: 100%;
+    padding-left: 10px;
+}
+
+/* ========== ОБЩИЕ СТИЛИ ДЛЯ КАТЕГОРИЙ ========== */
+.primary-cultures,
+.other-cultures {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;         /* вместо фиксированной height для адаптивности */
+    margin: 0;
+    padding: 40px 70px;        /* отступы сверху/снизу 40px, по бокам 70px */
+    box-sizing: border-box;
+}
+
+.medonos-grass{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;         /* вместо фиксированной height для адаптивности */
+    margin: 0;
+    padding: 40px 70px;        /* отступы сверху/снизу 40px, по бокам 70px */
+    box-sizing: border-box;
+}
+
+.primary-cultures h2,
+.other-cultures h2,
+.medonos-grass h2 {
+    font-size: 40px;
+    font-family: 'Avenir-Bold';
+    margin: 0 0 20px 0;        /* отступ снизу для отделения от карточек */
+    text-align: center;
+}
+
+/* ========== КОНТЕЙНЕР ДЛЯ КАРТОЧЕК ========== */
+.container-for-card {
+    display: flex;
+    flex-wrap: wrap;           /* чтобы карточки переносились на новую строку */
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========== КАРТОЧКИ РАСТЕНИЙ ========== */
+.div-plants {
+    display: flex;
+    flex-direction: column;
+    height: auto;              /* убираем фиксированную высоту */
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-bottom: 20px;       /* небольшой отступ между рядами при переносе */
+}
+
+/* ========== ССЫЛКИ ========== */
+.div-plants a {
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Avenir-Thin';
+    color: rgba(223, 93, 5, 0.9);
+    transition: all 0.2s ease; /* плавность при наведении */
+}
+
+/* ========== ИЗОБРАЖЕНИЯ ========== */
+.div-plants a img {
+    object-fit: cover;
+    height: 170px;
+    width: 170px;
+    filter: brightness(0.7);
+    border-radius: 30%;
+    transition: all 0.2s ease;
+}
+
+/* ========== ТЕКСТ ПОД ИЗОБРАЖЕНИЕМ ========== */
+.div-plants a p {
+    font-size: 30px;
+    font-family: 'Avenir-Medium';
+    margin: 10px 0 0 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+/* ========== ЭФФЕКТЫ ПРИ НАВЕДЕНИИ ========== */
+.div-plants a:hover img {
+    height: 190px;
+    width: 190px;
+}
+
+.div-plants a:hover p {
+    font-size: 35px;
+}
+
+/* ========== УБИРАЕМ ФОНОВЫЕ ЗНАЧЕНИЯ ДЛЯ ВСЕХ БЛОКОВ ВНУТРИ FIRST-BLOCK ========== */
+.first-block,
+.primary-cultures,
+.other-cultures,
+.container-for-card {
+    background-color: transparent !important; 
+}
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ (ПРИМЕР) ========== */
+@media (max-width: 768px) {
+    .primary-cultures,
+    .other-cultures {
+        padding: 30px 20px;
+    }
+    .primary-cultures h2,
+    .other-cultures h2 {
+        font-size: 32px;
+    }
+    .div-plants {
+        width: 200px;
+    }
+    .div-plants a {
+        font-size: 24px;
+    }
+    .div-plants a img {
+        height: 140px;
+        width: 140px;
+    }
+    .div-plants a p {
+        font-size: 24px;
+    }
+    .div-plants a:hover img {
+        height: 160px;
+        width: 160px;
+    }
+    .div-plants a:hover p {
+        font-size: 28px;
+    }
+}

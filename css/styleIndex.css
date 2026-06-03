@@ -40,6 +40,7 @@
     font-size: 20px;
     color: white;
     margin-top: 0px;
+    margin-left: 5px;
 }
 
 .logo {
@@ -116,7 +117,7 @@
     padding: 40px 60px;
     width: 100%;
     min-height: 500px;
-    background-color: rgb(213, 217, 220);
+    background-color: rgb(103, 104, 105);
 }
 
 .gallery-container {
@@ -127,7 +128,7 @@
 .gallery-title {
     font-family: 'Avenir-Medium';
     font-size: 36px;
-    color: rgb(223, 93, 5);
+    color: rgb(255, 255, 255);
     margin-bottom: 30px;
     text-align: center;
 }
