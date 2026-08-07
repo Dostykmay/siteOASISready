@@ -2,10 +2,83 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=pages/index.html">
-    <title>O.A.S.I.S</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Описание сайта O.A.S.I.S"> 
+    <title>O.A.S.I.S - корпоративный сайт</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages/index.css">
+    <!-- defer говорит что скрипт можно запускать в фоновом режиме, а не ждать его загрузки -->
+    <script src="js/include.js" defer></script>
+    <style>
+        .footer{
+            background: linear-gradient(180deg, rgb(73, 77, 78) 0%, rgb(194, 70, 8));
+        }
+    </style>
 </head>
+
 <body>
-    <p>Перенаправление... Если страница не открылась, <a href="pages/index.html">нажмите сюда</a>.</p>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="index-main-block">
+            <img class="index-main-block-fon" src="../resource/resource/fon/panorama.jpg" alt="маскот_видео">
+            <img class="index-main-block-logo" src="../resource/resource/logo.png" alt="логотип">
+            <div class="index-main-block-text">
+                <h1>О.А.З.И.С</h1>
+                <p>Стремимся к инновациям и выращиванию сортов лучшего качества</p>
+            </div>
+        </section>
+
+        <section class="index-essence-company">
+            <p>О.А.З.И.С нацелен на инновации. У нас в приоритете качество и здоровье наших семян. О.А.З.И.С проводит множество селекционных программ, изучает и тд</p>
+            <img src="../resource/resource/маскот_вертуха.jpg" alt="маскот_вертушка">
+        </section>
+
+        <section class="index-photo">
+            <div class="index-photo-container">
+                <h2>Наши поля</h2>
+                
+                <!-- по сути input - поле ввода. Так как тип checkbox, то просто выбор между да и нет -->
+                <input type="checkbox" id="show-more-photos" class="show-more-checkbox">
+                
+                <div class="index-photo-grid" id="galleryGrid">
+                    <div class="index-photo-item">
+                        <img src="../resource/resource/pole/pole1.png" alt="поле 1">
+                    </div>
+                    <div class="index-photo-item">
+                        <img src="../resource/resource/pole/pole2.png" alt="поле 2">
+                    </div>
+                    <div class="index-photo-item">
+                        <img src="../resource/resource/pole/pole3.png" alt="поле 3">
+                    </div>
+                    <div class="index-photo-item">
+                        <img src="../resource/resource/pole/pole4.png" alt="поле 4">
+                    </div>
+                    <div class="index-photo-item index-photo-item-extra">
+                        <img src="../resource/resource/pole/pole5.png" alt="поле 5">
+                    </div>
+                    <div class="index-photo-item index-photo-item-extra">
+                        <img src="../resource/resource/pole/pole6.png" alt="поле 6">
+                    </div>
+                    <div class="index-photo-item index-photo-item-extra">
+                        <img src="../resource/resource/pole/pole7.png" alt="поле 7">
+                    </div>
+                    <div class="index-photo-item index-photo-item-extra">
+                        <img src="../resource/resource/pole/pole8.png" alt="поле 8">
+                    </div>
+                </div>
+                
+                <!-- label - типо привязывает через for элемент к конкретной форме (input выше)  -->
+                <label for="show-more-photos" class="index-photo-button">
+                    <span class="index-photo-button-text">Показать еще</span>
+                    <span class="index-photo-button-arrow">→</span>
+                </label>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
 </body>
+
 </html>
