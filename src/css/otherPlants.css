@@ -1,0 +1,94 @@
+.plants-page {
+    background: linear-gradient(180deg, #f8f6f0 0%, rgb(173, 171, 171) 70%, rgb(132, 129, 128) 90%);
+    padding: 20px 0 60px;
+}
+
+.plant-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 8%;
+    box-sizing: border-box;
+}
+
+.plant-section h2 {
+    font-size: 36px;
+    font-family: 'Avenir-Bold', sans-serif;
+    color: #2a2a2a;
+    margin: 0 0 32px 0;
+    text-align: center;
+}
+
+.plant-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.plant-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.plant-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 24px;
+    filter: brightness(0.85);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+}
+
+.plant-card p {
+    margin-top: 14px;
+    font-size: 22px;
+    font-family: 'Avenir-Medium', sans-serif;
+    color: rgba(0, 0, 0, 0.95);
+    text-align: center;
+    transition: font-size 0.25s ease;
+}
+
+.plant-card:hover {
+    transform: translateY(-4px);
+}
+
+.plant-card:hover img {
+    filter: brightness(1);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.plant-card:hover p {
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .plant-section {
+        padding: 30px 5%;
+    }
+
+    .plant-section h2 {
+        font-size: 28px;
+    }
+
+    .plant-card {
+        width: 150px;
+    }
+
+    .plant-card img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .plant-card p {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,150 @@
+/* ==================== ОСНОВНОЙ БЛОК ==================== */
+.certificate-main-block {
+    position: relative;
+    width: 100%;
+    padding: 90px 8% 100px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg,
+        #0a0a0a 0%,
+        #1a1210 20%,
+        rgb(70, 45, 20) 55%,
+        rgb(120, 66, 20) 100%);
+    overflow: hidden;
+}
+
+.certificate-main-block::before {
+    content: "📜";
+    position: absolute;
+    right: 4%;
+    top: 6%;
+    font-size: 220px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.certificate-main-block-logo {
+    position: relative;
+    display: block;
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 60px;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+/* ==================== ОБЁРТКА ДЛЯ КАРТОЧЕК ==================== */
+.certificate-main-block-first {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+/* ==================== КАРТОЧКИ СЕРТИФИКАТОВ ==================== */
+.certificate1,
+.certificate-main-block-second {
+    flex: 1 1 420px;
+    max-width: 480px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(223, 93, 5, 0.25);
+    border-radius: 24px;
+    padding: 32px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.certificate1:hover,
+.certificate-main-block-second:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    border-color: rgba(223, 93, 5, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.img-c {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.img-c img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: transform 0.4s ease;
+}
+
+.certificate1:hover .img-c img,
+.certificate-main-block-second:hover .img-c img {
+    transform: scale(1.04);
+}
+
+.certificate1 h2,
+.certificate-main-block-second h2 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 22px;
+    color: rgb(223, 93, 5);
+    line-height: 1.3;
+    margin: 0 0 16px 0;
+}
+
+.certificate1 p,
+.certificate-main-block-second p {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: rgba(240, 235, 230, 0.9);
+    margin: 0;
+}
+
+.footer{
+    background: linear-gradient(180deg,
+    rgb(120, 66, 20) 0%,
+    rgb(209, 106, 16) 100%);
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 900px) {
+    .certificate-main-block {
+        padding: 60px 6% 70px;
+    }
+
+    .certificate-main-block::before {
+        font-size: 140px;
+    }
+
+    .certificate-main-block-logo {
+        height: 60px;
+        margin-bottom: 40px;
+    }
+
+    .certificate-main-block-first {
+        gap: 32px;
+    }
+
+    .certificate1,
+    .certificate-main-block-second {
+        flex: 1 1 100%;
+        padding: 24px;
+    }
+
+    .img-c {
+        height: 200px;
+    }
+
+    .certificate1 h2,
+    .certificate-main-block-second h2 {
+        font-size: 19px;
+    }
+}

@@ -1,0 +1,159 @@
+/* стили для footer и header */
+/* задаем display: flex ради того, чтобы можно было центрировать */
+.header{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    height: 10%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.nav-container{
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-menu{
+    list-style-type: none;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.menu-item{
+    /* элемент ведет себя снаружи как строчный (становится в линию), внутри как блочный (можно менять высоту и ширину) */
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    background-color: rgba(233, 93, 5, 0.5);
+    text-align: center;
+    border-radius: 10px;
+    z-index: 0;
+    margin-right: 30px;
+    border: 1px solid rgba(233, 93, 5, 0.85);
+    border-color: rgba(223, 93, 5, 0.9);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.22), 0 0 26px 10px rgba(255, 255, 255, 0.22);
+    /* vertical-align влияет только на сам li, не на его содержимое */
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.menu-a{
+    display: flex;
+    width: 150px;
+    height: 40px;
+    /* высота строки. то бишь размер шрифта * на 1.2 */
+    line-height: 1.2;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-family: 'Avenir-Medium';
+    /* сгругление от родителей */
+    border-radius: inherit;
+    background: transparent;
+}
+
+/* ===ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ ПУНКТОВ МЕНЮ ПРИ НАВЕДЕНИИ=== */
+.menu-item:hover{
+    /* background-color: rgba(233, 93, 5, 0.7); */
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.22), 0 0 26px 10px rgba(255, 255, 255, 0.22);
+}
+
+/* ===ПОДВАЛ ОБЩИЙ ДЛЯ ВСЕХ СТРАНИЦ=== */
+.footer{
+    background: linear-gradient(180deg, rgb(132, 129, 128) 0%, rgb(183, 81, 14) 80%);
+    height: 250px;
+    width: 100%;
+}
+
+.main-container-footer{
+    height: 100%;
+    padding-left: 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.information-footer{
+    grid-column: 1;
+    /* align-self применяется относительно данного контейнера */
+    align-self: center;
+    height: 200px;
+    width: 250px;
+    margin-top: 10px;
+}
+
+.logo-footer{
+    justify-self: end;
+    margin-right: 60px;
+    grid-column: 3;
+    margin-top: 10px;
+}
+
+.logo-footer img{
+    max-height: 230px;
+    min-height: 230px;
+    margin: 0px;
+    padding: 0;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.information-footer-h1{
+    font-family: 'Avenir-Bold';
+    color: white;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.information-footer-contact{
+    font-size: 20px;
+    font-family: 'Avenir-Light';
+    color: rgb(218, 212, 212);
+    display: inline-block;
+}
+
+/* ===ВЫПАДАЮЩИЙ СПИСОК (ОБЩИЙ)=== */
+.menu-drop-down-list{
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+
+.menu-drop-down-list-parts{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+}
+
+.menu-drop-down-list-parts a{
+    margin-top: 20px;
+    color: white;
+    font-family: 'Avenir-Light';
+    text-decoration: none;
+    line-height: 1;
+    width: 100%;
+    display: block;
+    align-content: center;
+    height: 35px;
+    background-color: rgba(255, 78, 3, 0.5);
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(233, 93, 5, 0.85);;
+
+}
+
+.menu-drop-down-list:hover .menu-drop-down-list-parts{
+    display: block;
+}
+
+.menu-drop-down-list a:hover{
+    transform: scale(1.03);
+    /* background-color: rgba(223, 93, 5, 0.7); */
+}

@@ -1,0 +1,207 @@
+main{
+    overflow-x: hidden;
+}
+
+/* === ОСНОВНОЙ БЛОК (ПЕРВЫЙ) === */
+.sunflower-main-block{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    min-height: 450px;
+    overflow: hidden;
+    background: 
+    /* 120 и 80 (размеры эллипса по X и Y). % берутся от размеров
+    блока. 
+    at 78% 50% - положение эллипса по x и y. получается чуть правее но по вертикали по центру*/
+    radial-gradient(120% 80% at 78% 50%, 
+    rgba(255, 255, 255, 0.20) 0%, 
+    rgba(255, 255, 255, 0.06) 38%,
+    rgba(255, 255, 255, 0) 62%),
+    linear-gradient(180deg, #0f0f10 0%, #0a0a0a 100%);
+}
+
+/* дополнительная легкая виньетка */
+.sunflower-main-block::before{
+    content: "";
+    position: absolute;
+    /* inset - эквивалент для right, top и пр  */
+    inset: 0;
+    background: radial-gradient(140% 100% at 50% 10%,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(0,0,0,0.0) 55%);
+    /* игнорирование любых действий тачом и мыши */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* доработка фона */
+.sunflower-main-block-photo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    z-index: 0;
+    filter: brightness(0.55) saturate(1.1);
+}
+
+/* текст слева */
+.sunflower-main-block-text{
+    position: absolute;
+    top: 50%;
+    left: 6vw;
+    transform: translateY(-50%);
+    width: 44vw;
+    max-width: 640px;
+    z-index: 2;
+    text-align: left;
+}
+
+.sunflower-main-block-text h1{
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 48px;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    line-height: 1.15;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.sunflower-main-block-text p{
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 30px;
+    color: rgba(255, 165, 90, 0.95);
+    letter-spacing: 3px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.sunflower-main-block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, transparent 55%),
+        linear-gradient(180deg, transparent 75%, #0a0a0a 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* БЛОК 2. ОПИСАНИЕ ПРОГРАММЫ */
+.sunflower-description-programm {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 8%;
+    background: linear-gradient(180deg,
+        #0a0a0a 0%,
+        #1a1210 35%,
+        rgb(70, 45, 20) 75%,
+        rgb(120, 66, 20) 100%);
+    flex-wrap: wrap;
+}
+.sunflower-description-programm h2 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 34px;
+    color: white;
+    margin-bottom: 18px;
+    flex-basis: 100%;
+}
+
+.sunflower-description-programm p {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 17px;
+    /* изменяется в зависимости от размера шрифта */
+    line-height: 1.75;
+    color: rgba(240, 235, 230, 0.9);
+    /* flex-grow, flex-shrink, flex-basis */
+    flex: 1 1 420px;
+    min-width: 280px;
+}
+
+.sunflower-description-programm img {
+    flex: 1 1 380px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+}
+
+/* БЛОК 3 НАПРАВЛЕНИЯ СЕЛЕКЦИИ */
+.sunflower-directions {
+    position: relative;
+    padding: 90px 8%;
+    background: linear-gradient(180deg,
+        rgb(120, 66, 20) 0%,
+        rgb(223, 93, 5) 100%);
+    overflow: hidden;
+    min-height: 420px;
+}
+
+.sunflower-directions h2 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+.sunflower-directions h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.sunflower-directions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 5px;
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+}
+
+.sunflower-directions-list li {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.95);
+    padding-left: 34px;
+    position: relative;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+}
+
+.sunflower-directions-list li::before {
+    content: "🌻";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.sunflower-directions img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 42%;
+    object-fit: cover;
+    filter: brightness(0.8);
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 35%);
+    mask-image: linear-gradient(to right, transparent, black 35%);
+}

@@ -1,0 +1,88 @@
+/* ============================================
+   ИНДИВИДУАЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "ФАЦЕЛИЯ"
+   Подключать ПОСЛЕ program-template.css
+   ============================================ */
+
+section.program-directions-long {
+    display: block;
+    padding: 90px 8% 100px;
+    min-height: auto;
+}
+
+section.program-directions-long h2 {
+    margin-bottom: 40px;
+}
+
+ul.program-directions-list-long {
+    display: block;
+    grid-template-columns: none;
+    columns: 1;
+    max-width: 780px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.program-directions-list-long li {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-left: 36px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+ul.program-directions-list-long li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+ul.program-directions-list-long li::before {
+    content: "🪻";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 17px;
+}
+
+ul.program-directions-list-long li strong {
+    display: block;
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+section.program-directions-long img {
+    display: block;
+    width: 400px;
+    max-width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 20px 100px rgba(0, 0, 0, 0.35);
+    margin: 40px auto 0;
+}
+
+@media (max-width: 900px) {
+    section.program-directions-long {
+        padding: 60px 6% 70px;
+    }
+
+    ul.program-directions-list-long {
+        max-width: 100%;
+    }
+
+    ul.program-directions-list-long li {
+        font-size: 14px;
+    }
+    section.program-directions-long img {
+        max-width: 100%;
+        height: 240px;
+    }
+}

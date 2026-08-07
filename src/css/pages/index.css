@@ -1,0 +1,229 @@
+/* ===ГЛАВНЫЙ БЛОК=== */
+.index-main-block{
+    height: 550px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.index-main-block::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(223, 93, 5, 0.85) 0%,
+        rgba(223, 93, 5, 0.4) 25%,
+        rgba(213, 217, 220, 0) 60%);
+    z-index: 1;
+}
+
+.index-main-block-fon{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0.3);
+}
+
+.index-main-block::after{
+    /* content необходим чтобы after вообще появился */
+    content: "";
+    /* чтобы позиционирование было относительно родителя */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    /* 1 - угол 2 - первый цвет 3 - второй цвет */
+    background: linear-gradient(to bottom, transparent, rgb(30,32,33));
+    filter: brightness(0.8);
+}
+
+.index-main-block-logo{
+    position: absolute;
+    z-index: 3;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+    height: 200px;
+    filter: brightness(0.8);
+}
+.index-main-block-text{
+    position: absolute;
+    top: 60%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    height: 400px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.index-main-block-text h1{
+    font-family: 'Avenir-Bold';
+    font-size: 100px;
+    color: white;
+    padding: 0;
+    margin-bottom: 0px;
+    /* интервал между буквами */
+    letter-spacing: 10px;
+}
+
+.index-main-block-text p{
+    font-family: 'Avenir-Light';
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 0px;
+}
+
+/* ===БЛОК О КОМПАНИИ=== */
+.index-essence-company{
+    display: flex;
+    gap: 90px;
+    align-items: center;
+    padding: 60px 70px;
+    width: 100%;
+    /* % показывает в какой точке цвет дб достигнут на 100% */
+    background: linear-gradient(180deg, rgb(30,32,33) 0%, rgb(55, 58, 59) 15%);
+    position: relative;
+}
+
+.index-essence-company p{
+    display: inline-block;
+    max-width: 800px;
+    font-size: 42px;
+    font-family: 'Avenir-Light';
+    color: rgb(210, 202, 202);
+}
+
+/* тут сделать размытие у краев  */
+.index-essence-company img{
+    object-fit: cover;
+    width: 450px;
+    height: 450px;
+    border-radius: 10px;
+    /* box-shadow: inset 0px 0px 40px 40px #DBA632; */
+}
+
+/* ===БЛОК ГАЛЕРЕИ=== */
+.index-photo{
+    padding: 60px 60px 40px;
+    width: 100%;
+    min-height: 500px;
+    background: linear-gradient(180deg, rgb(55, 58, 59) 0%, rgb(73, 77, 78) 15%);
+}
+
+.index-photo-container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.index-photo-container h2{
+    font-family: 'Avenir-Medium';
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.index-photo-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.index-photo-item{
+    width: 100%;
+    /* первое число ширина, второе высота */
+    aspect-ratio: 1 / 0.8;
+    overflow: hidden;
+    border-radius: 14px;
+    /* смещение по x, y, размытие и цвет */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    /* сначала свойство, которое будет анимироваться, длительность перехода, функции плавности/ далее свойство которое анимируем, длительность и ф-ция плавности */
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.index-photo-item:hover{
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(223, 93, 5, 0.4);
+}
+
+.index-photo-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* display: none чтобы не показывать элементы эти вовсе */
+.show-more-checkbox{
+    display: none;
+}
+
+.index-photo-item-extra{
+    display: none;
+}
+
+/* когда элемент отмечен найти ~ на том же уровне след.элемент, внутри него покажи index-photo-item-extra */
+.show-more-checkbox:checked ~ .index-photo-grid .index-photo-item-extra{
+    display: block;
+}
+
+/* ~ - знак, который ищет соседей. то есть элементов от того же родителя, что и эл-т слева (и идут в разметке после эл-та слева) */
+.show-more-checkbox:checked ~ .index-photo-button .index-photo-button-text{
+    display: none;
+}
+
+.show-more-checkbox:checked ~ .index-photo-button::after{
+    content: "Скрыть";
+    font-family: 'Avenir-Medium';
+}
+
+.show-more-checkbox:checked ~ .index-photo-button .index-photo-button-arrow{
+    transform: rotate(90deg);
+}
+
+.index-photo-button{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, rgb(240, 180, 143), rgb(255, 120, 30));
+    color: rgb(255, 255, 255);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-family: 'Avenir-Medium';
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* это нужно чтобы ширина подстраивалась под содержимое */
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(233, 93, 5, 0.3);
+}
+
+.index-photo-button:hover{
+    background: white;
+    color: rgb(233, 93, 5);
+    border-color: rgb(233, 93, 5);
+}
+
+.index-photo-button-arrow{
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.index-photo-button:hover .index-photo-button-arrow{
+    transform: translateX(5px);
+}
+
+.show-more-checkbox:checked ~ .index-photo-button:hover .index-photo-button-arrow{
+    transform: rotate(90deg) translateX(2px);
+}

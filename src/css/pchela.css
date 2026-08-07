@@ -1,0 +1,345 @@
+main {
+    background: linear-gradient(180deg,
+        #0a0a0a 0%,
+        #1a1210 12%,
+        rgb(70, 45, 20) 40%,
+        rgb(120, 66, 20) 70%,
+        rgb(150, 80, 20) 100%);
+}
+
+/* ==================== HERO ФОТО ==================== */
+.pchela-main-photo {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.pchela-main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.5);
+    transition: transform 0.8s ease;
+}
+
+.pchela-main-photo img:hover {
+    transform: scale(1.03);
+}
+
+.pchela-main-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(10, 10, 10, 0.7) 100%);
+    pointer-events: none;
+}
+
+/* ==================== БЛОК: ЗАГОЛОВОК ==================== */
+.pchela-info {
+    text-align: center;
+    padding: 70px 8% 50px;
+}
+
+.pchela-info .text h2 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 0.4em;
+    color: white;
+}
+
+.pchela-info .text h2 span {
+    background: linear-gradient(135deg, #ffb703, rgb(223, 93, 5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 0 8px;
+}
+
+.pchela-info .text p {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 0 auto;
+    color: rgba(240, 235, 230, 0.9);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 183, 3, 0.25);
+    padding: 24px 32px;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+}
+
+.pchela-info .text p strong {
+    color: #ffb703;
+}
+
+/* ==================== БЛОК: ЦИФРЫ + ФОТО ПАСЕКИ ==================== */
+.pchela-info-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 60px 8%;
+}
+
+.pchela-info-numbers-container {
+    flex: 1 1 320px;
+    min-width: 260px;
+    max-width: 420px;
+}
+
+.pchela-info-numbers-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.pchela-info-numbers-container ul li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 2px dashed rgba(255, 183, 3, 0.25);
+}
+
+.pchela-info-numbers-container ul li:last-child {
+    border-bottom: none;
+}
+
+.pchela-info-numbers-container .otdeln-text {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: rgba(240, 235, 230, 0.9);
+    background: rgba(255, 183, 3, 0.1);
+    border: 1px solid rgba(255, 183, 3, 0.35);
+    padding: 5px 18px;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.pchela-info-numbers-img {
+    flex: 1 1 400px;
+    max-width: 500px;
+}
+
+.pchela-info-numbers-img img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    filter: brightness(0.9);
+}
+
+.pchela-info-numbers-img img:hover {
+    transform: scale(1.02) rotate(-0.5deg);
+    box-shadow: 0 30px 60px rgba(255, 183, 3, 0.25);
+    filter: brightness(1);
+}
+
+/* ==================== БЛОК: ОСНОВНОЙ КОНТЕНТ ==================== */
+.pchela-info-content {
+    padding: 60px 8%;
+}
+
+.pchela-info-content-aboutPchela h2 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 2.1rem;
+    margin-top: 1.6em;
+    margin-bottom: 0.7em;
+    color: #ffb703;
+    position: relative;
+    display: inline-block;
+}
+
+.pchela-info-content-aboutPchela h2:first-of-type {
+    margin-top: 0;
+}
+
+.pchela-info-content-aboutPchela h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 70%;
+    height: 4px;
+    background: linear-gradient(90deg, #ffb703, rgb(223, 93, 5));
+    border-radius: 4px;
+}
+
+.pchela-info-content-aboutPchela p {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgba(240, 235, 230, 0.9);
+    max-width: 850px;
+    margin-bottom: 1.5em;
+    padding-left: 20px;
+    border-left: 4px solid #ffb703;
+}
+
+.pchela-info-content-aboutPchela p strong {
+    color: #ffb703;
+}
+
+/* --- Карточки продукции --- */
+.pchela-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 28px;
+    margin: 30px 0 50px;
+}
+
+.pchela-product-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px 20px 25px;
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 183, 3, 0.25);
+    transition: all 0.3s ease;
+}
+
+.pchela-product-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 183, 3, 0.55);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+}
+
+.pchela-product-icon {
+    font-size: 3.2rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.pchela-product-name {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.pchela-product-desc {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(230, 225, 220, 0.85);
+}
+
+/* --- Карточки вклада --- */
+.pchela-vklad {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin: 30px 0 10px;
+}
+
+.pchela-vklad-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px 15px;
+    border-radius: 20px;
+    text-align: center;
+    border-bottom: 4px solid #ffb703;
+    transition: all 0.3s ease;
+}
+
+.pchela-vklad-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    transform: scale(1.03);
+    border-bottom-width: 6px;
+}
+
+.pchela-vklad-icon {
+    font-size: 2.6rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pchela-vklad-name {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 1.15rem;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.pchela-vklad-desc {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(230, 225, 220, 0.8);
+}
+
+/* ==================== ФИНАЛЬНЫЙ БЛОК ==================== */
+.final-block {
+    background: linear-gradient(180deg, #ffb703 0%, rgb(150, 65, 15) 100%);
+    padding: 50px 8%;
+    text-align: center;
+    position: relative;
+}
+
+.final-block h3 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 2.4rem;
+    color: white;
+    margin-bottom: 0.3em;
+}
+
+.final-block p {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.final-block p strong {
+    color: #fff3d6;
+}
+
+.footer{
+    background: linear-gradient(180deg,
+    rgb(150, 65, 15) 0%,
+    rgb(150, 65, 15) 100%)
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 900px) {
+    .pchela-main-photo {
+        height: 340px;
+    }
+
+    .pchela-info .text h2 {
+        font-size: 2.1rem;
+    }
+
+    .pchela-info .text p {
+        font-size: 1rem;
+        padding: 18px 22px;
+    }
+
+    .pchela-info-numbers {
+        padding: 40px 6%;
+        gap: 30px;
+    }
+
+    .pchela-info-content {
+        padding: 40px 6%;
+    }
+
+    .pchela-info-content-aboutPchela h2 {
+        font-size: 1.7rem;
+    }
+
+    .final-block h3 {
+        font-size: 1.9rem;
+    }
+}

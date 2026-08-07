@@ -1,0 +1,210 @@
+/* ==================== HERO БЛОК ==================== */
+.techno-main-block {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+}
+
+.techno-main_block-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) saturate(1.1);
+    z-index: 0;
+}
+
+.techno-main-block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.75) 100%);
+    z-index: 1;
+}
+
+.techno-main-block::before {
+    content: "⚙️";
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 220px;
+    opacity: 0.08;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.techno-main-block-text {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 2;
+    max-width: 700px;
+}
+
+.techno-main-block-text h1 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 56px;
+    color: white;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.techno-main-block-text h1::after {
+    content: '';
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin-top: 24px;
+    background: linear-gradient(90deg, rgb(223, 93, 5), rgb(245, 166, 35));
+    border-radius: 2px;
+}
+
+/* ==================== ЛЕНТА КАРТОЧЕК ТЕХНИКИ ==================== */
+.techno-info-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    padding: 80px 8%;
+    box-sizing: border-box;
+    background: linear-gradient(180deg,
+        #0a0a0a 0%,
+        #1a1210 30%,
+        rgb(70, 45, 20) 70%,
+        rgb(120, 66, 20) 100%);
+}
+
+
+
+.techno-info-block:nth-of-type(odd) {
+    flex-direction: row;
+}
+
+.techno-info-block:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.techno-info-block img {
+    flex: 1 1 480px;
+    max-width: 560px;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    filter: brightness(0.85);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.techno-info-block:hover img {
+    transform: scale(1.02);
+    filter: brightness(1);
+}
+
+.techno-info-block-text {
+    flex: 1 1 420px;
+    position: relative;
+}
+
+.techno-info-block-text h2 {
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 32px;
+    color: rgb(223, 93, 5);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.techno-info-block-text p {
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(240, 235, 230, 0.9);
+    margin-bottom: 16px;
+}
+
+.techno-info-block-text p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Порядковый номер карточки — декоративный акцент */
+.techno-info-block {
+    counter-increment: techno-counter;
+}
+
+main {
+    counter-reset: techno-counter;
+}
+
+.techno-info-block-text::before {
+    content: counter(techno-counter, decimal-leading-zero);
+    display: block;
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: rgba(223, 93, 5, 0.7);
+    margin-bottom: 12px;
+}
+
+/* Разделительная линия между карточками */
+.techno-info-block:not(:last-of-type) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.footer{
+    background: linear-gradient(180deg, 
+    rgb(120, 66, 20) 0%, 
+    rgb(203, 101, 13) 100%);  
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 1000px) {
+    .techno-main-block {
+        height: 360px;
+    }
+
+    .techno-main-block-text h1 {
+        font-size: 38px;
+    }
+
+    .techno-main-block::before {
+        font-size: 140px;
+    }
+
+    .techno-info-block,
+    .techno-info-block:nth-of-type(even) {
+        flex-direction: column;
+        padding: 60px 6%;
+        gap: 36px;
+    }
+
+    .techno-info-block img {
+        height: 280px;
+        max-width: 100%;
+    }
+
+    .techno-info-block-text h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    .techno-main-block-text {
+        left: 6%;
+        max-width: 88%;
+    }
+
+    .techno-main-block-text h1 {
+        font-size: 30px;
+    }
+}
