@@ -227,3 +227,127 @@
 .show-more-checkbox:checked ~ .index-photo-button:hover .index-photo-button-arrow{
     transform: rotate(90deg) translateX(2px);
 }
+
+/* ======================================================= */
+/* === ПЛАНШЕТЫ (до 1024px) === */
+/* ======================================================= */
+@media (max-width: 1024px){
+
+    .index-main-block{ height: 450px; }
+
+    .index-main-block-logo{ height: 150px; }
+
+    .index-main-block-text h1{
+        font-size: 64px;
+        letter-spacing: 6px;
+    }
+
+    .index-main-block-text p{ font-size: 18px; }
+
+    .index-essence-company{
+        gap: 40px;
+        padding: 50px 40px;
+    }
+
+    .index-essence-company p{ font-size: 28px; }
+
+    .index-essence-company img{
+        width: 320px;
+        height: 320px;
+    }
+
+    .index-photo-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+}
+
+/* ======================================================= */
+/* === МОБИЛЬНЫЕ (до 768px) === */
+/* ======================================================= */
+@media (max-width: 768px){
+
+    .index-main-block{ height: 380px; }
+
+    .index-main-block-logo{
+        height: 100px;
+        top: 25%;
+    }
+
+    .index-main-block-text{
+        top: 65%;
+        width: 90%;
+        height: auto;
+        margin-top: 0;
+    }
+
+    .index-main-block-text h1{
+        font-size: 38px;
+        letter-spacing: 3px;
+    }
+
+    .index-main-block-text p{
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    .index-essence-company{
+        flex-direction: column;
+        gap: 25px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .index-essence-company p{
+        font-size: 20px;
+        max-width: 100%;
+    }
+
+    .index-essence-company img{
+        width: 100%;
+        max-width: 320px;
+        height: 260px;
+    }
+
+    .index-photo{
+        padding: 40px 20px 30px;
+    }
+
+    .index-photo-container h2{
+        font-size: 26px;
+    }
+
+    .index-photo-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .index-photo-button{
+        font-size: 15px;
+        padding: 12px 28px;
+    }
+}
+
+/* ======================================================= */
+/* === УЗКИЕ ТЕЛЕФОНЫ (до 400px) === */
+/* ======================================================= */
+@media (max-width: 400px){
+
+    .index-main-block{ height: 320px; }
+
+    .index-main-block-logo{ height: 80px; }
+
+    .index-main-block-text h1{
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .index-main-block-text p{ font-size: 13px; }
+
+    .index-essence-company p{ font-size: 17px; }
+
+    .index-photo-grid{
+        grid-template-columns: 1fr;
+    }
+}
