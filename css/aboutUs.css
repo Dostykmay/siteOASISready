@@ -21,7 +21,6 @@
 .aboutUs-main-block::after{
     content: "";
     position: absolute;
-    /* inset отвечает за top, left, bottom, top и при 0 знач. растягивает на весь родит.контейнер */
     inset: 0;
     background: linear-gradient(180deg,
     rgba(0,0,0,0.1) 0%,
@@ -43,7 +42,6 @@
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 64px;
     color: white;
-    /* растояние между символами */
     letter-spacing: 2px;
     text-shadow: 0 4px 20px rgba(0,0,0,0.5);
     margin: 0;
@@ -56,7 +54,7 @@
     gap: 40px;
     padding: 70px 8% 90px;
     background: linear-gradient(180deg,
-    rgba(0, 0, 0, 0.9) 0%, 
+    rgba(0, 0, 0, 0.9) 0%,
     rgb(120, 66, 20) 100%);
 }
 
@@ -140,30 +138,167 @@
     rgb(73, 77, 78) 100%);
 }
 
-@media (max-width: 900px){
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px){
+
     .aboutUs-main-block{
-        height: 420px;
+        height: 460px;
     }
 
     .aboutUs-main-block-heading h1{
-        font-size: 42px;
+        font-size: 50px;
     }
 
-    .aboutUs-main-block-logo{
-        height: 110px;
+    .aboutUs-block-text{
+        padding: 60px 6% 70px;
+        gap: 30px;
+    }
+
+    .aboutUs-block-text-history h1{
+        font-size: 36px;
+        margin-bottom: 60px;
+    }
+
+    .aboutUs-block-text-history-number{
+        padding: 30px 30px;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px){
+
+    .aboutUs-main-block{
+        height: 380px;
+    }
+
+    .aboutUs-main-block-heading h1{
+        font-size: 40px;
+        letter-spacing: 1px;
     }
 
     .aboutUs-block-text{
         flex-direction: column;
-        /* 50px - сверху, 6% - слева и права, 60px - снизу */
-        padding: 50px 6% 60px;
+        padding: 45px 6% 55px;
+        gap: 25px;
+    }
+
+    .aboutUs-block-text-history{
+        padding-top: 0;
     }
 
     .aboutUs-block-text-history h1{
-        font-size: 32px;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .aboutUs-block-text-history p{
+        font-size: 16px;
+        line-height: 1.6;
     }
 
     .aboutUs-block-text-history-number{
-        padding: 28px 24px;
+        padding: 26px 24px;
+    }
+
+    .aboutUs-block-text-history-number h2{
+        font-size: 24px;
+    }
+
+    .aboutUs-block-text-history-number p{
+        font-size: 15px;
+    }
+
+    .aboutUs-block-text-ul li{
+        font-size: 15px;
+        padding-left: 24px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px){
+
+    .aboutUs-main-block{
+        height: 300px;
+    }
+
+    .aboutUs-main-block-heading h1{
+        font-size: 28px;
+        letter-spacing: 0.5px;
+    }
+
+    .aboutUs-block-text{
+        padding: 35px 5% 45px;
+        gap: 20px;
+    }
+
+    .aboutUs-block-text-history h1{
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .aboutUs-block-text-history p{
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .aboutUs-block-text-history-number{
+        padding: 20px 18px;
+        border-radius: 12px;
+    }
+
+    .aboutUs-block-text-history-number h2{
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .aboutUs-block-text-history-number p{
+        font-size: 14px;
+    }
+
+    .aboutUs-block-text-ul li{
+        font-size: 14px;
+        padding-left: 22px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .aboutUs-block-text-ul li::before{
+        font-size: 14px;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px){
+
+    .aboutUs-main-block{
+        height: 260px;
+    }
+
+    .aboutUs-main-block-heading h1{
+        font-size: 22px;
+    }
+
+    .aboutUs-block-text-history h1{
+        font-size: 20px;
+    }
+
+    .aboutUs-block-text-history p{
+        font-size: 13px;
+    }
+
+    .aboutUs-block-text-history-number{
+        padding: 16px 14px;
+    }
+
+    .aboutUs-block-text-history-number h2{
+        font-size: 18px;
     }
 }
