@@ -222,26 +222,74 @@
         background: linear-gradient(180deg, 
         rgb(120, 66, 20) 0%, 
         rgb(217, 161, 124) 100%);
-
 }
 
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 1000px) {
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
     .seeds-main-block {
-        height: 320px;
+        height: 360px;
     }
 
     .seeds-main-block-text h1 {
-        font-size: 36px;
+        font-size: 42px;
     }
 
     .seeds-main-block::before {
-        font-size: 130px;
+        font-size: 160px;
+    }
+
+    .seeds-cards {
+        padding: 60px 6%;
+    }
+
+    .seeds-container-cards {
+        gap: 40px;
+    }
+
+    .seeds-container-cards-image {
+        max-width: 340px;
+    }
+
+    .seeds-container-cards-image img {
+        height: 420px;
+    }
+
+    .product-subtitle {
+        font-size: 28px;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .seeds-main-block {
+        height: 300px;
+    }
+
+    .seeds-main-block-text {
+        left: 6%;
+        max-width: 85%;
+    }
+
+    .seeds-main-block-text h1 {
+        font-size: 32px;
+    }
+
+    .seeds-main-block::before {
+        font-size: 120px;
+        right: 3%;
+    }
+
+    .seeds-cards {
+        padding: 45px 6%;
     }
 
     .seeds-container-cards {
         flex-direction: column;
-        gap: 32px;
+        gap: 28px;
     }
 
     .seeds-container-cards-image {
@@ -250,10 +298,137 @@
     }
 
     .seeds-container-cards-image img {
-        height: 320px;
+        height: 300px;
     }
 
     .product-subtitle {
-        font-size: 26px;
+        font-size: 24px;
+    }
+
+    .product-title {
+        font-size: 14px;
+    }
+
+    .p-bold {
+        font-size: 16px;
+    }
+
+    .seeds-container-cards-description p:not(.p-bold),
+    .seeds-container-cards-recommendations p:not(.p-bold) {
+        font-size: 15px;
+    }
+
+    .features-list li,
+    .seeds-container-cards-features-list li {
+        font-size: 14.5px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .seeds-main-block {
+        height: 240px;
+    }
+
+    .seeds-main-block-text h1 {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    .seeds-main-block-text h1::after {
+        width: 60px;
+        margin-top: 16px;
+    }
+
+    .seeds-main-block::before {
+        font-size: 90px;
+    }
+
+    .seeds-cards {
+        padding: 32px 5%;
+    }
+
+    .seeds-container-cards {
+        gap: 20px;
+    }
+
+    .seeds-container-cards-image img {
+        height: 220px;
+        border-radius: 16px;
+    }
+
+    .product-header {
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+    }
+
+    .product-title {
+        font-size: 12px;
+    }
+
+    .product-subtitle {
+        font-size: 20px;
+    }
+
+    .p-bold {
+        font-size: 15px;
+    }
+
+    .seeds-container-cards-description,
+    .seeds-container-cards-features,
+    .seeds-container-cards-recommendations {
+        margin-bottom: 20px;
+    }
+
+    .seeds-container-cards-description p:not(.p-bold),
+    .seeds-container-cards-recommendations p:not(.p-bold) {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .features-list li,
+    .seeds-container-cards-features-list li {
+        font-size: 13.5px;
+        padding-left: 24px;
+    }
+
+    .seeds-container-cards-guarantee {
+        padding: 18px 20px;
+    }
+
+    .seeds-container-cards-guarantee .main-p {
+        font-size: 14px;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .seeds-main-block {
+        height: 210px;
+    }
+
+    .seeds-main-block-text h1 {
+        font-size: 20px;
+    }
+
+    .seeds-container-cards-image img {
+        height: 190px;
+    }
+
+    .product-subtitle {
+        font-size: 18px;
+    }
+
+    .p-bold {
+        font-size: 14px;
+    }
+
+    .seeds-container-cards-description p:not(.p-bold),
+    .seeds-container-cards-recommendations p:not(.p-bold) {
+        font-size: 13px;
     }
 }

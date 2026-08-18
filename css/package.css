@@ -186,38 +186,173 @@
         rgb(250, 120, 7) 100%); 
 }
 
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 900px) {
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
     .package-main-block {
-        height: 340px;
+        height: 400px;
     }
 
     .package-main-block-text h1 {
-        font-size: 32px;
+        font-size: 38px;
     }
 
     .package-main-block-logo {
-        height: 60px;
-        top: 20px;
-        right: 20px;
+        height: 70px;
+    }
+
+    .package-block-contant {
+        padding: 60px 6% 70px;
     }
 
     .package-block-contant h2 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .ol-contant-block > li {
-        font-size: 18px;
-        padding-left: 50px;
+        font-size: 19px;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .package-main-block {
+        height: 320px;
+    }
+
+    .package-main-block-text {
+        left: 6%;
+        max-width: 80%;
+    }
+
+    .package-main-block-text h1 {
+        font-size: 28px;
+    }
+
+    .package-main-block-logo {
+        height: 50px;
+        top: 18px;
+        right: 18px;
+    }
+
+    .package-block-contant {
+        padding: 45px 6% 55px;
+    }
+
+    .package-block-contant h2 {
+        font-size: 23px;
+    }
+
+    .package-block-contant > p {
+        font-size: 15px;
+    }
+
+    .ol-contant-block > li {
+        font-size: 17px;
+        padding: 22px 0 18px 46px;
     }
 
     .ol-contant-block > li::before {
-        width: 34px;
-        height: 34px;
-        font-size: 13px;
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+        top: 20px;
+    }
+
+    .ol-contant-block > li p {
+        font-size: 14.5px;
     }
 
     .other-ul {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .package-main-block {
+        height: 260px;
+    }
+
+    .package-main-block-text h1 {
+        font-size: 21px;
+        letter-spacing: 0.5px;
+    }
+
+    .package-main-block-text h1::after {
+        width: 55px;
+        margin-top: 14px;
+    }
+
+    .package-main-block-logo {
+        height: 38px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .package-block-contant {
+        padding: 32px 5% 40px;
+    }
+
+    .package-block-contant h2 {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+
+    .package-block-contant > p {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .ol-contant-block > li {
+        font-size: 15px;
+        padding: 18px 0 14px 40px;
+    }
+
+    .ol-contant-block > li::before {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+        top: 17px;
+    }
+
+    .ol-contant-block > li p {
+        font-size: 13.5px;
+    }
+
+    .other-ul li {
+        font-size: 13.5px;
+        padding-left: 22px;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .package-main-block {
+        height: 220px;
+    }
+
+    .package-main-block-text h1 {
+        font-size: 18px;
+    }
+
+    .package-main-block-logo {
+        height: 32px;
+    }
+
+    .package-block-contant h2 {
+        font-size: 17px;
+    }
+
+    .ol-contant-block > li {
+        font-size: 14px;
     }
 }

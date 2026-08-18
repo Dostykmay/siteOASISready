@@ -311,24 +311,66 @@ main {
     rgb(150, 65, 15) 100%)
 }
 
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 900px) {
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
     .pchela-main-photo {
-        height: 340px;
+        height: 400px;
     }
 
     .pchela-info .text h2 {
-        font-size: 2.1rem;
+        font-size: 2.4rem;
+    }
+
+    .pchela-info-numbers {
+        padding: 50px 6%;
+        gap: 36px;
+    }
+
+    .pchela-info-content {
+        padding: 50px 6%;
+    }
+
+    .pchela-info-content-aboutPchela h2 {
+        font-size: 1.85rem;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .pchela-main-photo {
+        height: 300px;
+    }
+
+    .pchela-info {
+        padding: 45px 6% 35px;
+    }
+
+    .pchela-info .text h2 {
+        font-size: 1.9rem;
     }
 
     .pchela-info .text p {
-        font-size: 1rem;
-        padding: 18px 22px;
+        font-size: 0.95rem;
+        padding: 18px 20px;
+        border-radius: 24px;
     }
 
     .pchela-info-numbers {
         padding: 40px 6%;
-        gap: 30px;
+        gap: 28px;
+    }
+
+    .pchela-info-numbers-container ul {
+        font-size: 1.5rem;
+    }
+
+    .pchela-info-numbers-container .otdeln-text {
+        font-size: 0.9rem;
+        padding: 4px 14px;
     }
 
     .pchela-info-content {
@@ -336,10 +378,165 @@ main {
     }
 
     .pchela-info-content-aboutPchela h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
+    }
+
+    .pchela-info-content-aboutPchela p {
+        font-size: 1rem;
+        padding-left: 16px;
+    }
+
+    .pchela-products,
+    .pchela-vklad {
+        gap: 18px;
+    }
+
+    .pchela-product-icon {
+        font-size: 2.6rem;
+    }
+
+    .pchela-product-name {
+        font-size: 1.15rem;
+    }
+
+    .final-block {
+        padding: 40px 6%;
     }
 
     .final-block h3 {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
+    }
+
+    .final-block p {
+        font-size: 1.05rem;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .pchela-main-photo {
+        height: 220px;
+    }
+
+    .pchela-info {
+        padding: 32px 5% 25px;
+    }
+
+    .pchela-info .text h2 {
+        font-size: 1.5rem;
+    }
+
+    .pchela-info .text p {
+        font-size: 0.85rem;
+        padding: 14px 16px;
+        border-radius: 18px;
+    }
+
+    .pchela-info-numbers {
+        padding: 28px 5%;
+        gap: 20px;
+    }
+
+    .pchela-info-numbers-container ul {
+        font-size: 1.2rem;
+    }
+
+    .pchela-info-numbers-container ul li {
+        padding: 12px 0;
+        gap: 10px;
+    }
+
+    .pchela-info-numbers-container .otdeln-text {
+        font-size: 0.78rem;
+        padding: 3px 10px;
+    }
+
+    .pchela-info-content {
+        padding: 28px 5%;
+    }
+
+    .pchela-info-content-aboutPchela h2 {
+        font-size: 1.3rem;
+        margin-top: 1.2em;
+    }
+
+    .pchela-info-content-aboutPchela p {
+        font-size: 0.88rem;
+        padding-left: 12px;
+        border-left-width: 3px;
+    }
+
+    .pchela-products {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 20px 0 35px;
+    }
+
+    .pchela-product-card {
+        padding: 22px 16px 18px;
+    }
+
+    .pchela-product-icon {
+        font-size: 2.2rem;
+    }
+
+    .pchela-product-name {
+        font-size: 1.05rem;
+    }
+
+    .pchela-product-desc {
+        font-size: 0.85rem;
+    }
+
+    .pchela-vklad {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .pchela-vklad-card {
+        padding: 18px 12px;
+    }
+
+    .pchela-vklad-icon {
+        font-size: 2rem;
+    }
+
+    .pchela-vklad-name {
+        font-size: 1rem;
+    }
+
+    .final-block {
+        padding: 32px 5%;
+    }
+
+    .final-block h3 {
+        font-size: 1.4rem;
+    }
+
+    .final-block p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .pchela-main-photo {
+        height: 190px;
+    }
+
+    .pchela-info .text h2 {
+        font-size: 1.3rem;
+    }
+
+    .pchela-vklad {
+        grid-template-columns: 1fr;
+    }
+
+    .final-block h3 {
+        font-size: 1.2rem;
     }
 }

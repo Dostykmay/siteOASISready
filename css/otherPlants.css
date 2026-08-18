@@ -70,6 +70,39 @@
     font-size: 24px;
 }
 
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
+    .plant-section {
+        padding: 35px 6%;
+    }
+
+    .plant-section h2 {
+        font-size: 32px;
+    }
+
+    .plant-grid {
+        gap: 28px;
+    }
+
+    .plant-card {
+        width: 170px;
+    }
+
+    .plant-card img {
+        width: 145px;
+        height: 145px;
+    }
+
+    .plant-card p {
+        font-size: 20px;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
 @media (max-width: 768px) {
     .plant-section {
         padding: 30px 5%;
@@ -77,6 +110,10 @@
 
     .plant-section h2 {
         font-size: 28px;
+    }
+
+    .plant-grid {
+        gap: 24px;
     }
 
     .plant-card {
@@ -90,5 +127,72 @@
 
     .plant-card p {
         font-size: 18px;
+    }
+
+    .plant-card:hover p {
+        font-size: 19px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .plants-page {
+        padding: 15px 0 40px;
+    }
+
+    .plant-section {
+        padding: 24px 5%;
+    }
+
+    .plant-section h2 {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
+
+    .plant-grid {
+        gap: 16px;
+    }
+
+    .plant-card {
+        width: 105px;
+    }
+
+    .plant-card img {
+        width: 95px;
+        height: 95px;
+        border-radius: 16px;
+    }
+
+    .plant-card p {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .plant-card:hover p {
+        font-size: 15px;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .plant-section h2 {
+        font-size: 19px;
+    }
+
+    .plant-card {
+        width: 90px;
+    }
+
+    .plant-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .plant-card p {
+        font-size: 13px;
     }
 }

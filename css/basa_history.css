@@ -334,31 +334,189 @@ main {
 .footer{
     background: linear-gradient(180deg,rgb(120, 66, 20) 0%, rgb(207, 83, 11) 100%)
 }
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 1000px) {
+
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
+    .basa-history-main-block-card img {
+        height: 380px;
+    }
+
+    .basa-history-content-block {
+        padding: 3.5rem 6% 4.5rem;
+    }
+
+    .basa-history-content-block h1 {
+        font-size: 2.4rem;
+    }
+
+    .basa-history-content-block-main-text {
+        font-size: 1.15rem;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
     .basa-history-main-block {
         grid-template-columns: 1fr;
     }
 
     .basa-history-main-block-card img {
-        height: 320px;
+        height: 300px;
+    }
+
+    .basa-history-main-block-card-info {
+        padding: 1.25rem;
+    }
+
+    .basa-history-main-block-card-info h3 {
+        font-size: 1.25rem;
     }
 
     .basa-history-content-block {
-        padding: 3rem 6% 4rem;
+        padding: 2.5rem 6% 3.5rem;
     }
 
     .basa-history-content-block h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
-}
 
-@media (max-width: 700px) {
+    .basa-history-content-block-main-text {
+        font-size: 1.05rem;
+        padding-left: 1rem;
+    }
+
+    .basa-history-content-block-text {
+        font-size: 0.95rem;
+    }
+
     .basa-history-techno-grid {
         grid-template-columns: 1fr;
     }
 
     .basa-history-static-block {
         grid-template-columns: 1fr;
+    }
+
+    .basa-history-techno h2,
+    .basa-history-people h2,
+    .basa-history-researches h2 {
+        font-size: 1.4rem;
+    }
+
+    .unique-project,
+    .final-quote {
+        padding: 1.5rem;
+    }
+
+    .final-quote {
+        font-size: 1.05rem;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .basa-history-main-block-card img {
+        height: 220px;
+    }
+
+    .basa-history-main-block-card-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .basa-history-main-block-card-info p {
+        font-size: 0.8rem;
+    }
+
+    .basa-history-content-block {
+        padding: 2rem 5% 3rem;
+    }
+
+    .basa-history-content-block h1 {
+        font-size: 1.6rem;
+    }
+
+    .basa-history-content-block h1::after {
+        width: 120px;
+    }
+
+    .basa-history-content-block-main-text {
+        font-size: 0.95rem;
+        padding-left: 0.8rem;
+    }
+
+    .basa-history-content-block-text {
+        font-size: 0.9rem;
+    }
+
+    .static-card {
+        padding: 1.1rem;
+    }
+
+    .static-number {
+        font-size: 1.7rem;
+    }
+
+    .static-icon {
+        font-size: 2rem;
+    }
+
+    .basa-history-techno span,
+    .basa-history-people span,
+    .basa-history-researches span {
+        font-size: 1.5rem;
+    }
+
+    .basa-history-techno h2,
+    .basa-history-people h2,
+    .basa-history-researches h2 {
+        font-size: 1.2rem;
+    }
+
+    .basa-history-techno-grid-item {
+        padding: 0.8rem 1rem;
+    }
+
+    .tech-icon {
+        font-size: 1.4rem;
+    }
+
+    .unique-project h3 {
+        font-size: 1.2rem;
+    }
+
+    .final-quote {
+        font-size: 0.95rem;
+        padding: 1.25rem;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .basa-history-main-block-card img {
+        height: 190px;
+    }
+
+    .basa-history-content-block h1 {
+        font-size: 1.4rem;
+    }
+
+    .basa-history-content-block-main-text {
+        font-size: 0.88rem;
+    }
+
+    .basa-history-content-block-text {
+        font-size: 0.85rem;
+    }
+
+    .static-number {
+        font-size: 1.5rem;
     }
 }

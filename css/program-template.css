@@ -196,38 +196,104 @@ main {
     filter: brightness(0.8);
     z-index: 1;
     box-shadow: 0 20px 90px rgba(0, 0, 0, 0.35);
-    /* -webkit-mask-image: linear-gradient(to right, transparent, black 35%);
-    mask-image: linear-gradient(to right, transparent, black 15%); */
 }
 
 .footer {
-            background: linear-gradient(180deg,
-                rgb(223, 93, 5) 0%,
-                rgb(150, 65, 15) 40%,
-                rgb(73, 77, 78) 100%);
-        }
-        
-@media (max-width: 900px) {
+    background: linear-gradient(180deg,
+        rgb(223, 93, 5) 0%,
+        rgb(150, 65, 15) 40%,
+        rgb(73, 77, 78) 100%);
+}
+
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
+    .program-hero {
+        height: 440px;
+    }
+
+    .program-hero-text {
+        width: 55%;
+    }
+
+    .program-hero-text h1 {
+        font-size: 40px;
+    }
+
+    .program-hero-text p {
+        font-size: 26px;
+    }
+
+    .program-description {
+        padding: 60px 6%;
+        gap: 40px;
+    }
+
+    .program-description h2 {
+        font-size: 28px;
+    }
+
+    .program-directions {
+        padding: 70px 6%;
+    }
+
+    .program-directions img {
+        width: 34%;
+        right: 5%;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .program-hero {
+        height: 380px;
+    }
+
     .program-hero-text {
         width: 80%;
         left: 5%;
     }
 
     .program-hero-text h1 {
-        font-size: 34px;
+        font-size: 30px;
+        letter-spacing: 1px;
     }
 
     .program-hero-text p {
-        font-size: 22px;
+        font-size: 20px;
+        letter-spacing: 1.5px;
     }
 
     .program-description {
         flex-direction: column;
+        padding: 50px 6%;
         text-align: left;
+        gap: 30px;
+    }
+
+    .program-description h2 {
+        font-size: 24px;
+    }
+
+    .program-description p {
+        font-size: 15px;
     }
 
     .program-description img {
         max-width: 100%;
+        height: 260px;
+    }
+
+    .program-directions {
+        padding: 50px 6% 60px;
+        min-height: auto;
+    }
+
+    .program-directions h2 {
+        font-size: 24px;
     }
 
     .program-directions img {
@@ -236,5 +302,105 @@ main {
 
     .program-directions-list {
         grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 16px;
+    }
+
+    .program-directions-list li {
+        font-size: 15px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .program-hero {
+        height: 300px;
+    }
+
+    .program-hero-text {
+        width: 90%;
+        left: 5%;
+    }
+
+    .program-hero-text h1 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .program-hero-text p {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .program-description {
+        padding: 35px 5%;
+        gap: 22px;
+    }
+
+    .program-description h2 {
+        font-size: 20px;
+    }
+
+    .program-description p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .program-description img {
+        height: 200px;
+        border-radius: 14px;
+    }
+
+    .program-directions {
+        padding: 35px 5% 45px;
+    }
+
+    .program-directions h2 {
+        font-size: 20px;
+    }
+
+    .program-directions h2::after {
+        width: 40px;
+        margin-bottom: 22px;
+    }
+
+    .program-directions-list li {
+        font-size: 14px;
+        padding-left: 28px;
+    }
+
+    .program-directions-list li::before {
+        font-size: 15px;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .program-hero {
+        height: 260px;
+    }
+
+    .program-hero-text h1 {
+        font-size: 18px;
+    }
+
+    .program-hero-text p {
+        font-size: 14px;
+    }
+
+    .program-description h2 {
+        font-size: 18px;
+    }
+
+    .program-description p {
+        font-size: 13px;
+    }
+
+    .program-directions-list li {
+        font-size: 13px;
     }
 }

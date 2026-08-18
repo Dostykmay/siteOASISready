@@ -177,26 +177,77 @@ main {
         rgb(78, 47, 19) 100%);
 }
 
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 900px) {
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
     .contacts-main {
-        height: 320px;
+        height: 360px;
     }
 
     .contacts-main-text h1 {
-        font-size: 34px;
+        font-size: 42px;
     }
 
     .contacts-main::before {
-        font-size: 130px;
+        font-size: 160px;
     }
 
     .contacts-info {
-        padding: 50px 6% 40px;
+        padding: 60px 6% 50px;
     }
 
     .contacts-info-container > h2 {
-        font-size: 26px;
+        font-size: 28px;
+    }
+
+    .contacts-map-block {
+        padding: 0 6% 70px;
+    }
+
+    .contacts-map-block iframe {
+        height: 420px;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .contacts-main {
+        height: 300px;
+    }
+
+    .contacts-main-text {
+        left: 6%;
+        max-width: 85%;
+    }
+
+    .contacts-main-text h1 {
+        font-size: 32px;
+    }
+
+    .contacts-main::before {
+        font-size: 120px;
+        right: 3%;
+    }
+
+    .contacts-info {
+        padding: 45px 6% 35px;
+    }
+
+    .contacts-info-container > h2 {
+        font-size: 24px;
+        margin-bottom: 28px;
+    }
+
+    .contacts-info-container-text {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .concret-block {
+        padding: 22px 20px;
     }
 
     .concret-block p {
@@ -204,10 +255,97 @@ main {
     }
 
     .contacts-map-block {
-        padding: 0 6% 60px;
+        padding: 0 6% 55px;
     }
 
     .contacts-map-block iframe {
-        height: 350px;
+        height: 320px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .contacts-main {
+        height: 240px;
+    }
+
+    .contacts-main-text h1 {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    .contacts-main-text h1::after {
+        width: 60px;
+        height: 3px;
+        margin-top: 16px;
+    }
+
+    .contacts-main::before {
+        font-size: 90px;
+    }
+
+    .contacts-info {
+        padding: 32px 5% 28px;
+    }
+
+    .contacts-info-container > h2 {
+        font-size: 20px;
+        margin-bottom: 22px;
+    }
+
+    .contacts-info-container > h2::after {
+        width: 55px;
+    }
+
+    .concret-block {
+        padding: 18px 16px;
+        border-radius: 16px;
+    }
+
+    .concret-block h2 {
+        font-size: 13px;
+    }
+
+    .concret-block p {
+        font-size: 15px;
+    }
+
+    .contacts-map-block {
+        padding: 0 5% 40px;
+    }
+
+    .contacts-map-block > div {
+        border-radius: 16px;
+    }
+
+    .contacts-map-block iframe {
+        height: 250px;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .contacts-main {
+        height: 210px;
+    }
+
+    .contacts-main-text h1 {
+        font-size: 20px;
+    }
+
+    .contacts-info-container > h2 {
+        font-size: 18px;
+    }
+
+    .concret-block p {
+        font-size: 14px;
+    }
+
+    .contacts-map-block iframe {
+        height: 220px;
     }
 }

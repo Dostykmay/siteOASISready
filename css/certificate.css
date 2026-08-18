@@ -114,8 +114,41 @@
     rgb(209, 106, 16) 100%);
 }
 
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 900px) {
+/* ======================================================= */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ======================================================= */
+@media (max-width: 1024px) {
+    .certificate-main-block {
+        padding: 70px 6% 80px;
+    }
+
+    .certificate-main-block::before {
+        font-size: 170px;
+    }
+
+    .certificate-main-block-logo {
+        height: 70px;
+        margin-bottom: 48px;
+    }
+
+    .certificate-main-block-first {
+        gap: 36px;
+    }
+
+    .certificate1,
+    .certificate-main-block-second {
+        flex: 1 1 360px;
+    }
+
+    .img-c {
+        height: 220px;
+    }
+}
+
+/* ======================================================= */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ======================================================= */
+@media (max-width: 768px) {
     .certificate-main-block {
         padding: 60px 6% 70px;
     }
@@ -146,5 +179,76 @@
     .certificate1 h2,
     .certificate-main-block-second h2 {
         font-size: 19px;
+    }
+}
+
+/* ======================================================= */
+/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================================================= */
+@media (max-width: 480px) {
+    .certificate-main-block {
+        padding: 40px 5% 50px;
+    }
+
+    .certificate-main-block::before {
+        font-size: 100px;
+        right: 2%;
+        top: 3%;
+    }
+
+    .certificate-main-block-logo {
+        height: 48px;
+        margin-bottom: 28px;
+    }
+
+    .certificate-main-block-first {
+        gap: 22px;
+    }
+
+    .certificate1,
+    .certificate-main-block-second {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .img-c {
+        height: 160px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+    }
+
+    .certificate1 h2,
+    .certificate-main-block-second h2 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    .certificate1 p,
+    .certificate-main-block-second p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+/* ======================================================= */
+/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ======================================================= */
+@media (max-width: 360px) {
+    .certificate-main-block-logo {
+        height: 40px;
+    }
+
+    .img-c {
+        height: 140px;
+    }
+
+    .certificate1 h2,
+    .certificate-main-block-second h2 {
+        font-size: 15px;
+    }
+
+    .certificate1 p,
+    .certificate-main-block-second p {
+        font-size: 13px;
     }
 }
