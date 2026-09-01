@@ -148,7 +148,6 @@
 
 /* ======================================================= */
 /* === ГАМБУРГЕР СКРЫТ НА ДЕСКТОПЕ ПО УМОЛЧАНИЮ === */
-/* === (устраняет квадрат чекбокса на широких экранах) === */
 /* ======================================================= */
 .burger-checkbox{
     display: none;
@@ -167,16 +166,14 @@
 }
 
 /* ======================================================= */
-/* === МОБИЛЬНЫЕ (до 768px): гамбургер-меню, прозрачный фон === */
+/* === МОБИЛЬНЫЕ (до 768px): гамбургер-меню, ПОЛНОСТЬЮ прозрачный фон === */
 /* ======================================================= */
 @media (max-width: 768px){
 
     .header{
         height: 60px;
         padding: 0 16px;
-        background-color: rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: transparent;
     }
 
     .nav-container{
@@ -209,6 +206,8 @@
         height: 3px;
         background-color: white;
         border-radius: 2px;
+        /* тень нужна, чтобы полоски были видны на любом, даже светлом фоне страницы */
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
         transition: all 0.3s ease;
     }
 
@@ -225,7 +224,7 @@
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* прозрачное "стеклянное" меню вместо сплошного чёрного фона */
+    /* полностью прозрачный контейнер меню — никакого фона и блюра */
     .nav-menu{
         display: none;
         flex-direction: column;
@@ -233,13 +232,9 @@
         top: 60px;
         left: 0;
         width: 100%;
-        background: rgba(20, 15, 10, 0.5);
-        backdrop-filter: blur(14px) saturate(1.3);
-        -webkit-backdrop-filter: blur(14px) saturate(1.3);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        background: transparent;
         padding: 14px 0;
-        gap: 10px;
+        gap: 12px;
         max-height: 80vh;
         overflow-y: auto;
     }
@@ -248,14 +243,15 @@
         display: flex;
     }
 
+    /* сами пункты меню остаются видимыми "плашками", чтобы текст читался на любом фоне */
     .menu-item{
         display: block;
         width: 90%;
         margin: 0 auto;
         margin-right: 0;
-        background-color: rgba(233, 93, 5, 0.22);
-        border-color: rgba(233, 93, 5, 0.4);
-        box-shadow: none;
+        background-color: rgba(20, 15, 10, 0.55);
+        border-color: rgba(233, 93, 5, 0.5);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     }
 
     .menu-a{
@@ -285,7 +281,7 @@
     .menu-drop-down-list-parts a{
         margin-top: 8px;
         height: 40px;
-        background-color: rgba(255, 78, 3, 0.18);
+        background-color: rgba(20, 15, 10, 0.5);
     }
 
     .footer{
