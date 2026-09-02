@@ -100,21 +100,21 @@
 
 /* Стрелка рядом с названием раздела */
 .dropdown-arrow{
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     display: inline-block;
     flex: 0 0 auto;
-    margin-left: 4px;
+    margin-left: 5px;
     margin-top: -4px;
 
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
 
+    transform: rotate(45deg);
     transition: transform 0.25s ease;
 }
 
-/* Когда details открыт, поворачиваем стрелку */
+/* При раскрытии стрелка смотрит вверх */
 .menu-drop-down-list[open] .dropdown-arrow{
     transform: rotate(225deg);
 }
