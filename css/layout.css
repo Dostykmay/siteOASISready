@@ -1,173 +1,90 @@
-/* стили для footer и header */
-/* задаем display: flex ради того, чтобы можно было центрировать */
-.header{
-    position: fixed;
-    width: 100%;
-    background-color: rgba(0,0,0,0.4);
-    height: 10%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-}
+/* ==================== ВЫПАДАЮЩИЕ ПУНКТЫ МЕНЮ ==================== */
 
-.nav-container{
-    padding: 0px;
-    width: 100%;
-    text-align: center;
-}
-
-.nav-menu{
-    list-style-type: none;
-    width: 100%;
-    padding-left: 20px;
-}
-
-.menu-item{
-    display: inline-block;
-    position: relative;
-    margin-right: 30px;
-    background-color: rgba(233, 93, 5, 0.5);
-    text-align: center;
-    border-radius: 10px;
-    z-index: 0;
-    border: 1px solid rgba(233, 93, 5, 0.85);
-    border-color: rgba(223, 93, 5, 0.9);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.22), 0 0 26px 10px rgba(255, 255, 255, 0.22);
-    vertical-align: middle;
-    transition: all 0.3s ease;
-}
-
-.menu-a{
-    display: flex;
-    width: 150px;
-    height: 40px;
-    line-height: 1.2;
-    text-decoration: none;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    font-family: 'Avenir-Medium';
-    border-radius: inherit;
-    background: transparent;
-}
-
-.menu-item:hover{
-    transform: scale(1.05);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.22), 0 0 26px 10px rgba(255, 255, 255, 0.22);
-}
-
-.footer{
-    background: linear-gradient(180deg, rgb(132, 129, 128) 0%, rgb(183, 81, 14) 80%);
-    height: 250px;
-    width: 100%;
-}
-
-.main-container-footer{
-    height: 100%;
-    padding-left: 90px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.information-footer{
-    grid-column: 1;
-    align-self: center;
-    height: 200px;
-    width: 250px;
-    margin-top: 10px;
-}
-
-.logo-footer{
-    justify-self: end;
-    margin-right: 60px;
-    grid-column: 3;
-    margin-top: 10px;
-}
-
-.logo-footer img{
-    max-height: 230px;
-    min-height: 230px;
-    margin: 0px;
-    padding: 0;
-    object-fit: cover;
-    overflow: hidden;
-}
-
-.information-footer-h1{
-    font-family: 'Avenir-Bold';
-    color: white;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.information-footer-contact{
-    font-size: 20px;
-    font-family: 'Avenir-Light';
-    color: rgb(218, 212, 212);
-    display: inline-block;
-}
-
+/* details — контейнер раскрывающегося меню */
 .menu-drop-down-list{
     position: relative;
-    display: inline-block;
-    padding: 0;
+    width: 100%;
 }
 
-.menu-drop-down-list-parts{
+/* Убираем стандартный треугольник у summary */
+.menu-drop-down-list summary{
+    list-style: none;
+}
+
+/* webkit - псевдоэлемент для браузеров на этом движке 
+управляет этой самой стрелкой*/
+.menu-drop-down-list summary::-webkit-details-marker{
     display: none;
+}
+
+/* summary выглядит так же, как обычная ссылка меню */
+.menu-drop-down-list summary.menu-a{
+    cursor: pointer;
+    /* запрещает выделение текста  */
+    user-select: none;
+}
+
+/* Стрелка рядом с названием раздела */
+.dropdown-arrow{
+    /* к inline нельзя применить rotate */
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+/* Поворачиваем стрелку, если раздел открыт */
+/* Open показывает на то, что меню открыто  */
+.menu-drop-down-list[open] .dropdown-arrow{
+    transform: rotate(180deg);
+}
+
+/* Выпадающий блок на ПК */
+.menu-drop-down-list-parts{
+    /* absolute делается для того, чтобы выпад.блоки не сдвигали все 
+    он вырывается из потока и накладывается поверх*/
     position: absolute;
-    z-index: 1;
+    /* вычисления 110. типо 100% + 10px */
+    top: calc(100% + 10px);
+    left: 0;
+    z-index: 1100;
+    width: 100%;
+    min-width: 190px;
     padding: 0;
 }
 
+/* Ссылки внутри раскрытого блока */
 .menu-drop-down-list-parts a{
-    margin-top: 20px;
+    margin-top: 8px;
+    min-height: 40px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     color: white;
     font-family: 'Avenir-Light';
     text-decoration: none;
-    line-height: 1;
-    width: 100%;
-    display: block;
-    align-content: center;
-    height: 35px;
-    background-color: rgba(255, 78, 3, 0.5);
-    border-radius: 3px;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(233, 93, 5, 0.85);
+    line-height: 1.2;
+
+    background-color: rgba(65, 30, 12, 0.98);
+    border: 1px solid rgba(233, 93, 5, 0.9);
+    border-radius: 6px;
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.4);
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.menu-drop-down-list:hover .menu-drop-down-list-parts{
-    display: block;
-}
-
-.menu-drop-down-list a:hover{
+.menu-drop-down-list-parts a:hover,
+.menu-drop-down-list-parts a:focus{
+    background-color: rgba(170, 68, 8, 0.98);
+    /* scale увеличение */
     transform: scale(1.03);
+    /* убираем синию рамку стандартную при наведении */
+    outline: none;
 }
-
-/* ======================================================= */
-/* === ГАМБУРГЕР СКРЫТ НА ДЕСКТОПЕ ПО УМОЛЧАНИЮ === */
-/* ======================================================= */
-.burger-checkbox{
-    display: none;
-}
-
-.burger-label{
-    display: none;
-}
-
-/* ======================================================= */
-/* === ПЛАНШЕТЫ (до 1024px) === */
-/* ======================================================= */
-@media (max-width: 1024px){
-    .menu-item{ margin-right: 12px; }
-    .menu-a{ width: 120px; font-size: 15px; }
-}
-
-/* ======================================================= */
-/* === МОБИЛЬНЫЕ (до 768px): гамбургер-меню, ПОЛНОСТЬЮ прозрачный фон === */
-/* ======================================================= */
 @media (max-width: 768px){
 
     .header{
