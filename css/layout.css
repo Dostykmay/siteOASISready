@@ -1,52 +1,113 @@
-/* ==================== ВЫПАДАЮЩИЕ ПУНКТЫ МЕНЮ ==================== */
+/* ==================== HEADER ==================== */
 
-/* details — контейнер раскрывающегося меню */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 70px;
+    background-color: rgba(0, 0, 0, 0.72);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container{
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.nav-menu{
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.menu-item{
+    position: relative;
+    display: block;
+    margin: 0;
+    background-color: rgba(233, 93, 5, 0.58);
+    border: 1px solid rgba(223, 93, 5, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22),
+                0 0 22px 5px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-item:hover{
+    transform: scale(1.05);
+    background-color: rgba(190, 70, 7, 0.82);
+}
+
+/* Обычные ссылки и summary имеют одинаковый вид */
+.menu-a{
+    width: 150px;
+    min-height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    color: white;
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 17px;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+}
+
+/* ==================== ВЫПАДАЮЩЕЕ МЕНЮ ==================== */
+
 .menu-drop-down-list{
     position: relative;
     width: 100%;
 }
 
-/* Убираем стандартный треугольник у summary */
+/* Убирает стандартный маркер-треугольник summary */
 .menu-drop-down-list summary{
     list-style: none;
 }
 
-/* webkit - псевдоэлемент для браузеров на этом движке 
-управляет этой самой стрелкой*/
 .menu-drop-down-list summary::-webkit-details-marker{
     display: none;
 }
 
-/* summary выглядит так же, как обычная ссылка меню */
 .menu-drop-down-list summary.menu-a{
     cursor: pointer;
-    /* запрещает выделение текста  */
     user-select: none;
 }
 
-/* Стрелка рядом с названием раздела */
+/* Стрелка у раскрывающихся пунктов */
 .dropdown-arrow{
-    /* к inline нельзя применить rotate */
     display: inline-block;
-    margin-left: 8px;
-    font-size: 20px;
+    margin-left: 4px;
+    font-size: 19px;
     line-height: 1;
     transition: transform 0.25s ease;
 }
 
-/* Поворачиваем стрелку, если раздел открыт */
-/* Open показывает на то, что меню открыто  */
 .menu-drop-down-list[open] .dropdown-arrow{
     transform: rotate(180deg);
 }
 
-/* Выпадающий блок на ПК */
+/* На ПК подменю накладывается под соответствующей кнопкой */
 .menu-drop-down-list-parts{
-    /* absolute делается для того, чтобы выпад.блоки не сдвигали все 
-    он вырывается из потока и накладывается поверх*/
     position: absolute;
-    /* вычисления 110. типо 100% + 10px */
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
     left: 0;
     z-index: 1100;
     width: 100%;
@@ -54,10 +115,11 @@
     padding: 0;
 }
 
-/* Ссылки внутри раскрытого блока */
+/* Пункты внутри подменю */
 .menu-drop-down-list-parts a{
-    margin-top: 8px;
+    width: 100%;
     min-height: 40px;
+    margin-top: 8px;
     padding: 8px 10px;
     box-sizing: border-box;
     display: flex;
@@ -65,56 +127,128 @@
     justify-content: center;
 
     color: white;
-    font-family: 'Avenir-Light';
-    text-decoration: none;
+    font-family: 'Avenir-Light', sans-serif;
+    font-size: 15px;
     line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
 
-    background-color: rgba(65, 30, 12, 0.98);
-    border: 1px solid rgba(233, 93, 5, 0.9);
+    background-color: rgba(70, 31, 9, 0.98);
+    border: 1px solid rgba(233, 93, 5, 0.92);
     border-radius: 6px;
-    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.45);
 
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .menu-drop-down-list-parts a:hover,
 .menu-drop-down-list-parts a:focus{
-    background-color: rgba(170, 68, 8, 0.98);
-    /* scale увеличение */
+    background-color: rgba(175, 70, 8, 0.98);
     transform: scale(1.03);
-    /* убираем синию рамку стандартную при наведении */
     outline: none;
 }
-@media (max-width: 768px){
 
+/* ==================== FOOTER ==================== */
+
+.footer{
+    width: 100%;
+    min-height: 250px;
+    background: linear-gradient(180deg, rgb(132, 129, 128) 0%, rgb(183, 81, 14) 80%);
+}
+
+.main-container-footer{
+    min-height: 250px;
+    padding-left: 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.information-footer{
+    grid-column: 1;
+    align-self: center;
+    width: 250px;
+    margin-top: 10px;
+}
+
+.logo-footer{
+    grid-column: 3;
+    justify-self: end;
+    margin-top: 10px;
+    margin-right: 60px;
+}
+
+.logo-footer img{
+    max-height: 230px;
+    min-height: 230px;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+}
+
+.information-footer-h1{
+    display: inline-block;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Avenir-Bold', sans-serif;
+}
+
+.information-footer-contact{
+    display: inline-block;
+    color: rgb(218, 212, 212);
+    font-family: 'Avenir-Light', sans-serif;
+    font-size: 20px;
+}
+
+/* ==================== ГАМБУРГЕР ==================== */
+
+.burger-checkbox{
+    display: none;
+}
+
+.burger-label{
+    display: none;
+}
+
+/* ==================== ПЛАНШЕТЫ ==================== */
+
+@media (max-width: 1024px){
+    .nav-menu{
+        gap: 8px;
+    }
+
+    .menu-a{
+        width: 120px;
+        font-size: 15px;
+    }
+}
+
+/* ==================== ТЕЛЕФОНЫ ==================== */
+
+@media (max-width: 768px){
     .header{
+        min-height: 60px;
         height: 60px;
         padding: 0 16px;
-        background: transparent;
+        box-sizing: border-box;
+        background-color: rgba(12, 8, 5, 0.93);
     }
 
     .nav-container{
-        width: 100%;
-        text-align: left;
+        position: relative;
+        padding: 0;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .burger-checkbox{
-        display: none;
     }
 
     .burger-label{
+        width: 32px;
+        height: 26px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 5px;
-        width: 32px;
-        height: 26px;
         cursor: pointer;
-        z-index: 1100;
+        z-index: 1200;
     }
 
     .burger-label span{
@@ -123,12 +257,10 @@
         height: 3px;
         background-color: white;
         border-radius: 2px;
-        /* тень нужна, чтобы полоски были видны на любом, даже светлом фоне страницы */
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-        transition: all 0.3s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* анимация превращения гамбургера в крестик при открытии меню */
     .burger-checkbox:checked ~ .burger-label span:nth-child(1){
         transform: translateY(8px) rotate(45deg);
     }
@@ -141,92 +273,93 @@
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* полностью прозрачный контейнер меню — никакого фона и блюра */
+    /* Скрыто, пока не нажат гамбургер */
     .nav-menu{
         display: none;
-        flex-direction: column;
         position: absolute;
         top: 60px;
-        left: 0;
-        width: 100%;
-        background: transparent;
-        padding: 14px 0;
+        left: -16px;
+        width: calc(100% + 32px);
+        max-height: calc(100vh - 60px);
+        margin: 0;
+        padding: 16px 0 24px;
+        box-sizing: border-box;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
         gap: 12px;
-        max-height: 80vh;
+
         overflow-y: auto;
+        background-color: rgba(12, 8, 5, 0.96);
+        border-top: 1px solid rgba(233, 93, 5, 0.48);
     }
 
     .burger-checkbox:checked ~ .nav-menu{
         display: flex;
     }
 
-    /* сами пункты меню остаются видимыми "плашками", чтобы текст читался на любом фоне */
+    /* Видимые тёмные кнопки в открытом мобильном меню */
     .menu-item{
         display: block;
         width: 90%;
-        margin: 0 auto;
-        margin-right: 0;
-        background-color: rgba(20, 15, 10, 0.55);
-        border-color: rgba(233, 93, 5, 0.5);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        margin: 0;
+        background-color: rgba(48, 25, 12, 0.99);
+        border-color: rgba(233, 93, 5, 0.98);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.62);
+    }
+
+    .menu-item:hover{
+        transform: none;
+        background-color: rgba(48, 25, 12, 0.99);
     }
 
     .menu-a{
         width: 100%;
-        height: 44px;
+        min-height: 46px;
+        height: auto;
         font-size: 16px;
     }
 
-    .menu-drop-down-list{
-        display: block;
-        width: 100%;
-    }
-
+    /* Подменю становится частью вертикального списка */
     .menu-drop-down-list-parts{
-        display: none;
         position: static;
         width: 100%;
-        margin-top: 6px;
-        background: transparent;
-    }
-
-    .menu-drop-down-list:hover .menu-drop-down-list-parts,
-    .menu-drop-down-list:focus-within .menu-drop-down-list-parts{
-        display: block;
+        min-width: 0;
+        margin-top: 8px;
     }
 
     .menu-drop-down-list-parts a{
-        margin-top: 8px;
-        height: 40px;
-        background-color: rgba(20, 15, 10, 0.5);
+        width: calc(100% - 16px);
+        min-height: 42px;
+        margin: 8px auto 0;
+        background-color: rgba(102, 48, 12, 0.99);
+        border-color: rgba(245, 144, 37, 0.95);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
     }
 
     .footer{
-        height: auto;
+        min-height: 0;
         padding: 30px 0;
     }
 
     .main-container-footer{
+        min-height: 0;
         padding-left: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
         gap: 20px;
+        text-align: center;
     }
 
     .information-footer{
-        grid-column: unset;
         width: 90%;
-        height: auto;
         margin-top: 0;
     }
 
     .logo-footer{
-        grid-column: unset;
-        justify-self: center;
-        margin-right: 0;
-        margin-top: 0;
+        margin: 0;
     }
 
     .logo-footer img{
@@ -241,7 +374,15 @@
 }
 
 @media (max-width: 400px){
-    .information-footer-h1{ font-size: 20px; }
-    .information-footer-contact{ font-size: 14px; }
-    .menu-a{ font-size: 15px; }
+    .information-footer-h1{
+        font-size: 20px;
+    }
+
+    .information-footer-contact{
+        font-size: 14px;
+    }
+
+    .menu-a{
+        font-size: 15px;
+    }
 }
