@@ -45,8 +45,16 @@ main{
     pointer-events: none;
 
     background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, transparent 55%),
-        linear-gradient(180deg, transparent 75%, #0a0a0a 100%);
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.55) 0%,
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            transparent 75%,
+            #0a0a0a 100%
+        );
 }
 
 .program-hero-photo{
@@ -104,29 +112,24 @@ main{
 /* ======================================================= */
 
 /*
-  Универсальный шаблон для ВСЕХ старых страниц.
+    Универсальный блок для текущего HTML всех программ:
 
-  Работает с HTML такого вида:
+    <section class="program-description">
+        <h2>Заголовок</h2>
+        <p>Абзац 1</p>
+        <p>Абзац 2</p>
+        <img src="..." alt="...">
+    </section>
 
-  <section class="program-description">
-      <h2>Описание программы</h2>
-      <p>Первый абзац</p>
-      <p>Второй абзац</p>
-      <img src="..." alt="...">
-  </section>
-
-  Можешь добавлять любое количество <p>.
-  Они не будут накладываться или разъезжаться.
+    Все текстовые элементы остаются слева.
+    Фото стоит справа и не влияет на расстояние
+    между заголовком и абзацами.
 */
 
 .program-description{
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 480px);
-    grid-auto-rows: min-content;
-    column-gap: 60px;
-    row-gap: 16px;
-
-    padding: 80px 8%;
+    position: relative;
+    min-height: 500px;
+    padding: 80px 50% 80px 8%;
     box-sizing: border-box;
 
     background: linear-gradient(
@@ -138,63 +141,66 @@ main{
     );
 }
 
-/* Заголовок слева */
+/* Заголовок находится слева */
 .program-description > h2{
-    grid-column: 1;
-    margin: 0 0 2px;
+    position: relative;
+    z-index: 1;
 
+    margin: 0 0 18px;
     color: white;
+
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 34px;
     line-height: 1.2;
 }
 
-/* Все абзацы остаются в левой колонке */
+/* Любое количество абзацев находится слева */
 .program-description > p{
-    grid-column: 1;
-    margin: 0;
+    position: relative;
+    z-index: 1;
 
-    color: rgba(240, 235, 230, 0.9);
+    margin: 0;
+    color: rgba(240, 235, 230, 0.92);
+
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 17px;
     line-height: 1.75;
 }
 
-/* Маленький отступ между двумя соседними абзацами */
+/* Небольшой отступ между несколькими абзацами */
 .program-description > p + p{
-    margin-top: 2px;
+    margin-top: 18px;
 }
 
 /*
-  Фото справа.
-
-  grid-row: 1 / -1 означает: фото охватывает все строки слева.
-  align-self: start не даёт ему растягивать высоту строк.
-  Поэтому текста не будет далеко от заголовка.
+    Фото справа расположено абсолютно.
+    Поэтому фото не создаёт пустое пространство
+    в левом тексте.
 */
 .program-description > img{
-    grid-column: 2;
-    grid-row: 1 / -1;
-    align-self: start;
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    z-index: 1;
 
-    display: block;
-    width: 100%;
+    width: 34%;
     max-width: 480px;
     height: 340px;
 
     object-fit: cover;
     object-position: center;
 
-    border-radius: 28px;
+    border-radius: 24px;
     box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
     filter: brightness(0.94);
 
+    transform: translateY(-50%);
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .program-description > img:hover{
     filter: brightness(1);
-    transform: scale(1.02);
+    transform: translateY(-50%) scale(1.02);
 }
 
 /* ======================================================= */
@@ -216,7 +222,6 @@ main{
     );
 }
 
-/* Заголовок и список находятся поверх фотографии */
 .program-directions > h2,
 .program-directions > .program-directions-list{
     position: relative;
@@ -282,7 +287,7 @@ main{
     line-height: 1.5;
 }
 
-/* Фото справа в третьей секции */
+/* Фото справа в третьем блоке */
 .program-directions > img{
     position: absolute;
     top: 50%;
@@ -337,9 +342,8 @@ main{
     }
 
     .program-description{
-        grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
-        column-gap: 40px;
-        padding: 60px 6%;
+        min-height: 460px;
+        padding: 60px 47% 60px 6%;
     }
 
     .program-description > h2{
@@ -347,7 +351,10 @@ main{
     }
 
     .program-description > img{
+        right: 6%;
+        width: 35%;
         height: 290px;
+
         border-radius: 22px;
     }
 
@@ -386,40 +393,37 @@ main{
     }
 
     /*
-      На телефоне всё идёт вертикально:
-      заголовок → все абзацы → изображение.
+        На телефонах фото больше не абсолютное:
+        структура становится вертикальной.
     */
     .program-description{
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 18px;
-
+        min-height: 0;
         padding: 50px 6%;
-        text-align: left;
     }
 
     .program-description > h2{
-        margin: 0;
         font-size: 24px;
     }
 
     .program-description > p{
-        margin: 0;
         font-size: 15px;
     }
 
-    .program-description > p + p{
-        margin-top: 0;
-    }
-
     .program-description > img{
+        position: static;
+        display: block;
+
         width: 100%;
         max-width: 620px;
         height: 260px;
-        margin: 8px auto 0;
+        margin: 30px auto 0;
 
         border-radius: 20px;
+        transform: none;
+    }
+
+    .program-description > img:hover{
+        transform: scale(1.02);
     }
 
     .program-directions{
@@ -471,11 +475,11 @@ main{
     }
 
     .program-description{
-        gap: 14px;
         padding: 35px 5%;
     }
 
     .program-description > h2{
+        margin-bottom: 14px;
         font-size: 20px;
     }
 
@@ -484,9 +488,13 @@ main{
         line-height: 1.6;
     }
 
+    .program-description > p + p{
+        margin-top: 14px;
+    }
+
     .program-description > img{
         height: 200px;
-        margin-top: 6px;
+        margin-top: 22px;
 
         border-radius: 14px;
     }
