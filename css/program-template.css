@@ -85,10 +85,11 @@ main{
 
 .program-hero-text h1{
     margin: 0 0 12px;
-    color: #ffffff;
+    color: #ffffff !important;
 
-    font-family: 'Avenir-Bold', sans-serif;
+    font-family: 'Avenir-Bold', sans-serif !important;
     font-size: 48px;
+    font-weight: normal;
     line-height: 1.15;
     letter-spacing: 2px;
 
@@ -97,10 +98,11 @@ main{
 
 .program-hero-text p{
     margin: 0;
-    color: rgba(255, 165, 90, 0.95);
+    color: rgba(255, 165, 90, 0.95) !important;
 
-    font-family: 'Avenir-Medium', sans-serif;
+    font-family: 'Avenir-Medium', sans-serif !important;
     font-size: 30px;
+    font-weight: normal;
     line-height: 1.2;
     letter-spacing: 3px;
 
@@ -127,7 +129,7 @@ main{
 }
 
 /*
-    Поддерживаются два формата HTML:
+    Поддерживается оба формата HTML.
 
     Старый:
     <section class="program-description">
@@ -139,8 +141,8 @@ main{
     Новый:
     <section class="program-description">
         <div class="program-description-content">
-            <h2>...</h2>
-            <p>...</p>
+            <h2 class="program-description-title">...</h2>
+            <p class="program-description-text">...</p>
         </div>
         <img class="program-description-photo">
     </section>
@@ -151,45 +153,49 @@ main{
     z-index: 2;
 }
 
-/* Заголовок описания — всегда белый */
+/* Заголовок описания */
 .program-description > h2,
-.program-description-content h2{
+.program-description-content h2,
+main .program-description .program-description-title{
     position: relative;
     z-index: 2;
 
     margin: 0 0 18px;
-    color: #ffffff;
+    color: #ffffff !important;
 
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 34px;
-    font-weight: normal;
+    font-family: 'Avenir-Bold', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: normal !important;
     line-height: 1.2;
 
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Текст описания — всегда светлый */
+/* Абзацы описания */
 .program-description > p,
-.program-description-content p{
+.program-description-content p,
+main .program-description .program-description-text{
     position: relative;
     z-index: 2;
 
     margin: 0;
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.92) !important;
 
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 17px;
-    font-weight: normal;
+    font-family: 'Avenir-Medium', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: normal !important;
     line-height: 1.75;
 }
 
-/* Отступ появляется только между двумя соседними абзацами */
+/* Отступ между двумя абзацами */
 .program-description > p + p,
-.program-description-content p + p{
+.program-description-content p + p,
+main .program-description .program-description-text
++ .program-description-text{
     margin-top: 18px;
 }
 
-/* Фото в правой части: поддержка старого и нового HTML */
+/* Фото справа в описании */
 .program-description > img,
 .program-description-photo{
     position: absolute;
@@ -224,10 +230,10 @@ main{
 
 .program-directions{
     position: relative;
-    min-height: 420px;
+    min-height: 0;
     overflow: hidden;
 
-    padding: 90px 8%;
+    padding: 54px 8% 64px;
     box-sizing: border-box;
 
     background: linear-gradient(
@@ -237,104 +243,108 @@ main{
     );
 }
 
-/* Для нового HTML: текст лежит в отдельном контейнере */
-.program-directions-content{
-    position: relative;
-    z-index: 2;
-    max-width: 760px;
-}
-
-/* Для старого HTML: h2 и ul лежат напрямую в section */
+/*
+    Контейнер нового HTML и прямые элементы старого HTML.
+    Все направления будут растягиваться на всю ширину секции.
+*/
+.program-directions-content,
 .program-directions > h2,
 .program-directions > .program-directions-list{
     position: relative;
     z-index: 2;
-    max-width: 760px;
+
+    width: 100%;
+    max-width: none;
 }
 
-.program-directions h2{
-    margin: 0 0 8px;
-    color: #ffffff;
+/* Заголовок третьей секции */
+.program-directions h2,
+main .program-directions .program-directions-title{
+    margin: 0;
+    color: #ffffff !important;
 
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 32px;
-    font-weight: normal;
+    font-family: 'Avenir-Bold', sans-serif !important;
+    font-size: 32px !important;
+    font-weight: normal !important;
     line-height: 1.2;
     letter-spacing: 0.5px;
 
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Линия под заголовком */
 .program-directions h2::after{
     content: "";
     display: block;
 
-    width: 60px;
-    height: 3px;
-    margin-top: 16px;
-    margin-bottom: 32px;
+    width: 75px;
+    height: 4px;
+    margin-top: 22px;
+    margin-bottom: 30px;
 
-    border-radius: 2px;
-    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.65);
 }
 
+/* Список направлений в один столбец */
 .program-directions-list{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 20px;
+    display: block;
 
-    max-width: 760px;
+    width: 100%;
+    max-width: none;
     margin: 0;
     padding: 0;
 
     list-style: none;
 }
 
+/* Одна строка направления */
 .program-directions-list li{
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 
-    padding-left: 34px;
+    min-height: 71px;
+    padding: 16px 44px 16px 42px;
+    box-sizing: border-box;
 
-    color: rgba(255, 255, 255, 0.96);
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.5;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
 
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.96) !important;
+
+    font-family: 'Avenir-Medium', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    line-height: 1.45;
+
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
 }
 
+/* У первого пункта нет линии сверху */
+.program-directions-list li:first-child{
+    border-top: 0;
+}
+
+/* Иконка перед пунктом */
 .program-directions-list li::before{
     content: var(--program-icon, "🌾");
     position: absolute;
-    top: 0;
-    left: 0;
-
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-/* Фото в направлениях: поддержка старого и нового HTML */
-.program-directions > img,
-.program-directions-photo{
-    position: absolute;
     top: 50%;
-    right: 8%;
-    z-index: 1;
+    left: 4px;
 
-    width: 30%;
-    height: 65%;
-
-    object-fit: cover;
-    object-position: center;
-
-    border-radius: 16px;
-    box-shadow: 0 20px 90px rgba(0, 0, 0, 0.35);
-    filter: brightness(0.8);
+    font-size: 20px;
+    line-height: 1;
 
     transform: translateY(-50%);
+}
+
+/*
+    В новом дизайне третьей секции фото выключаем:
+    вся ширина нужна для единого списка с линиями.
+*/
+.program-directions > img,
+.program-directions-photo{
+    display: none;
 }
 
 /* ======================================================= */
@@ -377,8 +387,9 @@ main{
     }
 
     .program-description > h2,
-    .program-description-content h2{
-        font-size: 28px;
+    .program-description-content h2,
+    main .program-description .program-description-title{
+        font-size: 28px !important;
     }
 
     .program-description > img,
@@ -391,13 +402,7 @@ main{
     }
 
     .program-directions{
-        padding: 70px 6%;
-    }
-
-    .program-directions > img,
-    .program-directions-photo{
-        right: 5%;
-        width: 34%;
+        padding: 50px 6% 58px;
     }
 }
 
@@ -432,13 +437,15 @@ main{
     }
 
     .program-description > h2,
-    .program-description-content h2{
-        font-size: 24px;
+    .program-description-content h2,
+    main .program-description .program-description-title{
+        font-size: 24px !important;
     }
 
     .program-description > p,
-    .program-description-content p{
-        font-size: 15px;
+    .program-description-content p,
+    main .program-description .program-description-text{
+        font-size: 15px !important;
     }
 
     .program-description > img,
@@ -461,27 +468,31 @@ main{
     }
 
     .program-directions{
-        min-height: auto;
-        padding: 50px 6% 60px;
+        padding: 45px 6% 52px;
     }
 
-    .program-directions h2{
-        font-size: 24px;
+    .program-directions h2,
+    main .program-directions .program-directions-title{
+        font-size: 24px !important;
     }
 
-    .program-directions > img,
-    .program-directions-photo{
-        display: none;
-    }
-
-    .program-directions-list{
-        grid-template-columns: 1fr;
-        max-width: 100%;
-        gap: 16px;
+    .program-directions h2::after{
+        width: 58px;
+        height: 3px;
+        margin-top: 16px;
+        margin-bottom: 22px;
     }
 
     .program-directions-list li{
-        font-size: 15px;
+        min-height: 0;
+        padding: 15px 28px 15px 34px;
+
+        font-size: 15px !important;
+    }
+
+    .program-directions-list li::before{
+        left: 2px;
+        font-size: 18px;
     }
 }
 
@@ -514,19 +525,23 @@ main{
     }
 
     .program-description > h2,
-    .program-description-content h2{
+    .program-description-content h2,
+    main .program-description .program-description-title{
         margin-bottom: 14px;
-        font-size: 20px;
+        font-size: 20px !important;
     }
 
     .program-description > p,
-    .program-description-content p{
-        font-size: 14px;
+    .program-description-content p,
+    main .program-description .program-description-text{
+        font-size: 14px !important;
         line-height: 1.6;
     }
 
     .program-description > p + p,
-    .program-description-content p + p{
+    .program-description-content p + p,
+    main .program-description .program-description-text
+    + .program-description-text{
         margin-top: 14px;
     }
 
@@ -539,26 +554,31 @@ main{
     }
 
     .program-directions{
-        padding: 35px 5% 45px;
+        padding: 35px 5% 42px;
     }
 
-    .program-directions h2{
-        font-size: 20px;
+    .program-directions h2,
+    main .program-directions .program-directions-title{
+        font-size: 20px !important;
     }
 
     .program-directions h2::after{
-        width: 40px;
+        width: 42px;
+        height: 3px;
         margin-top: 14px;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
     }
 
     .program-directions-list li{
-        padding-left: 28px;
-        font-size: 14px;
+        padding: 13px 12px 13px 30px;
+
+        font-size: 14px !important;
+        line-height: 1.5;
     }
 
     .program-directions-list li::before{
-        font-size: 15px;
+        left: 0;
+        font-size: 16px;
     }
 }
 
@@ -580,117 +600,18 @@ main{
     }
 
     .program-description > h2,
-    .program-description-content h2{
-        font-size: 18px;
-    }
-
-    .program-description > p,
-    .program-description-content p{
-        font-size: 13px;
-    }
-
-    .program-directions-list li{
-        font-size: 13px;
-    }
-}
-
-main .program-description .program-description-title{
-    color: #ffffff !important;
-    font-family: 'Avenir-Bold', sans-serif !important;
-    font-size: 34px !important;
-    font-weight: normal !important;
-    line-height: 1.2 !important;
-}
-
-/* Абзацы в блоке описания */
-main .program-description .program-description-text{
-    color: rgba(255, 255, 255, 0.92) !important;
-    font-family: 'Avenir-Medium', sans-serif !important;
-    font-size: 17px !important;
-    font-weight: normal !important;
-    line-height: 1.75 !important;
-}
-
-/* Отступ между несколькими абзацами описания */
-main .program-description .program-description-text
-+ .program-description-text{
-    margin-top: 18px !important;
-}
-
-/* Заголовок в блоке направлений */
-main .program-directions .program-directions-title{
-    color: #ffffff !important;
-    font-family: 'Avenir-Bold', sans-serif !important;
-    font-size: 32px !important;
-    font-weight: normal !important;
-    line-height: 1.2 !important;
-}
-
-/* Текст пунктов в блоке направлений */
-main .program-directions .program-directions-list li{
-    color: rgba(255, 255, 255, 0.96) !important;
-    font-family: 'Avenir-Medium', sans-serif !important;
-    font-size: 16px !important;
-    font-weight: normal !important;
-}
-
-/* Планшеты */
-@media (max-width: 1024px){
-    main .program-description .program-description-title{
-        font-size: 28px !important;
-    }
-}
-
-/* Планшеты и крупные телефоны */
-@media (max-width: 768px){
-    main .program-description .program-description-title{
-        font-size: 24px !important;
-    }
-
-    main .program-description .program-description-text{
-        font-size: 15px !important;
-    }
-
-    main .program-directions .program-directions-title{
-        font-size: 24px !important;
-    }
-
-    main .program-directions .program-directions-list li{
-        font-size: 15px !important;
-    }
-}
-
-/* Телефоны */
-@media (max-width: 480px){
-    main .program-description .program-description-title{
-        font-size: 20px !important;
-    }
-
-    main .program-description .program-description-text{
-        font-size: 14px !important;
-        line-height: 1.6 !important;
-    }
-
-    main .program-directions .program-directions-title{
-        font-size: 20px !important;
-    }
-
-    main .program-directions .program-directions-list li{
-        font-size: 14px !important;
-    }
-}
-
-/* Узкие телефоны */
-@media (max-width: 360px){
+    .program-description-content h2,
     main .program-description .program-description-title{
         font-size: 18px !important;
     }
 
+    .program-description > p,
+    .program-description-content p,
     main .program-description .program-description-text{
         font-size: 13px !important;
     }
 
-    main .program-directions .program-directions-list li{
+    .program-directions-list li{
         font-size: 13px !important;
     }
 }
