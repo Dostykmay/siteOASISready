@@ -615,3 +615,28 @@ main .program-directions .program-directions-title{
         font-size: 13px !important;
     }
 }
+
+/* индивид стиль для подсолнечника */
+/* ======================================================= */
+/* ====== ПОДСОЛНЕЧНИК: СПИСОК БЕЗ ПУСТЫХ ПРОМЕЖУТКОВ ==== */
+/* ======================================================= */
+
+.sunflower-directions .program-directions-list{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sunflower-directions .program-directions-list li{
+    width: 100%;
+    min-height: 0;
+}
+
+/*
+    Длинный пункт с болезнями занимает столько высоты,
+    сколько нужно тексту. Следующий пункт начинается
+    сразу после него.
+*/
+.sunflower-directions .program-directions-list li:nth-child(4){
+    margin-bottom: 0;
+}
