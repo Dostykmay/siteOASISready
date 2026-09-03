@@ -1,3 +1,23 @@
+Ты права: проблема возникла из-за того, что я изменила CSS под **новую структуру подсолнечника**, где есть:
+
+```html
+<div class="program-description-content">...</div>
+<img class="program-description-photo">
+```
+
+А в остальных страницах структура старая:
+
+```html
+<h2>...</h2>
+<p>...</p>
+<img>
+```
+
+Поэтому шаблон перестал быть универсальным. Исправляем это **только CSS**, без срочной переделки всех HTML-страниц.
+
+Ниже универсальный `program-template.css`: он работает и для старого HTML пшеницы/чечевицы/лаконоса/донника, и для нового HTML подсолнечника. Во втором блоке на компьютере текст всегда слева, фотография справа. На телефоне — заголовок, текст, затем фото.
+
+```css
 main{
     overflow-x: hidden;
 }
@@ -23,7 +43,6 @@ main{
         linear-gradient(180deg, #0f0f10 0%, #0a0a0a 100%);
 }
 
-/* Лёгкий верхний свет поверх фоновой фотографии */
 .program-hero::before{
     content: "";
     position: absolute;
@@ -38,7 +57,6 @@ main{
     );
 }
 
-/* Затемнение слева для читаемости текста и снизу */
 .program-hero::after{
     content: "";
     position: absolute;
@@ -51,11 +69,9 @@ main{
         linear-gradient(180deg, transparent 75%, #0a0a0a 100%);
 }
 
-/* Фотография первого блока */
 .program-hero-photo{
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: 0;
 
     width: 100%;
@@ -66,7 +82,6 @@ main{
     filter: brightness(0.55) saturate(1.1);
 }
 
-/* Текст на первом экране */
 .program-hero-text{
     position: absolute;
     top: 50%;
@@ -108,11 +123,17 @@ main{
 /* ================= ОПИСАНИЕ ПРОГРАММЫ ================= */
 /* ======================================================= */
 
+/*
+  Универсальная сетка:
+  - старый HTML: h2 + p + img;
+  - новый HTML: div.program-description-content + img.program-description-photo.
+*/
 .program-description{
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 60px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 480px);
+    grid-template-rows: auto 1fr;
+    column-gap: 60px;
+    row-gap: 20px;
 
     padding: 80px 8%;
     box-sizing: border-box;
@@ -126,14 +147,52 @@ main{
     );
 }
 
-/* Левая часть второго блока: заголовок и текст */
+/* Новый HTML подсолнечника: один блок слева */
 .program-description-content{
-    flex: 1 1 0;
+    grid-column: 1;
+    grid-row: 1 / 3;
     min-width: 0;
+    align-self: center;
 }
 
+/* Старый HTML: заголовок слева */
+.program-description > h2{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Старый HTML: текст слева под заголовком */
+.program-description > p{
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+}
+
+/* Фотография всегда находится справа */
+.program-description > img,
+.program-description-photo{
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+
+    width: 100%;
+    max-width: 480px;
+    min-height: 280px;
+    aspect-ratio: 4 / 3;
+    display: block;
+
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+    filter: brightness(0.94);
+
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Заголовок — работает и со старым, и с новым HTML */
+.program-description > h2,
 .program-description-content h2{
-    margin: 0 0 20px;
+    margin: 0 0 18px;
     color: white;
 
     font-family: 'Avenir-Bold', sans-serif;
@@ -141,7 +200,8 @@ main{
     line-height: 1.2;
 }
 
-/* Текст описания остаётся слева под заголовком */
+/* Текст — работает и со старым, и с новым HTML */
+.program-description > p,
 .program-description-content p{
     margin: 0;
     color: rgba(240, 235, 230, 0.9);
@@ -151,23 +211,7 @@ main{
     line-height: 1.75;
 }
 
-/* Правая часть второго блока: фотография */
-.program-description-photo{
-    flex: 0 1 480px;
-    width: min(42%, 480px);
-    min-width: 320px;
-    aspect-ratio: 4 / 3;
-    display: block;
-
-    object-fit: cover;
-
-    border-radius: 28px;
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
-    filter: brightness(0.94);
-
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-
+.program-description > img:hover,
 .program-description-photo:hover{
     filter: brightness(1);
     transform: scale(1.02);
@@ -177,6 +221,11 @@ main{
 /* ================= НАПРАВЛЕНИЯ СЕЛЕКЦИИ ================ */
 /* ======================================================= */
 
+/*
+  Здесь тоже поддерживаются оба варианта:
+  - старый: h2 + ul + img прямо внутри section;
+  - новый: img + div.program-directions-content.
+*/
 .program-directions{
     position: relative;
     min-height: 420px;
@@ -192,7 +241,16 @@ main{
     );
 }
 
+/* Новый HTML: контейнер списка */
 .program-directions-content{
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+/* Старый HTML: заголовок и список также поверх изображения */
+.program-directions > h2,
+.program-directions > .program-directions-list{
     position: relative;
     z-index: 2;
     max-width: 760px;
@@ -217,8 +275,8 @@ main{
     margin-top: 16px;
     margin-bottom: 32px;
 
-    background: rgba(255, 255, 255, 0.6);
     border-radius: 2px;
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .program-directions-list{
@@ -247,7 +305,7 @@ main{
 }
 
 .program-directions-list li::before{
-    content: "🌾";
+    content: var(--program-icon, "🌾");
     position: absolute;
     top: 0;
     left: 0;
@@ -256,7 +314,8 @@ main{
     line-height: 1.5;
 }
 
-/* Фотография справа в третьем блоке */
+/* Фото справа: работает для старого img и нового class */
+.program-directions > img,
 .program-directions-photo{
     position: absolute;
     top: 50%;
@@ -311,16 +370,19 @@ main{
     }
 
     .program-description{
-        gap: 40px;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+        column-gap: 40px;
         padding: 60px 6%;
     }
 
+    .program-description > h2,
     .program-description-content h2{
         font-size: 28px;
     }
 
+    .program-description > img,
     .program-description-photo{
-        min-width: 280px;
+        min-height: 240px;
         border-radius: 22px;
     }
 
@@ -328,6 +390,7 @@ main{
         padding: 70px 6%;
     }
 
+    .program-directions > img,
     .program-directions-photo{
         right: 5%;
         width: 34%;
@@ -358,8 +421,13 @@ main{
         letter-spacing: 1.5px;
     }
 
-    /* На телефоне текст сверху, фотография снизу */
+    /*
+      На телефонах:
+      - старый HTML: h2, p, img друг под другом;
+      - новый HTML: content, img друг под другом.
+    */
     .program-description{
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 30px;
@@ -368,19 +436,28 @@ main{
         text-align: left;
     }
 
+    .program-description-content{
+        display: block;
+    }
+
+    .program-description > h2,
     .program-description-content h2{
+        margin-bottom: 0;
         font-size: 24px;
     }
 
+    .program-description > p,
     .program-description-content p{
         font-size: 15px;
     }
 
+    .program-description > img,
     .program-description-photo{
         width: 100%;
         min-width: 0;
         max-width: 620px;
         height: 260px;
+        min-height: 0;
         margin: 0 auto;
         aspect-ratio: auto;
 
@@ -396,6 +473,7 @@ main{
         font-size: 24px;
     }
 
+    .program-directions > img,
     .program-directions-photo{
         display: none;
     }
@@ -440,15 +518,18 @@ main{
         padding: 35px 5%;
     }
 
+    .program-description > h2,
     .program-description-content h2{
         font-size: 20px;
     }
 
+    .program-description > p,
     .program-description-content p{
         font-size: 14px;
         line-height: 1.6;
     }
 
+    .program-description > img,
     .program-description-photo{
         height: 200px;
         border-radius: 14px;
@@ -494,10 +575,12 @@ main{
         font-size: 14px;
     }
 
+    .program-description > h2,
     .program-description-content h2{
         font-size: 18px;
     }
 
+    .program-description > p,
     .program-description-content p{
         font-size: 13px;
     }
@@ -506,3 +589,4 @@ main{
         font-size: 13px;
     }
 }
+```
