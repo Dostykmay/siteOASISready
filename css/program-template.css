@@ -104,30 +104,27 @@ main{
 /* ======================================================= */
 
 /*
-  Универсальная вторая секция.
+  Универсальный шаблон для ВСЕХ старых страниц.
 
-  Работает со старым HTML:
+  Работает с HTML такого вида:
+
   <section class="program-description">
-      <h2>Заголовок</h2>
+      <h2>Описание программы</h2>
       <p>Первый абзац</p>
       <p>Второй абзац</p>
-      <img src="...">
+      <img src="..." alt="...">
   </section>
 
-  И с новым HTML:
-  <section class="program-description">
-      <div class="program-description-content">
-          <h2>Заголовок</h2>
-          <p>Текст</p>
-      </div>
-      <img class="program-description-photo" src="...">
-  </section>
+  Можешь добавлять любое количество <p>.
+  Они не будут накладываться или разъезжаться.
 */
+
 .program-description{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0 60px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 480px);
+    grid-auto-rows: min-content;
+    column-gap: 60px;
+    row-gap: 16px;
 
     padding: 80px 8%;
     box-sizing: border-box;
@@ -141,59 +138,49 @@ main{
     );
 }
 
-/* ------------------------------------------------------- */
-/* НОВЫЙ HTML: обёртка с заголовком и текстом              */
-/* ------------------------------------------------------- */
-
-.program-description-content{
-    flex: 1 1 420px;
-    min-width: 280px;
-}
-
-/* ------------------------------------------------------- */
-/* СТАРЫЙ HTML: h2 и абзацы находятся слева                */
-/* ------------------------------------------------------- */
-
-/*
-  Заголовок занимает всю левую колонку.
-  Фото справа занимает место начиная с верхней части блока.
-*/
+/* Заголовок слева */
 .program-description > h2{
-    flex: 1 1 calc(100% - 540px);
-    min-width: 280px;
-    margin: 0 0 18px;
+    grid-column: 1;
+    margin: 0 0 2px;
+
+    color: white;
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 34px;
+    line-height: 1.2;
 }
 
-/*
-  Каждый абзац идёт нормальным потоком под заголовком.
-  Ничего не накладывается даже при 2, 3 или 10 абзацах.
-*/
+/* Все абзацы остаются в левой колонке */
 .program-description > p{
-    flex: 1 1 calc(100% - 540px);
-    min-width: 280px;
-    margin: 0 0 16px;
+    grid-column: 1;
+    margin: 0;
+
+    color: rgba(240, 235, 230, 0.9);
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* Маленький отступ между двумя соседними абзацами */
+.program-description > p + p{
+    margin-top: 2px;
 }
 
 /*
-  Убираем лишний отступ после последнего абзаца
-  перед фото или перед низом секции.
+  Фото справа.
+
+  grid-row: 1 / -1 означает: фото охватывает все строки слева.
+  align-self: start не даёт ему растягивать высоту строк.
+  Поэтому текста не будет далеко от заголовка.
 */
-.program-description > p:nth-last-child(2){
-    margin-bottom: 0;
-}
+.program-description > img{
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: start;
 
-/* ------------------------------------------------------- */
-/* Фото справа                                              */
-/* ------------------------------------------------------- */
-
-.program-description > img,
-.program-description-photo{
-    flex: 0 1 480px;
+    display: block;
     width: 100%;
     max-width: 480px;
-    min-width: 280px;
-    max-height: 360px;
-    aspect-ratio: 4 / 3;
+    height: 340px;
 
     object-fit: cover;
     object-position: center;
@@ -205,52 +192,9 @@ main{
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/*
-  Старый HTML: фотография визуально закрепляется справа
-  и не создаёт огромные отступы между текстом.
-*/
-.program-description > h2 + p + img,
-.program-description > h2 + p + p + img,
-.program-description > h2 + p + p + p + img{
-    margin-left: auto;
-}
-
-.program-description > img:hover,
-.program-description-photo:hover{
+.program-description > img:hover{
     filter: brightness(1);
     transform: scale(1.02);
-}
-
-/* Заголовок: одинаковый стиль в обоих вариантах HTML */
-.program-description > h2,
-.program-description-content h2{
-    color: white;
-
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 34px;
-    line-height: 1.2;
-}
-
-/* Текст: одинаковый стиль в обоих вариантах */
-.program-description > p,
-.program-description-content p{
-    color: rgba(240, 235, 230, 0.9);
-
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-}
-
-.program-description-content h2{
-    margin: 0 0 18px;
-}
-
-.program-description-content p{
-    margin: 0;
-}
-
-.program-description-content p + p{
-    margin-top: 16px;
 }
 
 /* ======================================================= */
@@ -272,12 +216,7 @@ main{
     );
 }
 
-.program-directions-content{
-    position: relative;
-    z-index: 2;
-    max-width: 760px;
-}
-
+/* Заголовок и список находятся поверх фотографии */
 .program-directions > h2,
 .program-directions > .program-directions-list{
     position: relative;
@@ -343,8 +282,8 @@ main{
     line-height: 1.5;
 }
 
-.program-directions > img,
-.program-directions-photo{
+/* Фото справа в третьей секции */
+.program-directions > img{
     position: absolute;
     top: 50%;
     right: 8%;
@@ -398,19 +337,17 @@ main{
     }
 
     .program-description{
-        gap: 0 40px;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+        column-gap: 40px;
         padding: 60px 6%;
     }
 
-    .program-description > h2,
-    .program-description-content h2{
+    .program-description > h2{
         font-size: 28px;
     }
 
-    .program-description > img,
-    .program-description-photo{
-        flex-basis: 400px;
-        min-width: 260px;
+    .program-description > img{
+        height: 290px;
         border-radius: 22px;
     }
 
@@ -418,8 +355,7 @@ main{
         padding: 70px 6%;
     }
 
-    .program-directions > img,
-    .program-directions-photo{
+    .program-directions > img{
         right: 5%;
         width: 34%;
     }
@@ -449,43 +385,39 @@ main{
         letter-spacing: 1.5px;
     }
 
+    /*
+      На телефоне всё идёт вертикально:
+      заголовок → все абзацы → изображение.
+    */
     .program-description{
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 22px;
+        gap: 18px;
 
         padding: 50px 6%;
         text-align: left;
     }
 
-    .program-description-content{
-        min-width: 0;
-    }
-
-    .program-description > h2,
-    .program-description-content h2{
+    .program-description > h2{
         margin: 0;
         font-size: 24px;
     }
 
-    .program-description > p,
-    .program-description-content p{
-        min-width: 0;
+    .program-description > p{
         margin: 0;
         font-size: 15px;
     }
 
-    .program-description > img,
-    .program-description-photo{
+    .program-description > p + p{
+        margin-top: 0;
+    }
+
+    .program-description > img{
         width: 100%;
         max-width: 620px;
-        min-width: 0;
         height: 260px;
-        min-height: 0;
-        max-height: none;
         margin: 8px auto 0;
-        aspect-ratio: auto;
 
         border-radius: 20px;
     }
@@ -499,8 +431,7 @@ main{
         font-size: 24px;
     }
 
-    .program-directions > img,
-    .program-directions-photo{
+    .program-directions > img{
         display: none;
     }
 
@@ -540,25 +471,23 @@ main{
     }
 
     .program-description{
-        gap: 18px;
+        gap: 14px;
         padding: 35px 5%;
     }
 
-    .program-description > h2,
-    .program-description-content h2{
+    .program-description > h2{
         font-size: 20px;
     }
 
-    .program-description > p,
-    .program-description-content p{
+    .program-description > p{
         font-size: 14px;
         line-height: 1.6;
     }
 
-    .program-description > img,
-    .program-description-photo{
+    .program-description > img{
         height: 200px;
         margin-top: 6px;
+
         border-radius: 14px;
     }
 
@@ -602,13 +531,11 @@ main{
         font-size: 14px;
     }
 
-    .program-description > h2,
-    .program-description-content h2{
+    .program-description > h2{
         font-size: 18px;
     }
 
-    .program-description > p,
-    .program-description-content p{
+    .program-description > p{
         font-size: 13px;
     }
 
