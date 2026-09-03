@@ -85,7 +85,7 @@ main{
 
 .program-hero-text h1{
     margin: 0 0 12px;
-    color: white;
+    color: #ffffff;
 
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 48px;
@@ -126,41 +126,70 @@ main{
     );
 }
 
-/* Левая колонка для НОВОГО HTML подсолнечника */
+/*
+    Поддерживаются два формата HTML:
+
+    Старый:
+    <section class="program-description">
+        <h2>...</h2>
+        <p>...</p>
+        <img>
+    </section>
+
+    Новый:
+    <section class="program-description">
+        <div class="program-description-content">
+            <h2>...</h2>
+            <p>...</p>
+        </div>
+        <img class="program-description-photo">
+    </section>
+*/
+
 .program-description-content{
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Заголовок: старый и новый HTML */
+/* Заголовок описания — всегда белый */
 .program-description > h2,
 .program-description-content h2{
+    position: relative;
+    z-index: 2;
+
     margin: 0 0 18px;
-    color: white;
+    color: #ffffff;
 
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 34px;
+    font-weight: normal;
     line-height: 1.2;
+
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Абзацы: старый и новый HTML */
+/* Текст описания — всегда светлый */
 .program-description > p,
 .program-description-content p{
+    position: relative;
+    z-index: 2;
+
     margin: 0;
-    color: rgba(240, 235, 230, 0.92);
+    color: rgba(255, 255, 255, 0.92);
 
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 17px;
+    font-weight: normal;
     line-height: 1.75;
 }
 
-/* Несколько абзацев будут идти подряд с небольшим отступом */
+/* Отступ появляется только между двумя соседними абзацами */
 .program-description > p + p,
 .program-description-content p + p{
     margin-top: 18px;
 }
 
-/* Фото справа: старый и новый HTML */
+/* Фото в правой части: поддержка старого и нового HTML */
 .program-description > img,
 .program-description-photo{
     position: absolute;
@@ -208,14 +237,14 @@ main{
     );
 }
 
-/* Контейнер нового HTML подсолнечника */
+/* Для нового HTML: текст лежит в отдельном контейнере */
 .program-directions-content{
     position: relative;
     z-index: 2;
     max-width: 760px;
 }
 
-/* Прямые элементы старого HTML */
+/* Для старого HTML: h2 и ul лежат напрямую в section */
 .program-directions > h2,
 .program-directions > .program-directions-list{
     position: relative;
@@ -225,12 +254,15 @@ main{
 
 .program-directions h2{
     margin: 0 0 8px;
-    color: white;
+    color: #ffffff;
 
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 32px;
+    font-weight: normal;
     line-height: 1.2;
     letter-spacing: 0.5px;
+
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 .program-directions h2::after{
@@ -265,10 +297,13 @@ main{
 
     padding-left: 34px;
 
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.96);
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 16px;
+    font-weight: normal;
     line-height: 1.5;
+
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 .program-directions-list li::before{
@@ -281,7 +316,7 @@ main{
     line-height: 1.5;
 }
 
-/* Фото справа: старый и новый HTML */
+/* Фото в направлениях: поддержка старого и нового HTML */
 .program-directions > img,
 .program-directions-photo{
     position: absolute;
@@ -316,7 +351,7 @@ main{
 }
 
 /* ======================================================= */
-/* ====================== ПЛАНШЕТЫ ======================= */
+/* ===== ПЛАНШЕТЫ И НЕБОЛЬШИЕ НОУТБУКИ: ДО 1024px ======= */
 /* ======================================================= */
 
 @media (max-width: 1024px){
@@ -367,12 +402,13 @@ main{
 }
 
 /* ======================================================= */
-/* ======================= ТЕЛЕФОНЫ ====================== */
+/* ========= БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ: ДО 768px ====== */
 /* ======================================================= */
 
 @media (max-width: 768px){
     .program-hero{
         height: 380px;
+        min-height: 0;
     }
 
     .program-hero-text{
@@ -450,7 +486,7 @@ main{
 }
 
 /* ======================================================= */
-/* =================== ОБЫЧНЫЕ ТЕЛЕФОНЫ ================= */
+/* ================= ТЕЛЕФОНЫ: ДО 480px ================= */
 /* ======================================================= */
 
 @media (max-width: 480px){
@@ -512,6 +548,7 @@ main{
 
     .program-directions h2::after{
         width: 40px;
+        margin-top: 14px;
         margin-bottom: 22px;
     }
 
@@ -524,6 +561,10 @@ main{
         font-size: 15px;
     }
 }
+
+/* ======================================================= */
+/* ================ САМЫЕ УЗКИЕ ЭКРАНЫ ================== */
+/* ======================================================= */
 
 @media (max-width: 360px){
     .program-hero{
