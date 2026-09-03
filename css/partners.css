@@ -1,4 +1,5 @@
 /* ==================== ГЛАВНЫЙ БЛОК ==================== */
+
 .partners-main-block{
     position: relative;
     width: 100%;
@@ -6,26 +7,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    overflow: hidden;
     padding: 60px 8%;
     box-sizing: border-box;
-    background: linear-gradient(180deg,
+    text-align: center;
+    background: linear-gradient(
+        180deg,
         #0a0a0a 0%,
         #1a1210 30%,
         rgb(70, 45, 20) 70%,
-        rgb(120, 66, 20) 100%);
-    overflow: hidden;
+        rgb(120, 66, 20) 100%
+    );
 }
 
 .partners-main-block::before{
     content: "🤝";
     position: absolute;
-    right: -20px;
     top: -20px;
+    right: -20px;
+    z-index: 0;
     font-size: 260px;
     opacity: 0.06;
     pointer-events: none;
-    z-index: 0;
 }
 
 .partners-main-block-text{
@@ -36,41 +39,48 @@
 }
 
 .partners-main-block-text h1{
+    margin: 0 0 16px;
+    color: white;
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 48px;
-    color: white;
     letter-spacing: 1px;
-    margin: 0 0 16px 0;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .partners-main-block-text h1::after{
-    content: '';
+    content: "";
     display: block;
     width: 90px;
     height: 4px;
     margin: 20px auto 0;
-    background: linear-gradient(90deg, rgb(223, 93, 5), rgb(245, 166, 35));
     border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        rgb(223, 93, 5),
+        rgb(245, 166, 35)
+    );
 }
 
 .partners-main-block-text p{
+    margin: 0;
+    color: rgba(240, 235, 230, 0.85);
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 17px;
-    color: rgba(240, 235, 230, 0.85);
-    margin: 0;
     line-height: 1.6;
 }
 
-/* ==================== БЛОКИ С КАТЕГОРИЯМИ ==================== */
+/* ==================== КАТЕГОРИИ ==================== */
+
 .partners-grid-block{
     width: 100%;
     padding: 80px 8% 100px;
     box-sizing: border-box;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+        180deg,
         rgb(120, 66, 20) 0%,
         rgb(70, 45, 20) 40%,
-        #14100d 100%);
+        #14100d 100%
+    );
 }
 
 .partners-category{
@@ -85,10 +95,10 @@
 .partners-category-title{
     position: relative;
     display: inline-block;
+    margin: 0 0 42px;
+    color: white;
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 34px;
-    color: white;
-    margin: 0 0 42px 0;
 }
 
 .partners-category-title::after{
@@ -99,44 +109,72 @@
     width: 90px;
     height: 4px;
     border-radius: 2px;
-    background: linear-gradient(90deg, rgb(223, 93, 5), rgb(245, 166, 35));
+    background: linear-gradient(
+        90deg,
+        rgb(223, 93, 5),
+        rgb(245, 166, 35)
+    );
 }
 
-/* ==================== СЕТКА ПАРТНЁРОВ: 3 КОЛОНКИ ==================== */
+/* ==================== СЕТКА ==================== */
+
 .partners-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 36px;
     width: 100%;
 }
 
-/* ==================== КАРТОЧКА ПАРТНЁРА ==================== */
+/* ==================== КАРТОЧКА ==================== */
+
 .partner-card{
     position: relative;
     min-width: 0;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(223, 93, 5, 0.22);
-    border-radius: 22px;
-    padding: 36px 28px 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     overflow: hidden;
+    padding: 36px 28px 28px;
+    border: 1px solid rgba(223, 93, 5, 0.22);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    text-align: center;
     opacity: 0;
     transform: translateY(24px);
     animation: partnersFadeInUp 0.7s ease forwards;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
 }
 
-/* Каскадная анимация — одинаковый ритм в каждой категории */
-.partner-card:nth-child(6n + 1){ animation-delay: 0.05s; }
-.partner-card:nth-child(6n + 2){ animation-delay: 0.15s; }
-.partner-card:nth-child(6n + 3){ animation-delay: 0.25s; }
-.partner-card:nth-child(6n + 4){ animation-delay: 0.35s; }
-.partner-card:nth-child(6n + 5){ animation-delay: 0.45s; }
-.partner-card:nth-child(6n){ animation-delay: 0.55s; }
+/* Каскадное появление карточек */
+.partner-card:nth-child(6n + 1){
+    animation-delay: 0.05s;
+}
 
+.partner-card:nth-child(6n + 2){
+    animation-delay: 0.15s;
+}
+
+.partner-card:nth-child(6n + 3){
+    animation-delay: 0.25s;
+}
+
+.partner-card:nth-child(6n + 4){
+    animation-delay: 0.35s;
+}
+
+.partner-card:nth-child(6n + 5){
+    animation-delay: 0.45s;
+}
+
+.partner-card:nth-child(6n){
+    animation-delay: 0.55s;
+}
+
+/* Световой блик на карточке */
 .partner-card::before{
     content: "";
     position: absolute;
@@ -144,10 +182,15 @@
     left: -60%;
     width: 60%;
     height: 200%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    pointer-events: none;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.12),
+        transparent
+    );
     transform: rotate(20deg);
     transition: left 0.7s ease;
-    pointer-events: none;
 }
 
 .partner-card:hover::before{
@@ -155,39 +198,98 @@
 }
 
 .partner-card:hover{
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4);
     border-color: rgba(223, 93, 5, 0.55);
     background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px) scale(1.02);
 }
 
+/* ==================== ЛОГОТИПЫ ==================== */
+
 .partner-card-logo{
+    position: relative;
     width: 100%;
     height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     margin-bottom: 20px;
+    border-radius: 42px;
 }
 
+/*
+    Логотипы:
+    - сильно закруглённые углы;
+    - мягко исчезающие края;
+    - изображение остаётся чётким по центру.
+*/
 .partner-card-logo img{
+    display: block;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: brightness(0.95) grayscale(0.15);
+
+    border-radius: 42px;
+
+    /*
+        Маска создаёт мягкие, слегка размытые края.
+        В центре изображение непрозрачное.
+    */
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 58%,
+        rgba(0, 0, 0, 0.94) 70%,
+        rgba(0, 0, 0, 0.62) 82%,
+        rgba(0, 0, 0, 0.18) 93%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 58%,
+        rgba(0, 0, 0, 0.94) 70%,
+        rgba(0, 0, 0, 0.62) 82%,
+        rgba(0, 0, 0, 0.18) 93%,
+        transparent 100%
+    );
+
+    filter: brightness(0.96) grayscale(0.12);
     transition: filter 0.4s ease, transform 0.4s ease;
 }
 
 .partner-card:hover .partner-card-logo img{
-    filter: brightness(1.1) grayscale(0);
-    transform: scale(1.06);
+    filter: brightness(1.08) grayscale(0);
+    transform: scale(1.04);
+}
+
+/* Заглушка для партнёров, у которых пока нет файла логотипа */
+.partner-card-logo-empty{
+    border: 1px dashed rgba(245, 166, 35, 0.38);
+    border-radius: 42px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(245, 166, 35, 0.1),
+        rgba(0, 0, 0, 0) 72%
+    );
+}
+
+.partner-card-logo-empty span{
+    color: rgba(240, 235, 230, 0.5);
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: 1px;
 }
 
 .partner-card-name{
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: rgba(240, 235, 230, 0.85);
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 15px;
-    color: rgba(240, 235, 230, 0.85);
-    margin: 0;
+    line-height: 1.35;
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
 }
@@ -196,7 +298,8 @@
     color: rgb(245, 166, 35);
 }
 
-/* ==================== АНИМАЦИЯ ПОЯВЛЕНИЯ ==================== */
+/* ==================== АНИМАЦИЯ ==================== */
+
 @keyframes partnersFadeInUp{
     from{
         opacity: 0;
@@ -210,13 +313,16 @@
 }
 
 .footer{
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+        180deg,
         #14100d 0%,
         rgb(120, 66, 20) 60%,
-        rgb(203, 101, 13) 100%);
+        rgb(203, 101, 13) 100%
+    );
 }
 
 /* ==================== ПЛАНШЕТЫ ==================== */
+
 @media (max-width: 1024px){
     .partners-main-block{
         min-height: 280px;
@@ -240,16 +346,23 @@
     }
 
     .partners-grid{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 28px;
     }
 
     .partner-card-logo{
         height: 110px;
+        border-radius: 36px;
+    }
+
+    .partner-card-logo img,
+    .partner-card-logo-empty{
+        border-radius: 36px;
     }
 }
 
-/* ==================== ПЛАНШЕТЫ ВЕРТИКАЛЬНО / ТЕЛЕФОНЫ ==================== */
+/* ==================== ТЕЛЕФОНЫ / ПЛАНШЕТЫ ==================== */
+
 @media (max-width: 768px){
     .partners-main-block{
         min-height: 220px;
@@ -277,12 +390,12 @@
     }
 
     .partners-category-title{
-        font-size: 26px;
         margin-bottom: 34px;
+        font-size: 26px;
     }
 
     .partners-grid{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
     }
 
@@ -294,6 +407,12 @@
     .partner-card-logo{
         height: 90px;
         margin-bottom: 14px;
+        border-radius: 30px;
+    }
+
+    .partner-card-logo img,
+    .partner-card-logo-empty{
+        border-radius: 30px;
     }
 
     .partner-card-name{
@@ -302,6 +421,7 @@
 }
 
 /* ==================== ТЕЛЕФОНЫ ==================== */
+
 @media (max-width: 480px){
     .partners-main-block{
         min-height: 190px;
@@ -330,8 +450,8 @@
     }
 
     .partners-category-title{
-        font-size: 22px;
         margin-bottom: 28px;
+        font-size: 22px;
     }
 
     .partners-category-title::after{
@@ -341,7 +461,7 @@
     }
 
     .partners-grid{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
     }
 
@@ -353,6 +473,17 @@
     .partner-card-logo{
         height: 70px;
         margin-bottom: 10px;
+        border-radius: 24px;
+    }
+
+    .partner-card-logo img,
+    .partner-card-logo-empty{
+        border-radius: 24px;
+    }
+
+    .partner-card-logo-empty span{
+        font-size: 9px;
+        letter-spacing: 0.5px;
     }
 
     .partner-card-name{
@@ -361,6 +492,7 @@
 }
 
 /* ==================== САМЫЕ УЗКИЕ ЭКРАНЫ ==================== */
+
 @media (max-width: 360px){
     .partners-grid{
         grid-template-columns: 1fr;
@@ -371,7 +503,8 @@
     }
 }
 
-/* Отключение анимации, если пользователь выбрал уменьшение движения */
+/* ==================== УМЕНЬШЕНИЕ ДВИЖЕНИЯ ==================== */
+
 @media (prefers-reduced-motion: reduce){
     .partner-card,
     .partners-main-block-text{
@@ -382,5 +515,10 @@
 
     .partner-card::before{
         display: none;
+    }
+
+    .partner-card,
+    .partner-card-logo img{
+        transition: none;
     }
 }
