@@ -111,21 +111,6 @@ main{
 /* ================= ОПИСАНИЕ ПРОГРАММЫ ================= */
 /* ======================================================= */
 
-/*
-    Универсальный блок для текущего HTML всех программ:
-
-    <section class="program-description">
-        <h2>Заголовок</h2>
-        <p>Абзац 1</p>
-        <p>Абзац 2</p>
-        <img src="..." alt="...">
-    </section>
-
-    Все текстовые элементы остаются слева.
-    Фото стоит справа и не влияет на расстояние
-    между заголовком и абзацами.
-*/
-
 .program-description{
     position: relative;
     min-height: 500px;
@@ -141,11 +126,15 @@ main{
     );
 }
 
-/* Заголовок находится слева */
-.program-description > h2{
+/* Левая колонка для НОВОГО HTML подсолнечника */
+.program-description-content{
     position: relative;
     z-index: 1;
+}
 
+/* Заголовок: старый и новый HTML */
+.program-description > h2,
+.program-description-content h2{
     margin: 0 0 18px;
     color: white;
 
@@ -154,11 +143,9 @@ main{
     line-height: 1.2;
 }
 
-/* Любое количество абзацев находится слева */
-.program-description > p{
-    position: relative;
-    z-index: 1;
-
+/* Абзацы: старый и новый HTML */
+.program-description > p,
+.program-description-content p{
     margin: 0;
     color: rgba(240, 235, 230, 0.92);
 
@@ -167,17 +154,15 @@ main{
     line-height: 1.75;
 }
 
-/* Небольшой отступ между несколькими абзацами */
-.program-description > p + p{
+/* Несколько абзацев будут идти подряд с небольшим отступом */
+.program-description > p + p,
+.program-description-content p + p{
     margin-top: 18px;
 }
 
-/*
-    Фото справа расположено абсолютно.
-    Поэтому фото не создаёт пустое пространство
-    в левом тексте.
-*/
-.program-description > img{
+/* Фото справа: старый и новый HTML */
+.program-description > img,
+.program-description-photo{
     position: absolute;
     top: 50%;
     right: 8%;
@@ -198,7 +183,8 @@ main{
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.program-description > img:hover{
+.program-description > img:hover,
+.program-description-photo:hover{
     filter: brightness(1);
     transform: translateY(-50%) scale(1.02);
 }
@@ -222,6 +208,14 @@ main{
     );
 }
 
+/* Контейнер нового HTML подсолнечника */
+.program-directions-content{
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+/* Прямые элементы старого HTML */
 .program-directions > h2,
 .program-directions > .program-directions-list{
     position: relative;
@@ -287,8 +281,9 @@ main{
     line-height: 1.5;
 }
 
-/* Фото справа в третьем блоке */
-.program-directions > img{
+/* Фото справа: старый и новый HTML */
+.program-directions > img,
+.program-directions-photo{
     position: absolute;
     top: 50%;
     right: 8%;
@@ -321,7 +316,7 @@ main{
 }
 
 /* ======================================================= */
-/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ: до 1024px ======= */
+/* ====================== ПЛАНШЕТЫ ======================= */
 /* ======================================================= */
 
 @media (max-width: 1024px){
@@ -346,11 +341,13 @@ main{
         padding: 60px 47% 60px 6%;
     }
 
-    .program-description > h2{
+    .program-description > h2,
+    .program-description-content h2{
         font-size: 28px;
     }
 
-    .program-description > img{
+    .program-description > img,
+    .program-description-photo{
         right: 6%;
         width: 35%;
         height: 290px;
@@ -362,14 +359,15 @@ main{
         padding: 70px 6%;
     }
 
-    .program-directions > img{
+    .program-directions > img,
+    .program-directions-photo{
         right: 5%;
         width: 34%;
     }
 }
 
 /* ======================================================= */
-/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ВЕРТИКАЛЬНЫЕ ПЛАНШЕТЫ ======= */
+/* ======================= ТЕЛЕФОНЫ ====================== */
 /* ======================================================= */
 
 @media (max-width: 768px){
@@ -392,24 +390,23 @@ main{
         letter-spacing: 1.5px;
     }
 
-    /*
-        На телефонах фото больше не абсолютное:
-        структура становится вертикальной.
-    */
     .program-description{
         min-height: 0;
         padding: 50px 6%;
     }
 
-    .program-description > h2{
+    .program-description > h2,
+    .program-description-content h2{
         font-size: 24px;
     }
 
-    .program-description > p{
+    .program-description > p,
+    .program-description-content p{
         font-size: 15px;
     }
 
-    .program-description > img{
+    .program-description > img,
+    .program-description-photo{
         position: static;
         display: block;
 
@@ -422,7 +419,8 @@ main{
         transform: none;
     }
 
-    .program-description > img:hover{
+    .program-description > img:hover,
+    .program-description-photo:hover{
         transform: scale(1.02);
     }
 
@@ -435,7 +433,8 @@ main{
         font-size: 24px;
     }
 
-    .program-directions > img{
+    .program-directions > img,
+    .program-directions-photo{
         display: none;
     }
 
@@ -451,7 +450,7 @@ main{
 }
 
 /* ======================================================= */
-/* ================= ТЕЛЕФОНЫ: до 480px ================= */
+/* =================== ОБЫЧНЫЕ ТЕЛЕФОНЫ ================= */
 /* ======================================================= */
 
 @media (max-width: 480px){
@@ -478,21 +477,25 @@ main{
         padding: 35px 5%;
     }
 
-    .program-description > h2{
+    .program-description > h2,
+    .program-description-content h2{
         margin-bottom: 14px;
         font-size: 20px;
     }
 
-    .program-description > p{
+    .program-description > p,
+    .program-description-content p{
         font-size: 14px;
         line-height: 1.6;
     }
 
-    .program-description > p + p{
+    .program-description > p + p,
+    .program-description-content p + p{
         margin-top: 14px;
     }
 
-    .program-description > img{
+    .program-description > img,
+    .program-description-photo{
         height: 200px;
         margin-top: 22px;
 
@@ -522,10 +525,6 @@ main{
     }
 }
 
-/* ======================================================= */
-/* ================ САМЫЕ УЗКИЕ ЭКРАНЫ ================== */
-/* ======================================================= */
-
 @media (max-width: 360px){
     .program-hero{
         height: 260px;
@@ -539,11 +538,13 @@ main{
         font-size: 14px;
     }
 
-    .program-description > h2{
+    .program-description > h2,
+    .program-description-content h2{
         font-size: 18px;
     }
 
-    .program-description > p{
+    .program-description > p,
+    .program-description-content p{
         font-size: 13px;
     }
 
