@@ -593,3 +593,104 @@ main{
         font-size: 13px;
     }
 }
+
+main .program-description .program-description-title{
+    color: #ffffff !important;
+    font-family: 'Avenir-Bold', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: normal !important;
+    line-height: 1.2 !important;
+}
+
+/* Абзацы в блоке описания */
+main .program-description .program-description-text{
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-family: 'Avenir-Medium', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: normal !important;
+    line-height: 1.75 !important;
+}
+
+/* Отступ между несколькими абзацами описания */
+main .program-description .program-description-text
++ .program-description-text{
+    margin-top: 18px !important;
+}
+
+/* Заголовок в блоке направлений */
+main .program-directions .program-directions-title{
+    color: #ffffff !important;
+    font-family: 'Avenir-Bold', sans-serif !important;
+    font-size: 32px !important;
+    font-weight: normal !important;
+    line-height: 1.2 !important;
+}
+
+/* Текст пунктов в блоке направлений */
+main .program-directions .program-directions-list li{
+    color: rgba(255, 255, 255, 0.96) !important;
+    font-family: 'Avenir-Medium', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+/* Планшеты */
+@media (max-width: 1024px){
+    main .program-description .program-description-title{
+        font-size: 28px !important;
+    }
+}
+
+/* Планшеты и крупные телефоны */
+@media (max-width: 768px){
+    main .program-description .program-description-title{
+        font-size: 24px !important;
+    }
+
+    main .program-description .program-description-text{
+        font-size: 15px !important;
+    }
+
+    main .program-directions .program-directions-title{
+        font-size: 24px !important;
+    }
+
+    main .program-directions .program-directions-list li{
+        font-size: 15px !important;
+    }
+}
+
+/* Телефоны */
+@media (max-width: 480px){
+    main .program-description .program-description-title{
+        font-size: 20px !important;
+    }
+
+    main .program-description .program-description-text{
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+    }
+
+    main .program-directions .program-directions-title{
+        font-size: 20px !important;
+    }
+
+    main .program-directions .program-directions-list li{
+        font-size: 14px !important;
+    }
+}
+
+/* Узкие телефоны */
+@media (max-width: 360px){
+    main .program-description .program-description-title{
+        font-size: 18px !important;
+    }
+
+    main .program-description .program-description-text{
+        font-size: 13px !important;
+    }
+
+    main .program-directions .program-directions-list li{
+        font-size: 13px !important;
+    }
+}
