@@ -1,406 +1,508 @@
-main {
+main{
     overflow-x: hidden;
 }
 
-/* === HERO БЛОК === */
-.program-hero {
+/* ======================================================= */
+/* ====================== HERO БЛОК ====================== */
+/* ======================================================= */
+
+.program-hero{
     position: relative;
     width: 100%;
     height: 500px;
     min-height: 450px;
     overflow: hidden;
+
     background:
-        radial-gradient(120% 80% at 78% 50%,
+        radial-gradient(
+            120% 80% at 78% 50%,
             rgba(255, 255, 255, 0.20) 0%,
             rgba(255, 255, 255, 0.06) 38%,
-            rgba(255, 255, 255, 0) 62%),
+            rgba(255, 255, 255, 0) 62%
+        ),
         linear-gradient(180deg, #0f0f10 0%, #0a0a0a 100%);
 }
 
-.program-hero::before {
+/* Лёгкий верхний свет поверх фоновой фотографии */
+.program-hero::before{
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(140% 100% at 50% 10%,
-        rgba(255, 255, 255, 0.06) 0%,
-        rgba(0, 0, 0, 0.0) 55%);
-    pointer-events: none;
     z-index: 1;
+    pointer-events: none;
+
+    background: radial-gradient(
+        140% 100% at 50% 10%,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(0, 0, 0, 0) 55%
+    );
 }
 
-.program-hero::after {
+/* Затемнение слева для читаемости текста и снизу */
+.program-hero::after{
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
     background:
         linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, transparent 55%),
         linear-gradient(180deg, transparent 75%, #0a0a0a 100%);
-    pointer-events: none;
-    z-index: 1;
 }
 
-.program-hero-photo {
+/* Фотография первого блока */
+.program-hero-photo{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center 10%;
-    z-index: 0;
     filter: brightness(0.55) saturate(1.1);
 }
 
-.program-hero-text {
+/* Текст на первом экране */
+.program-hero-text{
     position: absolute;
     top: 50%;
     left: 6%;
-    transform: translateY(-50%);
+    z-index: 2;
+
     width: 44%;
     max-width: 640px;
-    z-index: 2;
+
     text-align: left;
+    transform: translateY(-50%);
 }
 
-.program-hero-text h1 {
+.program-hero-text h1{
+    margin: 0 0 12px;
+    color: white;
+
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 48px;
-    color: white;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
     line-height: 1.15;
+    letter-spacing: 2px;
+
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
-.program-hero-text p {
+.program-hero-text p{
+    margin: 0;
+    color: rgba(255, 165, 90, 0.95);
+
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 30px;
-    color: rgba(255, 165, 90, 0.95);
+    line-height: 1.2;
     letter-spacing: 3px;
+
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* === ОПИСАНИЕ ПРОГРАММЫ === */
-.program-description {
+/* ======================================================= */
+/* ================= ОПИСАНИЕ ПРОГРАММЫ ================= */
+/* ======================================================= */
+
+.program-description{
     position: relative;
     display: flex;
     align-items: center;
     gap: 60px;
+
     padding: 80px 8%;
-    background: linear-gradient(180deg,
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        180deg,
         #0a0a0a 0%,
         #1a1210 35%,
         rgb(70, 45, 20) 75%,
-        rgb(120, 66, 20) 100%);
-    flex-wrap: wrap;
+        rgb(120, 66, 20) 100%
+    );
 }
 
-.program-description h2 {
+/* Левая часть второго блока: заголовок и текст */
+.program-description-content{
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.program-description-content h2{
+    margin: 0 0 20px;
+    color: white;
+
     font-family: 'Avenir-Bold', sans-serif;
     font-size: 34px;
-    color: white;
-    margin-bottom: 18px;
-    flex-basis: 100%;
+    line-height: 1.2;
 }
 
-.program-description p {
+/* Текст описания остаётся слева под заголовком */
+.program-description-content p{
+    margin: 0;
+    color: rgba(240, 235, 230, 0.9);
+
     font-family: 'Avenir-Medium', sans-serif;
     font-size: 17px;
     line-height: 1.75;
-    color: rgba(240, 235, 230, 0.9);
-    flex: 1 1 420px;
-    min-width: 280px;
 }
 
-.program-description img {
-    flex: 1 1 380px;
-    max-width: 480px;
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 15px 90px rgba(0, 0, 0, 0.4);
+/* Правая часть второго блока: фотография */
+.program-description-photo{
+    flex: 0 1 480px;
+    width: min(42%, 480px);
+    min-width: 320px;
+    aspect-ratio: 4 / 3;
+    display: block;
+
     object-fit: cover;
+
+    border-radius: 28px;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+    filter: brightness(0.94);
+
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* === НАПРАВЛЕНИЯ СЕЛЕКЦИИ === */
-.program-directions {
+.program-description-photo:hover{
+    filter: brightness(1);
+    transform: scale(1.02);
+}
+
+/* ======================================================= */
+/* ================= НАПРАВЛЕНИЯ СЕЛЕКЦИИ ================ */
+/* ======================================================= */
+
+.program-directions{
     position: relative;
-    padding: 90px 8%;
-    background: linear-gradient(180deg,
-        rgb(120, 66, 20) 0%,
-        rgb(223, 93, 5) 100%);
-    overflow: hidden;
     min-height: 420px;
+    overflow: hidden;
+
+    padding: 90px 8%;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        180deg,
+        rgb(120, 66, 20) 0%,
+        rgb(223, 93, 5) 100%
+    );
 }
 
-.program-directions h2 {
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 32px;
-    color: white;
-    margin-bottom: 8px;
+.program-directions-content{
     position: relative;
     z-index: 2;
+    max-width: 760px;
+}
+
+.program-directions h2{
+    margin: 0 0 8px;
+    color: white;
+
+    font-family: 'Avenir-Bold', sans-serif;
+    font-size: 32px;
+    line-height: 1.2;
     letter-spacing: 0.5px;
 }
 
-.program-directions h2::after {
+.program-directions h2::after{
     content: "";
     display: block;
+
     width: 60px;
     height: 3px;
-    background: rgba(255, 255, 255, 0.6);
     margin-top: 16px;
     margin-bottom: 32px;
+
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
 }
 
-.program-directions-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.program-directions-list{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 20px;
+
     max-width: 760px;
-    position: relative;
-    z-index: 2;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
-.program-directions-list li {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.95);
-    padding-left: 34px;
+.program-directions-list li{
     position: relative;
-    line-height: 1.5;
     display: flex;
     align-items: flex-start;
+
+    padding-left: 34px;
+
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Avenir-Medium', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-.program-directions-list li::before {
+.program-directions-list li::before{
     content: "🌾";
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+
     font-size: 18px;
     line-height: 1.5;
 }
 
-.program-directions img {
+/* Фотография справа в третьем блоке */
+.program-directions-photo{
     position: absolute;
-    right: 8%;
     top: 50%;
-    transform: translateY(-50%);
-    height: 65%;
-    width: 30%;
-    object-fit: cover;
-    border-radius: 16px;
-    filter: brightness(0.8);
+    right: 8%;
     z-index: 1;
+
+    width: 30%;
+    height: 65%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 16px;
     box-shadow: 0 20px 90px rgba(0, 0, 0, 0.35);
+    filter: brightness(0.8);
+
+    transform: translateY(-50%);
 }
 
-.footer {
-    background: linear-gradient(180deg,
+/* ======================================================= */
+/* ======================== FOOTER ======================= */
+/* ======================================================= */
+
+.footer{
+    background: linear-gradient(
+        180deg,
         rgb(223, 93, 5) 0%,
         rgb(150, 65, 15) 40%,
-        rgb(73, 77, 78) 100%);
+        rgb(73, 77, 78) 100%
+    );
 }
 
 /* ======================================================= */
-/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
+/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ: до 1024px ======= */
 /* ======================================================= */
-@media (max-width: 1024px) {
-    .program-hero {
+
+@media (max-width: 1024px){
+    .program-hero{
         height: 440px;
     }
 
-    .program-hero-text {
+    .program-hero-text{
         width: 55%;
     }
 
-    .program-hero-text h1 {
+    .program-hero-text h1{
         font-size: 40px;
     }
 
-    .program-hero-text p {
+    .program-hero-text p{
         font-size: 26px;
     }
 
-    .program-description {
-        padding: 60px 6%;
+    .program-description{
         gap: 40px;
+        padding: 60px 6%;
     }
 
-    .program-description h2 {
+    .program-description-content h2{
         font-size: 28px;
     }
 
-    .program-directions {
+    .program-description-photo{
+        min-width: 280px;
+        border-radius: 22px;
+    }
+
+    .program-directions{
         padding: 70px 6%;
     }
 
-    .program-directions img {
-        width: 34%;
+    .program-directions-photo{
         right: 5%;
+        width: 34%;
     }
 }
 
 /* ======================================================= */
-/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ВЕРТИКАЛЬНЫЕ ПЛАНШЕТЫ ======= */
 /* ======================================================= */
-@media (max-width: 768px) {
-    .program-hero {
+
+@media (max-width: 768px){
+    .program-hero{
         height: 380px;
     }
 
-    .program-hero-text {
-        width: 80%;
+    .program-hero-text{
         left: 5%;
+        width: 80%;
     }
 
-    .program-hero-text h1 {
+    .program-hero-text h1{
         font-size: 30px;
         letter-spacing: 1px;
     }
 
-    .program-hero-text p {
+    .program-hero-text p{
         font-size: 20px;
         letter-spacing: 1.5px;
     }
 
-    .program-description {
+    /* На телефоне текст сверху, фотография снизу */
+    .program-description{
         flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+
         padding: 50px 6%;
         text-align: left;
-        gap: 30px;
     }
 
-    .program-description h2 {
+    .program-description-content h2{
         font-size: 24px;
     }
 
-    .program-description p {
+    .program-description-content p{
         font-size: 15px;
     }
 
-    .program-description img {
-        max-width: 100%;
+    .program-description-photo{
+        width: 100%;
+        min-width: 0;
+        max-width: 620px;
         height: 260px;
+        margin: 0 auto;
+        aspect-ratio: auto;
+
+        border-radius: 20px;
     }
 
-    .program-directions {
-        padding: 50px 6% 60px;
+    .program-directions{
         min-height: auto;
+        padding: 50px 6% 60px;
     }
 
-    .program-directions h2 {
+    .program-directions h2{
         font-size: 24px;
     }
 
-    .program-directions img {
+    .program-directions-photo{
         display: none;
     }
 
-    .program-directions-list {
+    .program-directions-list{
         grid-template-columns: 1fr;
         max-width: 100%;
         gap: 16px;
     }
 
-    .program-directions-list li {
+    .program-directions-list li{
         font-size: 15px;
     }
 }
 
 /* ======================================================= */
-/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ================= ТЕЛЕФОНЫ: до 480px ================= */
 /* ======================================================= */
-@media (max-width: 480px) {
-    .program-hero {
+
+@media (max-width: 480px){
+    .program-hero{
         height: 300px;
     }
 
-    .program-hero-text {
-        width: 90%;
+    .program-hero-text{
         left: 5%;
+        width: 90%;
     }
 
-    .program-hero-text h1 {
-        font-size: 22px;
+    .program-hero-text h1{
         margin-bottom: 8px;
+        font-size: 22px;
     }
 
-    .program-hero-text p {
+    .program-hero-text p{
         font-size: 16px;
         letter-spacing: 1px;
     }
 
-    .program-description {
-        padding: 35px 5%;
+    .program-description{
         gap: 22px;
+        padding: 35px 5%;
     }
 
-    .program-description h2 {
+    .program-description-content h2{
         font-size: 20px;
     }
 
-    .program-description p {
+    .program-description-content p{
         font-size: 14px;
         line-height: 1.6;
     }
 
-    .program-description img {
+    .program-description-photo{
         height: 200px;
         border-radius: 14px;
     }
 
-    .program-directions {
+    .program-directions{
         padding: 35px 5% 45px;
     }
 
-    .program-directions h2 {
+    .program-directions h2{
         font-size: 20px;
     }
 
-    .program-directions h2::after {
+    .program-directions h2::after{
         width: 40px;
         margin-bottom: 22px;
     }
 
-    .program-directions-list li {
-        font-size: 14px;
+    .program-directions-list li{
         padding-left: 28px;
+        font-size: 14px;
     }
 
-    .program-directions-list li::before {
+    .program-directions-list li::before{
         font-size: 15px;
     }
 }
 
 /* ======================================================= */
-/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
+/* ================ САМЫЕ УЗКИЕ ЭКРАНЫ ================== */
 /* ======================================================= */
-@media (max-width: 360px) {
-    .program-hero {
+
+@media (max-width: 360px){
+    .program-hero{
         height: 260px;
     }
 
-    .program-hero-text h1 {
+    .program-hero-text h1{
         font-size: 18px;
     }
 
-    .program-hero-text p {
+    .program-hero-text p{
         font-size: 14px;
     }
 
-    .program-description h2 {
+    .program-description-content h2{
         font-size: 18px;
     }
 
-    .program-description p {
+    .program-description-content p{
         font-size: 13px;
     }
 
-    .program-directions-list li {
+    .program-directions-list li{
         font-size: 13px;
     }
 }
