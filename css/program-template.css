@@ -104,31 +104,30 @@ main{
 /* ======================================================= */
 
 /*
-  Поддерживает два варианта HTML:
+  Универсальная вторая секция.
 
-  Старый вариант:
+  Работает со старым HTML:
   <section class="program-description">
-      <h2>...</h2>
-      <p>...</p>
-      <p>...</p>
-      <img ...>
+      <h2>Заголовок</h2>
+      <p>Первый абзац</p>
+      <p>Второй абзац</p>
+      <img src="...">
   </section>
 
-  Новый вариант:
+  И с новым HTML:
   <section class="program-description">
       <div class="program-description-content">
-          <h2>...</h2>
-          <p>...</p>
+          <h2>Заголовок</h2>
+          <p>Текст</p>
       </div>
-      <img class="program-description-photo" ...>
+      <img class="program-description-photo" src="...">
   </section>
 */
 .program-description{
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 480px);
-    grid-auto-rows: min-content;
-    column-gap: 60px;
-    row-gap: 18px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 60px;
 
     padding: 80px 8%;
     box-sizing: border-box;
@@ -143,49 +142,57 @@ main{
 }
 
 /* ------------------------------------------------------- */
-/* НОВЫЙ HTML: общий контейнер текста слева                */
+/* НОВЫЙ HTML: обёртка с заголовком и текстом              */
 /* ------------------------------------------------------- */
 
 .program-description-content{
-    grid-column: 1;
-    grid-row: 1;
-    align-self: center;
-    min-width: 0;
+    flex: 1 1 420px;
+    min-width: 280px;
 }
 
 /* ------------------------------------------------------- */
-/* СТАРЫЙ HTML: заголовок и каждый абзац идут друг за другом */
+/* СТАРЫЙ HTML: h2 и абзацы находятся слева                */
 /* ------------------------------------------------------- */
 
-/* Заголовок всегда слева */
+/*
+  Заголовок занимает всю левую колонку.
+  Фото справа занимает место начиная с верхней части блока.
+*/
 .program-description > h2{
-    grid-column: 1;
-    margin: 0;
+    flex: 1 1 calc(100% - 540px);
+    min-width: 280px;
+    margin: 0 0 18px;
 }
 
 /*
-  Каждый абзац автоматически занимает следующую доступную строку.
-  Никаких фиксированных grid-row — поэтому абзацы не налезают.
+  Каждый абзац идёт нормальным потоком под заголовком.
+  Ничего не накладывается даже при 2, 3 или 10 абзацах.
 */
 .program-description > p{
-    grid-column: 1;
-    margin: 0;
+    flex: 1 1 calc(100% - 540px);
+    min-width: 280px;
+    margin: 0 0 16px;
+}
+
+/*
+  Убираем лишний отступ после последнего абзаца
+  перед фото или перед низом секции.
+*/
+.program-description > p:nth-last-child(2){
+    margin-bottom: 0;
 }
 
 /* ------------------------------------------------------- */
-/* Фото всегда справа                                      */
+/* Фото справа                                              */
 /* ------------------------------------------------------- */
 
 .program-description > img,
 .program-description-photo{
-    grid-column: 2;
-    grid-row: 1 / -1;
-    align-self: center;
-
-    display: block;
+    flex: 0 1 480px;
     width: 100%;
     max-width: 480px;
-    min-height: 280px;
+    min-width: 280px;
+    max-height: 360px;
     aspect-ratio: 4 / 3;
 
     object-fit: cover;
@@ -198,10 +205,25 @@ main{
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* Заголовок: подходит обоим HTML-вариантам */
+/*
+  Старый HTML: фотография визуально закрепляется справа
+  и не создаёт огромные отступы между текстом.
+*/
+.program-description > h2 + p + img,
+.program-description > h2 + p + p + img,
+.program-description > h2 + p + p + p + img{
+    margin-left: auto;
+}
+
+.program-description > img:hover,
+.program-description-photo:hover{
+    filter: brightness(1);
+    transform: scale(1.02);
+}
+
+/* Заголовок: одинаковый стиль в обоих вариантах HTML */
 .program-description > h2,
 .program-description-content h2{
-    margin: 0 0 18px;
     color: white;
 
     font-family: 'Avenir-Bold', sans-serif;
@@ -209,10 +231,9 @@ main{
     line-height: 1.2;
 }
 
-/* Абзацы: подходит обоим HTML-вариантам */
+/* Текст: одинаковый стиль в обоих вариантах */
 .program-description > p,
 .program-description-content p{
-    margin: 0;
     color: rgba(240, 235, 230, 0.9);
 
     font-family: 'Avenir-Medium', sans-serif;
@@ -220,19 +241,16 @@ main{
     line-height: 1.75;
 }
 
-/*
-  Если у старого HTML несколько абзацев, между ними будет
-  небольшой, но заметный отступ.
-*/
-.program-description > p + p,
-.program-description-content p + p{
-    margin-top: 16px;
+.program-description-content h2{
+    margin: 0 0 18px;
 }
 
-.program-description > img:hover,
-.program-description-photo:hover{
-    filter: brightness(1);
-    transform: scale(1.02);
+.program-description-content p{
+    margin: 0;
+}
+
+.program-description-content p + p{
+    margin-top: 16px;
 }
 
 /* ======================================================= */
@@ -254,14 +272,12 @@ main{
     );
 }
 
-/* Новый HTML: контейнер текста и списка */
 .program-directions-content{
     position: relative;
     z-index: 2;
     max-width: 760px;
 }
 
-/* Старый HTML: заголовок и список напрямую в section */
 .program-directions > h2,
 .program-directions > .program-directions-list{
     position: relative;
@@ -327,7 +343,6 @@ main{
     line-height: 1.5;
 }
 
-/* Фотография справа: старый и новый HTML */
 .program-directions > img,
 .program-directions-photo{
     position: absolute;
@@ -383,8 +398,7 @@ main{
     }
 
     .program-description{
-        grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
-        column-gap: 40px;
+        gap: 0 40px;
         padding: 60px 6%;
     }
 
@@ -395,7 +409,8 @@ main{
 
     .program-description > img,
     .program-description-photo{
-        min-height: 240px;
+        flex-basis: 400px;
+        min-width: 260px;
         border-radius: 22px;
     }
 
@@ -434,10 +449,6 @@ main{
         letter-spacing: 1.5px;
     }
 
-    /*
-      На телефоне все элементы описания идут вертикально.
-      Это работает и с одним, и с несколькими абзацами.
-    */
     .program-description{
         display: flex;
         flex-direction: column;
@@ -449,32 +460,30 @@ main{
     }
 
     .program-description-content{
-        display: block;
+        min-width: 0;
     }
 
     .program-description > h2,
     .program-description-content h2{
-        margin-bottom: 0;
+        margin: 0;
         font-size: 24px;
     }
 
     .program-description > p,
     .program-description-content p{
+        min-width: 0;
+        margin: 0;
         font-size: 15px;
-    }
-
-    .program-description > p + p,
-    .program-description-content p + p{
-        margin-top: -8px;
     }
 
     .program-description > img,
     .program-description-photo{
         width: 100%;
-        min-width: 0;
         max-width: 620px;
+        min-width: 0;
         height: 260px;
         min-height: 0;
+        max-height: none;
         margin: 8px auto 0;
         aspect-ratio: auto;
 
@@ -544,11 +553,6 @@ main{
     .program-description-content p{
         font-size: 14px;
         line-height: 1.6;
-    }
-
-    .program-description > p + p,
-    .program-description-content p + p{
-        margin-top: -6px;
     }
 
     .program-description > img,
