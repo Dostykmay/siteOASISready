@@ -5,8 +5,8 @@
 .index-main-block{
     position: relative;
     width: 100%;
-    height: 550px;
-    overflow: hidden;
+    height: 700px;    
+    overflow: visible;
 }
 
 .index-main-block::before{
@@ -107,62 +107,59 @@
 
 .index-main-block-partners{
     position: absolute;
-    bottom: 26px;
+    bottom: 34px;
     left: 50%;
-    z-index: 4;
+    z-index: 10;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
 
     width: 100%;
-    padding: 0 20px;
+    padding: 0 40px;
     box-sizing: border-box;
 
     transform: translateX(-50%);
 }
 
-/* Один небольшой логотип */
 .index-main-block-partners img{
     display: block;
 
-    width: 105px;
-    height: 54px;
+    width: 210px;
+    height: 110px;
 
     object-fit: contain;
     object-position: center;
 
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65));
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.70));
     opacity: 1;
 
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.index-main-block-partners img:nth-child(2){
-    padding: 1px 10px;
+/* .index-main-block-partners img:nth-child(2){
+    padding: 0px 0px;
     box-sizing: content-box;
 
     background: rgba(255, 255, 255, 0.86);
     border: 0.5px solid rgba(255, 255, 255, 0.96);
-    border-radius: 12px;
+    border-radius: 16px;
 
     box-shadow:
         0 3px 14px rgba(0, 0, 0, 0.38),
         0 0 20px rgba(255, 255, 255, 0.30);
 
-    /*
-        Размывает то, что находится ЗА полупрозрачной
-        плашкой. На браузерах без поддержки backdrop-filter
-        просто останется обычный белый полупрозрачный фон.
-    */
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
-}
+} */
 
 /* Небольшая анимация при наведении */
 @media (hover: hover){
     .index-main-block-partners img:hover{
+        position: relative;
+        z-index: 20;
+
         opacity: 1;
         transform: translateY(-4px) scale(2);
     }
@@ -213,6 +210,7 @@
 
 .index-essence-company{
     position: relative;
+    z-index: 1;
 
     display: flex;
     align-items: center;
@@ -225,7 +223,7 @@
     background: linear-gradient(
         180deg,
         rgb(30, 32, 33) 0%,
-        rgb(55, 58, 59) 15%
+        rgb(55, 58, 59) 100%
     );
 }
 
