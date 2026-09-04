@@ -628,3 +628,84 @@
         height: 250px;
     }
 }
+
+/* для телефонов новое */
+/* ======================================================= */
+/* =========== АДАПТАЦИЯ ТРЁХ ЛОГОТИПОВ ДЛЯ ЭКРАНОВ ====== */
+/* ======================================================= */
+
+/* Планшеты и небольшие ноутбуки */
+@media (max-width: 1024px){
+    .index-main-block-partners{
+        bottom: 24px;
+        gap: 28px;
+        padding: 0 24px;
+    }
+
+    .index-main-block-partners img{
+        width: 130px;
+        height: 68px;
+    }
+
+    /* Второй логотип сохраняет форму овала */
+    .index-main-block-partners img:nth-child(2){
+        width: 120px;
+        height: 58px;
+
+        border-radius: 50%;
+        clip-path: ellipse(50% 50% at 50% 50%);
+    }
+}
+
+/* Телефоны */
+@media (max-width: 768px){
+    .index-main-block-partners{
+        bottom: 18px;
+        gap: 12px;
+        padding: 0 12px;
+    }
+
+    .index-main-block-partners img{
+        width: 88px;
+        height: 46px;
+    }
+
+    /* Второй логотип-овал тоже уменьшаем */
+    .index-main-block-partners img:nth-child(2){
+        width: 80px;
+        height: 40px;
+
+        border-radius: 50%;
+        clip-path: ellipse(50% 50% at 50% 50%);
+    }
+
+    /*
+        На телефоне не увеличиваем логотипы в два раза:
+        иначе они выходят за экран и перекрывают контент.
+    */
+    .index-main-block-partners img:hover{
+        transform: translateY(-3px) scale(1.12);
+    }
+}
+
+/* Узкие телефоны */
+@media (max-width: 400px){
+    .index-main-block-partners{
+        bottom: 14px;
+        gap: 6px;
+        padding: 0 8px;
+    }
+
+    .index-main-block-partners img{
+        width: 65px;
+        height: 34px;
+    }
+
+    .index-main-block-partners img:nth-child(2){
+        width: 60px;
+        height: 30px;
+
+        border-radius: 50%;
+        clip-path: ellipse(50% 50% at 50% 50%);
+    }
+}
