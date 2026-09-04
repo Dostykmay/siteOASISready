@@ -101,6 +101,111 @@
     font-family: 'Avenir-Light';
     font-size: 20px;
 }
+/* ======================================================= */
+/* ============ ЛОГОТИПЫ ВНИЗУ ПЕРВОГО БЛОКА ============ */
+/* ======================================================= */
+
+.index-main-block-partners{
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    transform: translateX(-50%);
+}
+
+/* Один небольшой логотип */
+.index-main-block-partners img{
+    display: block;
+
+    width: 105px;
+    height: 54px;
+
+    object-fit: contain;
+    object-position: center;
+
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65));
+    opacity: 1;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.index-main-block-partners img:nth-child(2){
+    padding: 1px 10px;
+    box-sizing: content-box;
+
+    background: rgba(255, 255, 255, 0.86);
+    border: 0.5px solid rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 14px rgba(0, 0, 0, 0.38),
+        0 0 20px rgba(255, 255, 255, 0.30);
+
+    /*
+        Размывает то, что находится ЗА полупрозрачной
+        плашкой. На браузерах без поддержки backdrop-filter
+        просто останется обычный белый полупрозрачный фон.
+    */
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+/* Небольшая анимация при наведении */
+@media (hover: hover){
+    .index-main-block-partners img:hover{
+        opacity: 1;
+        transform: translateY(-4px) scale(2);
+    }
+}
+
+/* Планшеты */
+@media (max-width: 1024px){
+    .index-main-block-partners{
+        bottom: 20px;
+        gap: 16px;
+    }
+
+    .index-main-block-partners img{
+        width: 88px;
+        height: 46px;
+    }
+}
+
+/* Телефоны */
+@media (max-width: 768px){
+    .index-main-block-partners{
+        bottom: 16px;
+        gap: 10px;
+    }
+
+    .index-main-block-partners img{
+        width: 68px;
+        height: 36px;
+    }
+}
+
+/* Очень узкие телефоны */
+@media (max-width: 400px){
+    .index-main-block-partners{
+        bottom: 12px;
+        gap: 6px;
+    }
+
+    .index-main-block-partners img{
+        width: 56px;
+        height: 30px;
+    }
+}
 
 /* ======================================================= */
 /* ================= БЛОК О КОМПАНИИ ==================== */
@@ -197,7 +302,7 @@
 }
 
 .index-photo-item:hover{
-    transform: scale(1.03);
+    transform: scale(1.25);
     box-shadow: 0 12px 28px rgba(223, 93, 5, 0.45);
 }
 
