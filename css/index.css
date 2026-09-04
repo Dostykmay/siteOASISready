@@ -1,9 +1,12 @@
-/* ===ГЛАВНЫЙ БЛОК=== */
+/* ======================================================= */
+/* =================== ГЛАВНЫЙ БЛОК ===================== */
+/* ======================================================= */
+
 .index-main-block{
-    height: 550px;
-    width: 100%;
-    overflow: hidden;
     position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
 }
 
 .index-main-block::before{
@@ -11,114 +14,132 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
+
     width: 100%;
     height: 100%;
+
     background: linear-gradient(
         180deg,
         rgba(223, 93, 5, 0.85) 0%,
         rgba(223, 93, 5, 0.4) 25%,
         rgba(213, 217, 220, 0) 60%
     );
-    z-index: 1;
 }
 
 .index-main-block-fon{
-    object-fit: cover;
+    display: block;
+
     width: 100%;
     height: 100%;
-    display: block;
+
+    object-fit: cover;
     filter: brightness(0.3);
 }
 
 .index-main-block::after{
-    /* content необходим чтобы after вообще появился */
     content: "";
-
-    /* чтобы позиционирование было относительно родителя */
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 1;
+
     width: 100%;
     height: 200px;
 
-    /* 1 - угол 2 - первый цвет 3 - второй цвет */
-    background: linear-gradient(to bottom, transparent, rgb(30,32,33));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(30, 32, 33)
+    );
+
     filter: brightness(0.8);
 }
 
 .index-main-block-logo{
     position: absolute;
-    z-index: 3;
     top: 30%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    object-fit: cover;
+    z-index: 3;
+
     height: 200px;
+
+    object-fit: cover;
     filter: brightness(0.8);
+
+    transform: translate(-50%, -50%);
 }
 
 .index-main-block-text{
     position: absolute;
     top: 60%;
     left: 51%;
-    transform: translate(-50%, -50%);
     z-index: 3;
+
     height: 400px;
     margin-top: 100px;
+
     text-align: center;
+
+    transform: translate(-50%, -50%);
 }
 
 .index-main-block-text h1{
+    margin-bottom: 0;
+    padding: 0;
+
+    color: white;
     font-family: 'Avenir-Bold';
     font-size: 100px;
-    color: white;
-    padding: 0;
-    margin-bottom: 0px;
-
-    /* интервал между буквами */
     letter-spacing: 10px;
 }
 
 .index-main-block-text p{
+    margin-top: 0;
+
+    color: rgba(255, 255, 255, 0.85);
     font-family: 'Avenir-Light';
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.85);
-    margin-top: 0px;
 }
 
-/* ===БЛОК О КОМПАНИИ=== */
-.index-essence-company{
-    display: flex;
-    gap: 90px;
-    align-items: center;
-    padding: 60px 70px;
-    width: 100%;
+/* ======================================================= */
+/* ================= БЛОК О КОМПАНИИ ==================== */
+/* ======================================================= */
 
-    /* % показывает в какой точке цвет дб достигнут на 100% */
+.index-essence-company{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 90px;
+
+    width: 100%;
+    padding: 60px 70px;
+    box-sizing: border-box;
+
     background: linear-gradient(
         180deg,
-        rgb(30,32,33) 0%,
+        rgb(30, 32, 33) 0%,
         rgb(55, 58, 59) 15%
     );
-    position: relative;
 }
 
 .index-essence-company p{
     display: inline-block;
+
     max-width: 800px;
-    font-size: 42px;
-    font-family: 'Avenir-Light';
+
     color: rgb(210, 202, 202);
+    font-family: 'Avenir-Light';
+    font-size: 42px;
 }
 
-/* тут сделать размытие у краев */
 .index-essence-company img{
-    object-fit: cover;
     width: 450px;
     height: 450px;
-    border-radius: 10px;
 
-    /* box-shadow: inset 0px 0px 40px 40px #DBA632; */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* ======================================================= */
@@ -146,23 +167,24 @@
 
 .index-photo-container h2{
     margin: 0 0 30px;
-    color: rgb(255, 255, 255);
 
+    color: rgb(255, 255, 255);
     font-family: 'Avenir-Medium';
     font-size: 36px;
     text-align: center;
 }
 
-/* На ПК: ровно 3 увеличенные фотографии в ряд */
+/* ПК: 3 колонки, после раскрытия 15 фото = 5 строк по 3 */
 .index-photo-grid{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 26px;
 
+    width: 100%;
     margin-bottom: 40px;
 }
 
-/* Одна крупная карточка фотографии */
+/* Размер одной крупной фотографии */
 .index-photo-item{
     width: 100%;
     height: 330px;
@@ -195,45 +217,33 @@
     transform: scale(1.05);
 }
 
-/* Checkbox скрыт, он нужен только для логики показа фото */
+/* Checkbox невидим, но связан с кнопкой через label */
 .show-more-checkbox{
-    display: none;
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    opacity: 0;
+    pointer-events: none;
 }
 
-/* Фото с классом extra скрыты, пока не нажат checkbox */
+/* Фото 7–15 скрыты, пока пользователь не нажал кнопку */
 .index-photo-item-extra{
     display: none;
 }
 
-/* После нажатия кнопки показываем фотографии 7–15 */
+/* После клика показываем оставшиеся девять фотографий */
 .show-more-checkbox:checked
 ~ .index-photo-grid
 .index-photo-item-extra{
     display: block;
 }
 
-/* После клика прячем исходный текст кнопки */
-.show-more-checkbox:checked
-~ .index-photo-button
-.index-photo-button-text{
-    display: none;
-}
-
-/* И показываем другой текст */
-.show-more-checkbox:checked
-~ .index-photo-button::after{
-    content: "Скрыть";
-
-    font-family: 'Avenir-Medium';
-    font-size: 18px;
-}
-
-/* При раскрытии поворачиваем стрелку */
-.show-more-checkbox:checked
-~ .index-photo-button
-.index-photo-button-arrow{
-    transform: rotate(90deg);
-}
+/* ======================================================= */
+/* =================== КНОПКА ГАЛЕРЕИ =================== */
+/* ======================================================= */
 
 .index-photo-button{
     width: fit-content;
@@ -272,6 +282,29 @@
     border-color: rgb(233, 93, 5);
 }
 
+/* По умолчанию отображается «Показать ещё» */
+.index-photo-button-show{
+    display: inline;
+}
+
+/* По умолчанию «Скрыть» не отображается */
+.index-photo-button-hide{
+    display: none;
+}
+
+/* После клика показывается «Скрыть» */
+.show-more-checkbox:checked
+~ .index-photo-button
+.index-photo-button-show{
+    display: none;
+}
+
+.show-more-checkbox:checked
+~ .index-photo-button
+.index-photo-button-hide{
+    display: inline;
+}
+
 .index-photo-button-arrow{
     font-size: 24px;
     line-height: 1;
@@ -281,6 +314,13 @@
 
 .index-photo-button:hover .index-photo-button-arrow{
     transform: translateX(5px);
+}
+
+/* При раскрытой галерее стрелка разворачивается */
+.show-more-checkbox:checked
+~ .index-photo-button
+.index-photo-button-arrow{
+    transform: rotate(90deg);
 }
 
 .show-more-checkbox:checked
@@ -326,19 +366,19 @@
         height: 320px;
     }
 
-    /* На планшете: 2 фото в ряд */
+    /* До 1024px: всё ещё 3 фото в ряд */
     .index-photo-grid{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
     }
 
     .index-photo-item{
-        height: 300px;
+        height: 250px;
     }
 }
 
 /* ======================================================= */
-/* ====================== МОБИЛЬНЫЕ ====================== */
+/* ====================== ТЕЛЕФОНЫ ======================= */
 /* ======================================================= */
 
 @media (max-width: 768px){
@@ -348,12 +388,13 @@
     }
 
     .index-main-block-logo{
-        height: 100px;
         top: 25%;
+        height: 100px;
     }
 
     .index-main-block-text{
         top: 65%;
+
         width: 90%;
         height: auto;
         margin-top: 0;
@@ -372,7 +413,9 @@
     .index-essence-company{
         flex-direction: column;
         gap: 25px;
+
         padding: 40px 20px;
+
         text-align: center;
     }
 
@@ -395,15 +438,17 @@
         font-size: 26px;
     }
 
-    /* На телефоне: 2 фото в ряд */
+    /* На телефонах — 2 фото в строке */
     .index-photo-grid{
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
+
         margin-bottom: 25px;
     }
 
     .index-photo-item{
         height: 210px;
+
         border-radius: 14px;
     }
 
@@ -440,7 +485,7 @@
         font-size: 17px;
     }
 
-    /* На очень узком экране: одно фото в ряд */
+    /* На узком телефоне — одно фото в строке */
     .index-photo-grid{
         grid-template-columns: 1fr;
     }

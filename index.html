@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Описание сайта O.A.S.I.S"> 
+
+    <meta
+        name="description"
+        content="Описание сайта O.A.S.I.S">
+
     <title>O.A.S.I.S - корпоративный сайт</title>
 
     <link rel="stylesheet" href="css/base.css">
@@ -28,16 +32,19 @@
     <div id="header-placeholder"></div>
 
     <main>
+        <!-- ============================================== -->
+        <!-- ГЛАВНЫЙ БЛОК                                  -->
+        <!-- ============================================== -->
         <section class="index-main-block">
             <img
                 class="index-main-block-fon"
                 src="resource/resource/fon/panorama_base.webp"
-                alt="маскот_видео">
+                alt="Маскот О.А.З.И.С">
 
             <img
                 class="index-main-block-logo"
                 src="resource/resource/logo.png"
-                alt="логотип">
+                alt="Логотип О.А.З.И.С">
 
             <div class="index-main-block-text">
                 <h1>О.А.З.И.С</h1>
@@ -45,6 +52,9 @@
             </div>
         </section>
 
+        <!-- ============================================== -->
+        <!-- БЛОК О КОМПАНИИ                               -->
+        <!-- ============================================== -->
         <section class="index-essence-company">
             <p>
                 О.А.З.И.С — это не просто селекционно-семеноводческая компания.
@@ -55,24 +65,24 @@
 
             <img
                 src="resource/resource/dragon1.webp"
-                alt="маскот_вертушка">
+                alt="Маскот О.А.З.И.С">
         </section>
 
-        <!-- ================================================== -->
-        <!-- ГАЛЕРЕЯ: НАША БАЗА                                -->
-        <!-- ================================================== -->
+        <!-- ============================================== -->
+        <!-- ГАЛЕРЕЯ: НАША БАЗА                            -->
+        <!-- ============================================== -->
         <section class="index-photo">
             <div class="index-photo-container">
                 <h2>Наша база</h2>
 
-                <!-- Checkbox управляет показом фото 7–15 -->
+                <!-- Checkbox отвечает за показ фото 7–15 -->
                 <input
                     type="checkbox"
                     id="show-more-photos"
                     class="show-more-checkbox">
 
                 <div class="index-photo-grid" id="galleryGrid">
-                    <!-- Видны сразу: первые 6 фото, две строки по 3 -->
+                    <!-- Первые 6 фото видны сразу: две строки по 3 -->
                     <div class="index-photo-item">
                         <img
                             src="resource/resource/pole/pole1-converted.webp"
@@ -121,7 +131,7 @@
                             decoding="async">
                     </div>
 
-                    <!-- Скрыты до нажатия «Показать ещё» -->
+                    <!-- Фото 7–15 открываются кнопкой -->
                     <div class="index-photo-item index-photo-item-extra">
                         <img
                             src="resource/resource/pole/pole7-converted.webp"
@@ -195,9 +205,16 @@
                     </div>
                 </div>
 
-                <label for="show-more-photos" class="index-photo-button">
-                    <span class="index-photo-button-text">
+                <label
+                    for="show-more-photos"
+                    class="index-photo-button">
+
+                    <span class="index-photo-button-text index-photo-button-show">
                         Показать ещё
+                    </span>
+
+                    <span class="index-photo-button-text index-photo-button-hide">
+                        Скрыть
                     </span>
 
                     <span
