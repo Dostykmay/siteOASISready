@@ -138,6 +138,11 @@
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+/* Второй логотип — овальная форма */
+.index-main-block-partners img:nth-child(2){
+    border-radius: 50%;
+}
+
 /* .index-main-block-partners img:nth-child(2){
     padding: 0px 0px;
     box-sizing: content-box;
