@@ -201,7 +201,6 @@
     border-color: rgba(223, 93, 5, 0.55);
     background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4);
-    transform: translateY(-10px) scale(1.02);
 }
 
 /* ==================== ЛОГОТИПЫ ==================== */
@@ -520,5 +519,130 @@
     .partner-card,
     .partner-card-logo img{
         transition: none;
+    }
+}
+
+/* ======================================================= */
+/* == УВЕЛИЧЕНИЕ ЛОГОТИПА + СКРЫТИЕ ФОНА КАРТОЧКИ ======= */
+/* ======================================================= */
+
+@media (hover: hover) and (min-width: 1025px){
+
+    /*
+        Логотип может выйти за границы своей карточки.
+        Исходная карточка остаётся под курсором и удерживает hover.
+    */
+    .partners-grid,
+    .partner-card,
+    .partner-card-logo{
+        overflow: visible;
+    }
+
+    /*
+        Контейнер логотипа — основа для масштабирования
+        и для оранжевого свечения позади него.
+    */
+    .partner-card-logo{
+        position: relative;
+        z-index: 2;
+
+        transform-origin: center;
+
+        transition:
+            transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+            filter 0.35s ease;
+    }
+
+    /*
+        Свечение скрыто в обычном состоянии.
+        Оно находится за изображением, но выше страницы.
+    */
+    .partner-card-logo::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+
+        width: 72%;
+        height: 72%;
+
+        opacity: 0;
+        pointer-events: none;
+
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(255, 139, 27, 0.80) 0%,
+            rgba(223, 93, 5, 0.45) 38%,
+            rgba(223, 93, 5, 0) 72%
+        );
+
+        filter: blur(16px);
+
+        transform: translate(-50%, -50%) scale(0.6);
+
+        transition:
+            opacity 0.45s ease,
+            transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    /*
+        Исходная карточка визуально исчезает.
+        display: none и visibility: hidden не используем:
+        иначе сразу перестанет работать :hover.
+    */
+    .partner-card:hover{
+        z-index: 100;
+
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    /*
+        Убираем блик карточки, чтобы ничего не осталось
+        позади увеличенного логотипа.
+    */
+    .partner-card:hover::before{
+        opacity: 0;
+    }
+
+    /*
+        Название компании становится прозрачным.
+        Его место в документе сохраняется — hover стабилен.
+    */
+    .partner-card:hover .partner-card-name{
+        opacity: 0;
+        color: transparent;
+    }
+
+    /*
+        Увеличивается только логотипный блок.
+    */
+    .partner-card:hover .partner-card-logo{
+        z-index: 10;
+
+        filter: brightness(1.12);
+
+        transform: scale(2);
+    }
+
+    /*
+        При увеличении проявляется подсветка.
+    */
+    .partner-card:hover .partner-card-logo::after{
+        opacity: 1;
+
+        transform: translate(-50%, -50%) scale(2.3);
+    }
+
+    /*
+        Убираем старое отдельное увеличение изображения.
+        Масштабируется уже весь .partner-card-logo.
+    */
+    .partner-card:hover .partner-card-logo img{
+        filter: brightness(1.1) grayscale(0);
+        transform: none;
     }
 }
