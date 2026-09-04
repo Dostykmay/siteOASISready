@@ -38,10 +38,17 @@
     transition: transform 0.2s ease;
 }
 
-/* Позиция разделов при переходе из меню */
-#honey-plants-title,
+/* ======================================================= */
+/* ===== ПОЛОЖЕНИЕ РАЗДЕЛОВ ПРИ ПЕРЕХОДЕ ИЗ МЕНЮ ========= */
+/* ======================================================= */
+
+
+#honey-plants-title{
+    scroll-margin-top: 100px;
+}
+
 #other-plants-title{
-    scroll-margin-top: calc(35vh + 80px);
+    scroll-margin-top: 42vh;
 }
 
 .plant-card img {
