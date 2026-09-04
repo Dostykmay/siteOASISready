@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Описание сайта O.A.S.I.S"> 
-    <title>O.A.S.I.S - корпоративный сайт</title>
+
+    <meta
+        name="description"
+        content="Селекционная программа О.А.З.И.С — Фацелия">
+
+    <title>О.А.З.И.С — Селекционная программа «Фацелия»</title>
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/program-template.css">
-    <link rel="stylesheet" href="css/phacelia.css">
+
     <script src="js/include.js" defer></script>
 </head>
 
@@ -16,32 +21,98 @@
     <div id="header-placeholder"></div>
 
     <main>
-        <section class="program-hero" style="--program-icon: '🪻';">
-            <img class="program-hero-photo" src="resource/Phacelia_page/pchacelia_fon.webp" alt="фацелия_фон">
+        <!-- ============================================== -->
+        <!-- HERO                                          -->
+        <!-- ============================================== -->
+        <section
+            class="program-hero"
+            aria-labelledby="program-title"
+            style="--program-icon: '🪻';">
+
+            <img
+                class="program-hero-photo"
+                src="resource/Phacelia_page/pchacelia_fon.webp"
+                alt="Селекционная программа фацелии О.А.З.И.С"
+                fetchpriority="high"
+                decoding="async">
+
             <div class="program-hero-text">
-                <h1>ФАЦЕЛИЯ</h1>
+                <h1 id="program-title">ФАЦЕЛИЯ</h1>
             </div>
         </section>
 
-        <section class="program-description">
-            <p>Однолетнее травянистое растение с ветвистым стеблем и синеватыми цветками. Зацветает через 30–45 дней после посева, цветёт 30–45 дней. Медопродуктивность — 150–300 кг/га. Фацелия неприхотлива к почве, морозоустойчива, выделяет нектар даже после заморозков. Мёд светлый, с зеленоватым оттенком, имеет нежный аромат и вкус.</p>
-            <img src="resource/Phacelia_page/pchacelia1-converted.webp" alt="фацелия">
+        <!-- ============================================== -->
+        <!-- ОПИСАНИЕ                                      -->
+        <!-- ============================================== -->
+        <section
+            class="program-description"
+            aria-labelledby="description-title">
+
+            <div class="program-description-content">
+                
+
+                <p class="program-description-text">
+                    Фацелия — однолетнее травянистое растение с ветвистым
+                    стеблем и синевато-фиолетовыми цветками. Культура ценится
+                    как эффективный медонос, сидеральное растение и компонент
+                    устойчивых агроэкосистем. При благоприятных условиях
+                    зацветает через 30–45 дней после посева и может цвести
+                    в течение 30–45 дней.
+                </p>
+
+                <p class="program-description-text">
+                    Фацелия отличается неприхотливостью к почвам,
+                    холодостойкостью и способностью выделять нектар даже после
+                    кратковременных заморозков. Селекционная программа
+                    направлена на создание продуктивных, адаптивных форм с
+                    высокой нектаро- и семенной продуктивностью, дружным
+                    цветением и устойчивостью к неблагоприятным условиям
+                    выращивания.
+                </p>
+            </div>
+
+            <img
+                class="program-description-photo"
+                src="resource/Phacelia_page/pchacelia1-converted.webp"
+                alt="Цветущая фацелия"
+                loading="lazy"
+                decoding="async">
         </section>
 
-        <section class="program-directions program-directions-long" style="--program-icon: '🪻';">
-            <h2>Направления селекции:</h2>
-            <ul class="program-directions-list program-directions-list-long">
-                <li>
-                    <strong>Повышение нектаро- и медопродуктивности.</strong> Селекционеры стремятся увеличить количество нектара, выделяемого цветками, и общую медопродуктивность культуры. Например, сорт «Алёшинская», выведенный в Федеральном научном центре пчеловодства, характеризуется увеличенной нектарной продуктивностью на 22% по сравнению с другими сортами. Это позволяет повысить доходность пчеловодства.
-                </li>
-                <li>
-                    <strong>Увеличение семенной продуктивности.</strong> Работа ведётся над созданием сортов с более высокой урожайностью семян. Сорт «Алёшинская» также отличается повышенной семенной продуктивностью — на 17% выше по сравнению с некоторыми аналогами. Это важно для обеспечения стабильного семеноводства и распространения культуры.
-                </li>
-                <li>
-                    <strong>Устойчивость к стрессовым условиям.</strong> Фацелия уже известна своей относительно низкой требовательностью к почвенно-климатическим условиям, но селекция направлена на дальнейшее повышение её устойчивости к засухе, низким температурам и другим неблагоприятным факторам. Это расширяет географию возделывания культуры.
-                </li>
-            </ul>
-            <img src="resource/Phacelia_page/pchacelia2-converted.webp" alt="поле фацелии">
+        <!-- ============================================== -->
+        <!-- НАПРАВЛЕНИЯ СЕЛЕКЦИИ                           -->
+        <!-- ============================================== -->
+        <section
+            class="program-directions phacelia-directions"
+            aria-labelledby="directions-title"
+            style="--program-icon: '🪻';">
+
+            <div class="program-directions-content">
+                <h2
+                    id="directions-title"
+                    class="program-directions-title">
+                    Направления селекции
+                </h2>
+
+                <ul class="program-directions-list">
+                    <li>Повышение нектаро- и медопродуктивности</li>
+                    <li>Высокая семенная продуктивность и качество семян</li>
+                    <li>Скороспелость и дружность цветения</li>
+                    <li>Продолжительность периода цветения</li>
+                    <li>Холодостойкость и устойчивость к кратковременным заморозкам</li>
+                    <li>Засухоустойчивость и адаптивность к различным типам почв</li>
+                    <li>Устойчивость к болезням и неблагоприятным факторам среды</li>
+                    <li>Пригодность к механизированному выращиванию и семеноводству</li>
+                    <li>Высокая сидеральная ценность и интенсивное формирование зелёной массы</li>
+                </ul>
+            </div>
+
+            <img
+                class="program-directions-photo"
+                src="resource/Phacelia_page/pchacelia2-converted.webp"
+                alt="Поле цветущей фацелии"
+                loading="lazy"
+                decoding="async">
         </section>
     </main>
 
