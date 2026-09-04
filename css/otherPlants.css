@@ -38,6 +38,12 @@
     transition: transform 0.2s ease;
 }
 
+/* Позиция разделов при переходе из меню */
+#honey-plants-title,
+#other-plants-title{
+    scroll-margin-top: calc(35vh + 80px);
+}
+
 .plant-card img {
     width: 160px;
     height: 160px;
