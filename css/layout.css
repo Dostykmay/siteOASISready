@@ -156,6 +156,17 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+/* Отдельный цвет ссылки на страницу партнёрства с ХК «Буран» */
+.menu-drop-down-list-parts a.buran-menu-link{
+    background-color: rgba(18, 83, 150, 0.98);
+    border-color: rgba(105, 184, 255, 0.95);
+}
+
+.menu-drop-down-list-parts a.buran-menu-link:hover,
+.menu-drop-down-list-parts a.buran-menu-link:focus{
+    background-color: rgba(26, 115, 196, 0.98);
+}
+
 .menu-drop-down-list-parts a:hover,
 .menu-drop-down-list-parts a:focus{
     background-color: rgba(175, 70, 8, 0.98);
