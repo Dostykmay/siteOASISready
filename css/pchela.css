@@ -1,542 +1,771 @@
-main {
-    background: linear-gradient(180deg,
+/* ======================================================= */
+/* ================= БАЗОВЫЕ НАСТРОЙКИ ================== */
+/* ======================================================= */
+
+main{
+    background: linear-gradient(
+        180deg,
         #0a0a0a 0%,
         #1a1210 12%,
-        rgb(70, 45, 20) 40%,
-        rgb(120, 66, 20) 70%,
-        rgb(150, 80, 20) 100%);
+        rgb(70, 45, 20) 45%,
+        rgb(120, 66, 20) 78%,
+        rgb(150, 80, 20) 100%
+    );
 }
 
-/* ==================== HERO ФОТО ==================== */
-.pchela-main-photo {
+
+/* ======================================================= */
+/* ==================== HERO ФОТО ======================== */
+/* ======================================================= */
+
+.pchela-main-photo{
     position: relative;
+
     width: 100%;
-    height: 500px;
+    height: 520px;
     overflow: hidden;
+
+    background: #111;
 }
 
-.pchela-main-photo img {
+.pchela-main-photo > img{
+    display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-    display: block;
-    filter: brightness(0.5);
+    object-position: center;
+
+    filter: brightness(0.48) saturate(1.06);
+
     transition: transform 0.8s ease;
 }
 
-.pchela-main-photo img:hover {
+.pchela-main-photo:hover > img{
     transform: scale(1.03);
 }
 
-.pchela-main-photo::after {
+.pchela-main-photo::after{
     content: "";
+
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(10, 10, 10, 0.7) 100%);
+    z-index: 1;
+
     pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.45) 45%,
+            rgba(0, 0, 0, 0.08) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.06) 0%,
+            rgba(10, 10, 10, 0.76) 100%
+        );
 }
 
-/* ==================== БЛОК: ЗАГОЛОВОК ==================== */
-.pchela-info {
-    text-align: center;
-    padding: 70px 8% 50px;
-}
-
-.pchela-info .text h2 {
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 2.8rem;
-    margin-bottom: 0.4em;
-    color: white;
-}
-
-.pchela-info .text h2 span {
-    background: linear-gradient(135deg, #ffb703, rgb(223, 93, 5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding: 0 8px;
-}
-
-.pchela-info .text p {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.7;
-    max-width: 750px;
-    margin: 0 auto;
-    color: rgba(240, 235, 230, 0.9);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 183, 3, 0.25);
-    padding: 24px 32px;
-    border-radius: 40px;
-    backdrop-filter: blur(4px);
-}
-
-.pchela-info .text p strong {
-    color: #ffb703;
-}
-
-/* ==================== БЛОК: ЦИФРЫ + ФОТО ПАСЕКИ ==================== */
-.pchela-info-numbers {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    padding: 60px 8%;
-}
-
-.pchela-info-numbers-container {
-    flex: 1 1 320px;
-    min-width: 260px;
-    max-width: 420px;
-}
-
-.pchela-info-numbers-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 1.8rem;
-    color: white;
-}
-
-.pchela-info-numbers-container ul li {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 18px 0;
-    border-bottom: 2px dashed rgba(255, 183, 3, 0.25);
-}
-
-.pchela-info-numbers-container ul li:last-child {
-    border-bottom: none;
-}
-
-.pchela-info-numbers-container .otdeln-text {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: rgba(240, 235, 230, 0.9);
-    background: rgba(255, 183, 3, 0.1);
-    border: 1px solid rgba(255, 183, 3, 0.35);
-    padding: 5px 18px;
-    border-radius: 30px;
-    display: inline-block;
-}
-
-.pchela-info-numbers-img {
-    flex: 1 1 400px;
-    max-width: 500px;
-}
-
-.pchela-info-numbers-img img {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    filter: brightness(0.9);
-}
-
-.pchela-info-numbers-img img:hover {
-    transform: scale(1.02) rotate(-0.5deg);
-    box-shadow: 0 30px 60px rgba(255, 183, 3, 0.25);
-    filter: brightness(1);
-}
-
-/* ==================== БЛОК: ОСНОВНОЙ КОНТЕНТ ==================== */
-.pchela-info-content {
-    padding: 60px 8%;
-}
-
-.pchela-info-content-aboutPchela h2 {
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 2.1rem;
-    margin-top: 1.6em;
-    margin-bottom: 0.7em;
-    color: #ffb703;
-    position: relative;
-    display: inline-block;
-}
-
-.pchela-info-content-aboutPchela h2:first-of-type {
-    margin-top: 0;
-}
-
-.pchela-info-content-aboutPchela h2::after {
-    content: '';
+.pchela-main-photo-text{
     position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 70%;
-    height: 4px;
-    background: linear-gradient(90deg, #ffb703, rgb(223, 93, 5));
-    border-radius: 4px;
+    top: 50%;
+    left: 8%;
+    z-index: 2;
+
+    max-width: 780px;
+
+    transform: translateY(-50%);
 }
 
-.pchela-info-content-aboutPchela p {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: rgba(240, 235, 230, 0.9);
-    max-width: 850px;
-    margin-bottom: 1.5em;
+.pchela-main-photo-text p{
+    margin: 0 0 16px;
+
+    color: #ffb703;
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.pchela-main-photo-text h1{
+    margin: 0;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.08;
+    letter-spacing: 0.5px;
+
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.72);
+}
+
+.pchela-main-photo-text h1::after{
+    content: "";
+    display: block;
+
+    width: 90px;
+    height: 4px;
+    margin-top: 22px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #ffb703,
+        rgb(223, 93, 5)
+    );
+}
+
+
+/* ======================================================= */
+/* =================== ВСТУПИТЕЛЬНЫЙ БЛОК =============== */
+/* ======================================================= */
+
+.pchela-info{
+    padding: 76px 8% 48px;
+
+    text-align: center;
+}
+
+.pchela-info .text h2{
+    margin: 0 0 18px;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(30px, 3.8vw, 46px);
+    line-height: 1.15;
+}
+
+.pchela-info .text h2 span{
+    background: linear-gradient(
+        135deg,
+        #ffb703,
+        rgb(223, 93, 5)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pchela-info .text p{
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 25px 32px;
+    box-sizing: border-box;
+
+    color: rgba(240, 235, 230, 0.92);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+
+    border: 1px solid rgba(255, 183, 3, 0.25);
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ======================================================= */
+/* ================== ВЫБОР ОПЫЛИТЕЛЯ =================== */
+/* ======================================================= */
+
+.pchela-info-content{
+    width: 100%;
+    padding: 32px 8% 82px;
+    box-sizing: border-box;
+}
+
+.pchela-info-content-aboutPchela{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+}
+
+.pchela-info-content-aboutPchela h2{
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0 0 22px;
+
+    color: #ffb703;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(27px, 3vw, 38px);
+    line-height: 1.2;
+}
+
+.pchela-info-content-aboutPchela h2::after{
+    content: "";
+
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+
+    width: 72px;
+    height: 4px;
+
+    border-radius: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #ffb703,
+        rgb(223, 93, 5)
+    );
+}
+
+.pchela-info-content-aboutPchela p{
+    max-width: 800px;
+    margin: 0;
     padding-left: 20px;
+
+    color: rgba(240, 235, 230, 0.90);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+
     border-left: 4px solid #ffb703;
 }
 
-.pchela-info-content-aboutPchela p strong {
-    color: #ffb703;
-}
-
-/* --- Карточки продукции --- */
-.pchela-products {
+.pollinators-navigation{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 28px;
-    margin: 30px 0 50px;
-}
-
-.pchela-product-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px 20px 25px;
-    border-radius: 24px;
-    text-align: center;
-    border: 1px solid rgba(255, 183, 3, 0.25);
-    transition: all 0.3s ease;
-}
-
-.pchela-product-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 183, 3, 0.55);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
-}
-
-.pchela-product-icon {
-    font-size: 3.2rem;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.pchela-product-name {
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 1.3rem;
-    color: white;
-    margin-bottom: 8px;
-}
-
-.pchela-product-desc {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(230, 225, 220, 0.85);
-}
-
-/* --- Карточки вклада --- */
-.pchela-vklad {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    margin: 30px 0 10px;
-}
 
-.pchela-vklad-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 25px 15px;
-    border-radius: 20px;
-    text-align: center;
-    border-bottom: 4px solid #ffb703;
-    transition: all 0.3s ease;
-}
-
-.pchela-vklad-card:hover {
-    background: rgba(255, 255, 255, 0.09);
-    transform: scale(1.03);
-    border-bottom-width: 6px;
-}
-
-.pchela-vklad-icon {
-    font-size: 2.6rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.pchela-vklad-name {
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 1.15rem;
-    color: white;
-    margin-bottom: 6px;
-}
-
-.pchela-vklad-desc {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 0.9rem;
-    color: rgba(230, 225, 220, 0.8);
-}
-
-/* ==================== ФИНАЛЬНЫЙ БЛОК ==================== */
-.final-block {
-    background: linear-gradient(180deg, #ffb703 0%, rgb(150, 65, 15) 100%);
-    padding: 50px 8%;
-    text-align: center;
-    position: relative;
-}
-
-.final-block h3 {
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: 2.4rem;
-    color: white;
-    margin-bottom: 0.3em;
-}
-
-.final-block p {
-    font-family: 'Avenir-Medium', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 720px;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 0.95);
 }
 
-.final-block p strong {
-    color: #fff3d6;
+.pollinator-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 210px;
+    padding: 24px;
+    box-sizing: border-box;
+
+    color: white;
+    text-align: center;
+    text-decoration: none;
+
+    border: 1px solid rgba(255, 183, 3, 0.30);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.pollinator-link:hover,
+.pollinator-link:focus{
+    outline: none;
+
+    transform: translateY(-7px);
+
+    border-color: rgba(255, 183, 3, 0.75);
+    background: rgba(255, 183, 3, 0.12);
+
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.30);
+}
+
+.pollinator-link-icon{
+    display: block;
+
+    margin-bottom: 13px;
+
+    font-size: 52px;
+    line-height: 1;
+}
+
+.pollinator-link-name{
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: 27px;
+    line-height: 1.2;
+}
+
+.pollinator-link-arrow{
+    margin-top: 14px;
+
+    color: #ffb703;
+    font-size: 24px;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+
+.pollinator-link:hover .pollinator-link-arrow{
+    transform: translateY(5px);
+}
+
+
+/* ======================================================= */
+/* ================== ДЕТАЛЬНЫЕ БЛОКИ =================== */
+/* ======================================================= */
+
+.pollinator-detail{
+    padding: 86px 8%;
+    box-sizing: border-box;
+
+    scroll-margin-top: 90px;
+}
+
+.pollinator-detail-bees{
+    background: rgba(13, 10, 7, 0.44);
+}
+
+.pollinator-detail-bumblebees{
+    background: rgba(255, 183, 3, 0.07);
+}
+
+.pollinator-detail-meliponines{
+    background: rgba(255, 255, 255, 0.055);
+}
+
+.pollinator-detail-container{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pollinator-detail-heading{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 34px;
+}
+
+.pollinator-detail-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 76px;
+    height: 76px;
+
+    font-size: 37px;
+
+    border: 1px solid rgba(255, 183, 3, 0.42);
+    border-radius: 50%;
+
+    background: rgba(255, 183, 3, 0.10);
+}
+
+.pollinator-detail-label{
+    margin: 0 0 6px;
+
+    color: #ffb703;
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.pollinator-detail-heading h2{
+    margin: 0;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(30px, 3.4vw, 44px);
+    line-height: 1.1;
+}
+
+.pollinator-detail-text{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+
+    margin-bottom: 38px;
+}
+
+.pollinator-detail-text p{
+    margin: 0;
+    padding: 0 0 0 18px;
+
+    color: rgba(240, 235, 230, 0.90);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 1.72;
+
+    border-left: 3px solid rgba(255, 183, 3, 0.78);
+}
+
+.pollinator-detail-facts{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.pollinator-fact{
+    padding: 22px 20px;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 183, 3, 0.26);
+    border-radius: 16px;
+
+    background: rgba(0, 0, 0, 0.16);
+}
+
+.pollinator-fact strong{
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #ffb703;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+.pollinator-fact span{
+    display: block;
+
+    color: rgba(240, 235, 230, 0.76);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+
+/* ======================================================= */
+/* ==================== ФИНАЛЬНЫЙ БЛОК ================== */
+/* ======================================================= */
+
+.final-block{
+    position: relative;
+
+    padding: 62px 8%;
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffb703 0%,
+        rgb(223, 93, 5) 55%,
+        rgb(150, 65, 15) 100%
+    );
+}
+
+.final-block h3{
+    max-width: 760px;
+    margin: 0 auto 14px;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.2;
+}
+
+.final-block p{
+    max-width: 760px;
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.94);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
 }
 
 .footer{
-    background: linear-gradient(180deg,
-    rgb(150, 65, 15) 0%,
-    rgb(150, 65, 15) 100%)
+    background: linear-gradient(
+        180deg,
+        rgb(150, 65, 15) 0%,
+        rgb(115, 48, 12) 100%
+    );
 }
 
-/* ======================================================= */
-/* ===== ПЛАНШЕТЫ И МАЛЕНЬКИЕ НОУТБУКИ (до 1024px) ===== */
-/* ======================================================= */
-@media (max-width: 1024px) {
-    .pchela-main-photo {
-        height: 400px;
-    }
-
-    .pchela-info .text h2 {
-        font-size: 2.4rem;
-    }
-
-    .pchela-info-numbers {
-        padding: 50px 6%;
-        gap: 36px;
-    }
-
-    .pchela-info-content {
-        padding: 50px 6%;
-    }
-
-    .pchela-info-content-aboutPchela h2 {
-        font-size: 1.85rem;
-    }
-}
 
 /* ======================================================= */
-/* ===== БОЛЬШИЕ ТЕЛЕФОНЫ И ПЛАНШЕТЫ ВЕРТИКАЛЬНО (до 768px) ===== */
+/* ====================== ПЛАНШЕТЫ ======================= */
 /* ======================================================= */
-@media (max-width: 768px) {
-    .pchela-main-photo {
-        height: 300px;
+
+@media (max-width: 1024px){
+    .pchela-main-photo{
+        height: 430px;
     }
 
-    .pchela-info {
-        padding: 45px 6% 35px;
+    .pchela-info,
+    .pchela-info-content,
+    .pollinator-detail{
+        padding-right: 6%;
+        padding-left: 6%;
     }
 
-    .pchela-info .text h2 {
-        font-size: 1.9rem;
+    .pchela-info{
+        padding-top: 62px;
     }
 
-    .pchela-info .text p {
-        font-size: 0.95rem;
-        padding: 18px 20px;
-        border-radius: 24px;
-    }
-
-    .pchela-info-numbers {
-        padding: 40px 6%;
-        gap: 28px;
-    }
-
-    .pchela-info-numbers-container ul {
-        font-size: 1.5rem;
-    }
-
-    .pchela-info-numbers-container .otdeln-text {
-        font-size: 0.9rem;
-        padding: 4px 14px;
-    }
-
-    .pchela-info-content {
-        padding: 40px 6%;
-    }
-
-    .pchela-info-content-aboutPchela h2 {
-        font-size: 1.6rem;
-    }
-
-    .pchela-info-content-aboutPchela p {
-        font-size: 1rem;
-        padding-left: 16px;
-    }
-
-    .pchela-products,
-    .pchela-vklad {
+    .pollinator-detail-text{
+        grid-template-columns: 1fr;
         gap: 18px;
     }
 
-    .pchela-product-icon {
-        font-size: 2.6rem;
-    }
-
-    .pchela-product-name {
-        font-size: 1.15rem;
-    }
-
-    .final-block {
-        padding: 40px 6%;
-    }
-
-    .final-block h3 {
-        font-size: 1.8rem;
-    }
-
-    .final-block p {
-        font-size: 1.05rem;
+    .pollinator-detail-facts{
+        gap: 14px;
     }
 }
 
+
 /* ======================================================= */
-/* ===== ОСНОВНАЯ МАССА ТЕЛЕФОНОВ (до 480px) ===== */
+/* ======================= ТЕЛЕФОНЫ ====================== */
 /* ======================================================= */
-@media (max-width: 480px) {
-    .pchela-main-photo {
-        height: 220px;
+
+@media (max-width: 768px){
+    .pchela-main-photo{
+        height: 350px;
     }
 
-    .pchela-info {
-        padding: 32px 5% 25px;
+    .pchela-main-photo-text{
+        top: auto;
+        right: 6%;
+        bottom: 40px;
+        left: 6%;
+
+        transform: none;
     }
 
-    .pchela-info .text h2 {
-        font-size: 1.5rem;
+    .pchela-main-photo-text h1{
+        font-size: 38px;
     }
 
-    .pchela-info .text p {
-        font-size: 0.85rem;
-        padding: 14px 16px;
-        border-radius: 18px;
+    .pchela-main-photo-text p{
+        font-size: 11px;
+        letter-spacing: 1.2px;
     }
 
-    .pchela-info-numbers {
-        padding: 28px 5%;
-        gap: 20px;
+    .pchela-info{
+        padding: 48px 6% 34px;
     }
 
-    .pchela-info-numbers-container ul {
-        font-size: 1.2rem;
+    .pchela-info .text h2{
+        font-size: 31px;
     }
 
-    .pchela-info-numbers-container ul li {
-        padding: 12px 0;
-        gap: 10px;
+    .pchela-info .text p{
+        padding: 20px;
+
+        font-size: 16px;
+        line-height: 1.65;
+
+        border-radius: 20px;
     }
 
-    .pchela-info-numbers-container .otdeln-text {
-        font-size: 0.78rem;
-        padding: 3px 10px;
+    .pchela-info-content{
+        padding: 26px 6% 54px;
     }
 
-    .pchela-info-content {
-        padding: 28px 5%;
+    .pchela-info-content-aboutPchela h2{
+        font-size: 28px;
     }
 
-    .pchela-info-content-aboutPchela h2 {
-        font-size: 1.3rem;
-        margin-top: 1.2em;
+    .pchela-info-content-aboutPchela p{
+        font-size: 16px;
     }
 
-    .pchela-info-content-aboutPchela p {
-        font-size: 0.88rem;
-        padding-left: 12px;
+    .pollinators-navigation{
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pollinator-link{
+        min-height: 150px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 18px;
+
+        text-align: left;
+    }
+
+    .pollinator-link-icon{
+        margin: 0;
+
+        font-size: 42px;
+    }
+
+    .pollinator-link-name{
+        font-size: 24px;
+    }
+
+    .pollinator-link-arrow{
+        margin: 0 0 0 auto;
+    }
+
+    .pollinator-detail{
+        padding: 58px 6%;
+    }
+
+    .pollinator-detail-heading{
+        margin-bottom: 28px;
+    }
+
+    .pollinator-detail-icon{
+        width: 64px;
+        height: 64px;
+
+        font-size: 31px;
+    }
+
+    .pollinator-detail-facts{
+        grid-template-columns: 1fr;
+    }
+
+    .final-block{
+        padding: 48px 6%;
+    }
+}
+
+
+/* ======================================================= */
+/* =================== ОБЫЧНЫЕ ТЕЛЕФОНЫ ================= */
+/* ======================================================= */
+
+@media (max-width: 480px){
+    .pchela-main-photo{
+        height: 270px;
+    }
+
+    .pchela-main-photo-text{
+        right: 5%;
+        bottom: 28px;
+        left: 5%;
+    }
+
+    .pchela-main-photo-text h1{
+        font-size: 29px;
+    }
+
+    .pchela-main-photo-text h1::after{
+        width: 58px;
+        height: 3px;
+        margin-top: 14px;
+    }
+
+    .pchela-info{
+        padding: 36px 5% 28px;
+    }
+
+    .pchela-info .text h2{
+        font-size: 25px;
+    }
+
+    .pchela-info .text p{
+        padding: 17px;
+
+        font-size: 14px;
+        line-height: 1.58;
+    }
+
+    .pchela-info-content{
+        padding: 22px 5% 42px;
+    }
+
+    .pchela-info-content-aboutPchela h2{
+        margin-bottom: 18px;
+
+        font-size: 23px;
+    }
+
+    .pchela-info-content-aboutPchela p{
+        padding-left: 13px;
+
+        font-size: 14px;
+        line-height: 1.6;
+
         border-left-width: 3px;
     }
 
-    .pchela-products {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin: 20px 0 35px;
+    .pollinator-link{
+        min-height: 118px;
+        padding: 18px;
+
+        border-radius: 16px;
     }
 
-    .pchela-product-card {
-        padding: 22px 16px 18px;
+    .pollinator-link-icon{
+        font-size: 34px;
     }
 
-    .pchela-product-icon {
-        font-size: 2.2rem;
+    .pollinator-link-name{
+        font-size: 21px;
     }
 
-    .pchela-product-name {
-        font-size: 1.05rem;
+    .pollinator-detail{
+        padding: 44px 5%;
     }
 
-    .pchela-product-desc {
-        font-size: 0.85rem;
+    .pollinator-detail-heading{
+        gap: 12px;
     }
 
-    .pchela-vklad {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+    .pollinator-detail-icon{
+        width: 54px;
+        height: 54px;
+
+        font-size: 26px;
     }
 
-    .pchela-vklad-card {
-        padding: 18px 12px;
+    .pollinator-detail-label{
+        font-size: 10px;
+        letter-spacing: 1px;
     }
 
-    .pchela-vklad-icon {
-        font-size: 2rem;
+    .pollinator-detail-heading h2{
+        font-size: 27px;
     }
 
-    .pchela-vklad-name {
-        font-size: 1rem;
+    .pollinator-detail-text{
+        gap: 15px;
+        margin-bottom: 26px;
     }
 
-    .final-block {
-        padding: 32px 5%;
+    .pollinator-detail-text p{
+        padding-left: 13px;
+
+        font-size: 14px;
+        line-height: 1.62;
     }
 
-    .final-block h3 {
-        font-size: 1.4rem;
+    .pollinator-fact{
+        padding: 17px 16px;
+
+        border-radius: 13px;
     }
 
-    .final-block p {
-        font-size: 0.9rem;
-    }
-}
-
-/* ======================================================= */
-/* ===== САМЫЕ УЗКИЕ ЭКРАНЫ (до 360px) ===== */
-/* ======================================================= */
-@media (max-width: 360px) {
-    .pchela-main-photo {
-        height: 190px;
+    .pollinator-fact strong{
+        font-size: 21px;
     }
 
-    .pchela-info .text h2 {
-        font-size: 1.3rem;
+    .pollinator-fact span{
+        font-size: 13px;
     }
 
-    .pchela-vklad {
-        grid-template-columns: 1fr;
+    .final-block{
+        padding: 38px 5%;
     }
 
-    .final-block h3 {
-        font-size: 1.2rem;
+    .final-block h3{
+        font-size: 24px;
+    }
+
+    .final-block p{
+        font-size: 14px;
+        line-height: 1.6;
     }
 }

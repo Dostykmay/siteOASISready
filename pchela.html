@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Описание сайта O.A.S.I.S"> 
-    <title>O.A.S.I.S - корпоративный сайт</title>
+
+    <meta
+        name="description"
+        content="Насекомые-опылители О.А.З.И.С: пчёлы, шмели и мелипонины">
+
+    <title>О.А.З.И.С — Насекомые-опылители</title>
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/pchela.css">
+
     <script src="js/include.js" defer></script>
 </head>
 
@@ -15,42 +21,244 @@
     <div id="header-placeholder"></div>
 
     <main>
-        <section class="pchela-main-photo">
-            <img src="resource/Pchela/pchela_dragon.png" alt="пчелиная_фирма">           
+        <!-- ============================================== -->
+        <!-- HERO                                          -->
+        <!-- ============================================== -->
+
+        <section class="pchela-main-photo" aria-labelledby="pollinators-title">
+            <img
+                src="resource/Pchela/пчела_фон-converted.webp"
+                alt="Маскот О.А.З.И.С среди пчёл"
+                fetchpriority="high"
+                decoding="async">
+
+            <div class="pchela-main-photo-text">
+                <p>О.А.З.И.С · Селекция и семеноводство</p>
+                <h1 id="pollinators-title">Насекомые-опылители</h1>
+            </div>
         </section>
+
+        <!-- ============================================== -->
+        <!-- ВСТУПЛЕНИЕ                                    -->
+        <!-- ============================================== -->
 
         <section class="pchela-info">
             <div class="text">
-                <h2>Наша <span>пасека</span></h2>
+                <h2>Опыление для <span>будущих семян</span></h2>
 
                 <p>
-                    Пчёлы помогают растениям опыляться, а значит — формировать
-                    полноценные семена. Собственная пасека для О.А.З.И.С —
-                    это часть внимательного подхода к селекции и семеноводству.
+                    Основная культура О.А.З.И.С — подсолнечник — требует
+                    перекрёстного опыления насекомыми. В зависимости от площади
+                    посева и задач селекционной работы мы используем разные
+                    варианты опыления.
                 </p>
             </div>
         </section>
 
-        <section class="pchela-info-content">
-            <div class="pchela-info-content-aboutPchela">
-                <h2>🐝 Почему пчёлы важны для нас?</h2>
-                <p>
-                    Пчёлы — важная часть живой экосистемы поля.
-                    Они переносят пыльцу между цветками, поддерживают
-                    биоразнообразие и помогают растениям формировать семена.
-                </p>     
-            </div>
+        <!-- ============================================== -->
+        <!-- ТРИ ССЫЛКИ                                    -->
+        <!-- ============================================== -->
 
-              
+        <section
+            class="pchela-info-content"
+            aria-labelledby="pollinators-types-title">
+
+            <div class="pollinators-navigation">
+                <a class="pollinator-link pollinator-link-bees" href="#bees">
+                    <span class="pollinator-link-icon" aria-hidden="true">🐝</span>
+                    <span class="pollinator-link-name">Пчёлы</span>
+                    <span class="pollinator-link-arrow" aria-hidden="true">↓</span>
+                </a>
+
+                <a class="pollinator-link pollinator-link-bumblebees" href="#bumblebees">
+                    <span class="pollinator-link-icon" aria-hidden="true">🐝</span>
+                    <span class="pollinator-link-name">Шмели</span>
+                    <span class="pollinator-link-arrow" aria-hidden="true">↓</span>
+                </a>
+
+                <a class="pollinator-link pollinator-link-meliponines" href="#meliponines">
+                    <span class="pollinator-link-icon" aria-hidden="true">🐝</span>
+                    <span class="pollinator-link-name">Мелипонины</span>
+                    <span class="pollinator-link-arrow" aria-hidden="true">↓</span>
+                </a>
             </div>
         </section>
 
-        <section class="final-block">
-            <h3>🍯 Природа в гармонии</h3>
-            <p>
-                Мы верим, что <strong>устойчивое сельское хозяйство</strong> невозможно без заботы о пчёлах. 
-                Наша пасека — это не просто бизнес, это философия <strong>бережного отношения</strong> к природе.
-            </p>
+        <!-- ============================================== -->
+        <!-- ПЧЁЛЫ                                         -->
+        <!-- ============================================== -->
+
+        <section
+            id="bees"
+            class="pollinator-detail pollinator-detail-bees"
+            aria-labelledby="bees-title">
+
+            <div class="pollinator-detail-container">
+                <div class="pollinator-detail-heading">
+                    <span class="pollinator-detail-icon" aria-hidden="true">🐝</span>
+
+                    <div>
+                        <p class="pollinator-detail-label">Основной опылитель</p>
+                        <h2 id="bees-title">Пчёлы</h2>
+                    </div>
+                </div>
+
+                <div class="pollinator-detail-text">
+                    <p>
+                        Пчёлы — основной опылитель на наших полях. Ежегодно
+                        мы используем более 10 тыс. пчелосемей на участках
+                        гибридизации, а при росте производства их количество
+                        будет увеличиваться.
+                    </p>
+
+                    <p>
+                        Начиная с 2025 года мы реализуем проект собственной
+                        пчелиной фермы, включающей соответствующую инфраструктуру
+                        и профессиональный коллектив для выращивания и поддержания
+                        не менее 5 тыс. пчелосемей.
+                    </p>
+
+                    <p>
+                        Для этих целей выделен участок луга площадью 20 га,
+                        строится полностью автоматическая линия по производству
+                        мёда и современные омшаники.
+                    </p>
+                </div>
+
+                <div class="pollinator-detail-facts">
+                    <div class="pollinator-fact">
+                        <strong>10 000+</strong>
+                        <span>пчелосемей на участках гибридизации</span>
+                    </div>
+
+                    <div class="pollinator-fact">
+                        <strong>5 000+</strong>
+                        <span>пчелосемей в проекте собственной фермы</span>
+                    </div>
+
+                    <div class="pollinator-fact">
+                        <strong>20 га</strong>
+                        <span>выделенного участка луга</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- ШМЕЛИ                                         -->
+        <!-- ============================================== -->
+
+        <section
+            id="bumblebees"
+            class="pollinator-detail pollinator-detail-bumblebees"
+            aria-labelledby="bumblebees-title">
+
+            <div class="pollinator-detail-container">
+                <div class="pollinator-detail-heading">
+                    <span class="pollinator-detail-icon" aria-hidden="true">🟡</span>
+
+                    <div>
+                        <p class="pollinator-detail-label">Для групповых изоляторов</p>
+                        <h2 id="bumblebees-title">Шмели</h2>
+                    </div>
+                </div>
+
+                <div class="pollinator-detail-text">
+                    <p>
+                        На участках с групповыми изоляторами площадью от 10
+                        до 500 м² мы используем шмелей для опыления.
+                    </p>
+
+                    <p>
+                        В отличие от пчёл, шмели работают в замкнутых помещениях,
+                        а также при более низких температурах — от +10 °C,
+                        в пасмурную погоду и при сильном ветре.
+                    </p>
+
+                    <p>
+                        Минусом является более высокая стоимость опыления
+                        и риск укусов персонала, который должен ежедневно
+                        посещать участки. В планах компании — начать собственное
+                        производство шмелиных семей в высокотехнологичных
+                        ульях-боксах.
+                    </p>
+                </div>
+
+                <div class="pollinator-detail-facts">
+                    <div class="pollinator-fact">
+                        <strong>10–500 м²</strong>
+                        <span>площадь групповых изоляторов</span>
+                    </div>
+
+                    <div class="pollinator-fact">
+                        <strong>от +10 °C</strong>
+                        <span>работа при пониженной температуре</span>
+                    </div>
+
+                    <div class="pollinator-fact">
+                        <strong>Ульи-боксы</strong>
+                        <span>планируемое собственное производство</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- МЕЛИПОНИНЫ                                    -->
+        <!-- ============================================== -->
+
+        <section
+            id="meliponines"
+            class="pollinator-detail pollinator-detail-meliponines"
+            aria-labelledby="meliponines-title">
+
+            <div class="pollinator-detail-container">
+                <div class="pollinator-detail-heading">
+                    <span class="pollinator-detail-icon" aria-hidden="true">🌿</span>
+
+                    <div>
+                        <p class="pollinator-detail-label">Экспериментальное направление</p>
+                        <h2 id="meliponines-title">Мелипонины</h2>
+                    </div>
+                </div>
+
+                <div class="pollinator-detail-text">
+                    <p>
+                        Для минимизации рисков укусов персонала пчёлами и шмелями
+                        во время цветения мы проводим эксперимент по опылению
+                        безжалыми тропическими пчёлами в групповых изоляторах.
+                    </p>
+
+                    <p>
+                        В 2027 году первые партии этих экзотических, но очень
+                        полезных и интересных насекомых прибудут на нашу станцию.
+                        Будем рады поделиться опытом!
+                    </p>
+
+                    <p>
+                        Если опыт будет признан состоявшимся, вероятно,
+                        эти насекомые займут до 50 % опыления групповых
+                        изоляторов.
+                    </p>
+                </div>
+
+                <div class="pollinator-detail-facts">
+                    <div class="pollinator-fact">
+                        <strong>2027</strong>
+                        <span>прибытие первых партий на станцию</span>
+                    </div>
+
+                    <div class="pollinator-fact">
+                        <strong>Без жала</strong>
+                        <span>минимизация рисков укусов персонала</span>
+                    </div>
+
+                    <div class="pollinator-fact">
+                        <strong>До 50 %</strong>
+                        <span>возможная доля опыления изоляторов</span>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
