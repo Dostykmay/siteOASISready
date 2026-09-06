@@ -2,119 +2,160 @@ main{
     overflow-x: hidden;
 }
 
+
 /* ======================================================= */
 /* ===================== HERO УПАКОВКИ =================== */
 /* ======================================================= */
 
 .package-main-block{
     position: relative;
-    width: 100%;
-    min-height: 620px;
-    overflow: hidden;
+
     display: flex;
-    align-items: flex-end;
-    box-sizing: border-box;
-    padding: 70px 8px 62px 8%;
-
-    background-color: #111;
-}
-
-/* Фоновое фото упаковки */
-.package-main-block-fon{
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    align-items: center;
 
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
+    min-height: 560px;
+    padding: 80px 8%;
+    box-sizing: border-box;
+    overflow: hidden;
 
-    filter: brightness(0.7) saturate(1.06);
+    /*
+        Чёрная левая часть используется под заголовок.
+        Фотография упаковки находится справа.
+    */
+    background: #080808;
 }
+
 
 /*
-    Затемнение преимущественно слева и снизу.
-    Правая часть с упаковкой остаётся хорошо видимой.
+    Фотография упаковки справа.
+    Контейнер делается квадратным за счёт одинаковой ширины и высоты.
+    object-fit: contain сохраняет всё фото без crop и искажений.
 */
-.package-main-block::before{
-    content: "";
+.package-main-block-logo{
     position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.82) 0%,
-            rgba(0, 0, 0, 0.56) 36%,
-            rgba(0, 0, 0, 0.12) 66%,
-            rgba(0, 0, 0, 0.05) 100%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.12) 0%,
-            rgba(0, 0, 0, 0.7) 100%
-        );
-}
-
-/* Декоративное свечение */
-.package-main-block::after{
-    content: "◈";
-    position: absolute;
-    top: 24%;
+    top: 50%;
     right: 7%;
     z-index: 1;
 
-    color: rgba(245, 166, 35, 0.12);
-    font-size: 260px;
-    line-height: 1;
-    pointer-events: none;
-}
+    display: block;
 
-/* Белый логотип поверх изображения */
-.package-main-block-logo{
-    position: absolute;
-    top: 94px;
-    right: 8%;
-    z-index: 2;
+    width: min(43vw, 520px);
+    height: min(43vw, 520px);
 
-    width: min(190px, 22vw);
-    height: auto;
-    max-height: 160px;
     object-fit: contain;
+    object-position: center;
+
+    opacity: 0.98;
+
+    /*
+        Края фото плавно растворяются в чёрном фоне.
+        Чёрная часть градиента видима, прозрачная — скрыта.
+    */
+    -webkit-mask-image: radial-gradient(
+        ellipse 88% 88% at 58% 50%,
+        #000 52%,
+        rgba(0, 0, 0, 0.82) 66%,
+        rgba(0, 0, 0, 0.35) 80%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 88% 88% at 58% 50%,
+        #000 52%,
+        rgba(0, 0, 0, 0.82) 66%,
+        rgba(0, 0, 0, 0.35) 80%,
+        transparent 100%
+    );
 
     filter:
-        brightness(0)
-        invert(1)
-        drop-shadow(0 5px 18px rgba(0, 0, 0, 0.6));
+        drop-shadow(-24px 0 34px rgba(0, 0, 0, 0.85))
+        drop-shadow(0 18px 34px rgba(0, 0, 0, 0.55));
+
+    transform: translateY(-50%);
 }
 
-/* Блок текста слева */
-.package-main-block-text{
-    position: relative;
+
+/*
+    Мягкое золотистое сияние позади фотографии.
+    Оно не меняет изображение и не перекрывает текст.
+*/
+.package-main-block::before{
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    z-index: 0;
+
+    width: min(56vw, 700px);
+    height: min(56vw, 700px);
+
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle,
+        rgba(223, 93, 5, 0.20) 0%,
+        rgba(223, 93, 5, 0.08) 35%,
+        rgba(223, 93, 5, 0.02) 59%,
+        transparent 74%
+    );
+
+    filter: blur(28px);
+    transform: translateY(-50%);
+}
+
+
+/*
+    Размытый чёрный переход между текстовой областью и картинкой.
+    Он создаёт впечатление, что изображение выходит из темноты.
+*/
+.package-main-block::after{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 32%;
+    bottom: 0;
     z-index: 2;
 
-    max-width: 690px;
-    padding: 26px 30px 28px;
+    width: min(20vw, 250px);
+    pointer-events: none;
 
-    border-left: 4px solid rgb(245, 166, 35);
-    border-radius: 0 20px 20px 0;
-    background-color: rgba(10, 10, 10, 0.55);
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.32);
+    background: linear-gradient(
+        90deg,
+        #080808 0%,
+        rgba(8, 8, 8, 0.88) 26%,
+        rgba(8, 8, 8, 0.40) 62%,
+        transparent 100%
+    );
+
+    filter: blur(18px);
+}
+
+
+/*
+    Заголовок находится поверх полностью чёрной левой части.
+*/
+.package-main-block-text{
+    position: relative;
+    z-index: 3;
+
+    width: min(48%, 650px);
+    padding: 0;
 }
 
 .package-main-block-text h1{
     margin: 0;
-    color: white;
 
-    font-family: 'Avenir-Bold', sans-serif;
-    font-size: clamp(34px, 4.3vw, 58px);
-    line-height: 1.12;
+    color: #fff;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(36px, 4.5vw, 62px);
+    line-height: 1.1;
     letter-spacing: 1px;
 
-    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.86);
 }
 
 .package-main-block-text h1::after{
@@ -123,15 +164,17 @@ main{
 
     width: 92px;
     height: 4px;
-    margin-top: 20px;
+    margin-top: 22px;
 
-    border-radius: 2px;
+    border-radius: 999px;
+
     background: linear-gradient(
         90deg,
         rgb(223, 93, 5),
         rgb(245, 166, 35)
     );
 }
+
 
 /* ======================================================= */
 /* ================= ОСНОВНОЙ КОНТЕНТ =================== */
@@ -151,6 +194,7 @@ main{
     );
 }
 
+
 /* Ограничиваем ширину контента */
 .package-block-contant > h2,
 .package-block-contant > p,
@@ -160,21 +204,25 @@ main{
     margin-left: auto;
 }
 
+
 .package-block-contant > h2{
     margin-top: 0;
     margin-bottom: 20px;
-    color: white;
 
-    font-family: 'Avenir-Bold', sans-serif;
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
     font-size: clamp(26px, 3vw, 38px);
     line-height: 1.2;
 }
 
+
 .package-block-contant > h2:nth-of-type(2){
     position: relative;
+
     margin-top: 76px;
     margin-bottom: 38px;
 }
+
 
 .package-block-contant > h2:nth-of-type(2)::after{
     content: "";
@@ -185,6 +233,7 @@ main{
     margin-top: 16px;
 
     border-radius: 2px;
+
     background: linear-gradient(
         90deg,
         rgb(223, 93, 5),
@@ -192,15 +241,17 @@ main{
     );
 }
 
+
 .package-block-contant > p{
     margin-top: 0;
     margin-bottom: 0;
-    color: rgba(240, 235, 230, 0.9);
 
-    font-family: 'Avenir-Medium', sans-serif;
+    color: rgba(240, 235, 230, 0.9);
+    font-family: "Avenir-Medium", sans-serif;
     font-size: 17px;
     line-height: 1.8;
 }
+
 
 /* ======================================================= */
 /* =================== ЭТАПЫ УПАКОВКИ =================== */
@@ -219,81 +270,93 @@ main{
     counter-reset: package-step;
 }
 
+
 .ol-contant-block > li{
     position: relative;
+
     min-height: 180px;
     padding: 32px 28px 28px 96px;
     box-sizing: border-box;
 
     color: white;
-    font-family: 'Avenir-Bold', sans-serif;
+    font-family: "Avenir-Bold", sans-serif;
     font-size: 22px;
     line-height: 1.3;
 
     border: 1px solid rgba(245, 166, 35, 0.23);
     border-radius: 24px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.09),
-            rgba(255, 255, 255, 0.03)
-        );
-        
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.09),
+        rgba(255, 255, 255, 0.03)
+    );
+
     box-shadow: 0 14px 35px rgba(0, 0, 0, 0.26);
 
     counter-increment: package-step;
+
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
         background 0.3s ease;
 }
 
+
 /* Номер этапа */
 .ol-contant-block > li::before{
     content: counter(package-step);
+
     position: absolute;
     top: 28px;
     left: 24px;
 
-    width: 48px;
-    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
 
+    width: 48px;
+    height: 48px;
+
     color: white;
-    font-family: 'Avenir-Bold', sans-serif;
+    font-family: "Avenir-Bold", sans-serif;
     font-size: 21px;
 
     border-radius: 50%;
+
     background: linear-gradient(
         135deg,
         rgb(223, 93, 5),
         rgb(245, 166, 35)
     );
+
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
+
 .ol-contant-block > li:hover{
     border-color: rgba(245, 166, 35, 0.65);
-    background:
-        linear-gradient(
-            135deg,
-            rgba(245, 166, 35, 0.16),
-            rgba(255, 255, 255, 0.05)
-        );
+
+    background: linear-gradient(
+        135deg,
+        rgba(245, 166, 35, 0.16),
+        rgba(255, 255, 255, 0.05)
+    );
+
     transform: translateY(-7px);
 }
 
+
 .ol-contant-block > li > p{
     margin: 14px 0 0;
-    color: rgba(240, 235, 230, 0.85);
 
-    font-family: 'Avenir-Medium', sans-serif;
+    color: rgba(240, 235, 230, 0.85);
+    font-family: "Avenir-Medium", sans-serif;
     font-size: 15.5px;
     font-weight: normal;
     line-height: 1.7;
 }
+
 
 /* Внутренний список маркировки */
 .other-ul{
@@ -307,19 +370,23 @@ main{
     list-style: none;
 }
 
+
 .other-ul li{
     position: relative;
+
     padding-left: 20px;
 
     color: rgba(240, 235, 230, 0.84);
-    font-family: 'Avenir-Medium', sans-serif;
+    font-family: "Avenir-Medium", sans-serif;
     font-size: 14px;
     font-weight: normal;
     line-height: 1.45;
 }
 
+
 .other-ul li::before{
     content: "✓";
+
     position: absolute;
     top: 0;
     left: 0;
@@ -328,6 +395,7 @@ main{
     font-family: sans-serif;
     font-weight: bold;
 }
+
 
 /* ======================================================= */
 /* ======================== FOOTER ======================= */
@@ -341,6 +409,7 @@ main{
     );
 }
 
+
 /* ======================================================= */
 /* ====================== ПЛАНШЕТЫ ======================= */
 /* ======================================================= */
@@ -348,13 +417,22 @@ main{
 @media (max-width: 1024px){
     .package-main-block{
         min-height: 500px;
-        padding: 70px 6% 54px;
+        padding: 70px 6%;
     }
 
     .package-main-block-logo{
-        top: 84px;
-        right: 6%;
-        width: min(165px, 23vw);
+        right: 5%;
+
+        width: min(42vw, 410px);
+        height: min(42vw, 410px);
+    }
+
+    .package-main-block::after{
+        right: 31%;
+    }
+
+    .package-main-block-text{
+        width: min(49%, 520px);
     }
 
     .package-block-contant{
@@ -368,16 +446,19 @@ main{
     .ol-contant-block > li{
         min-height: 195px;
         padding: 29px 22px 24px 86px;
+
         font-size: 20px;
     }
 
     .ol-contant-block > li::before{
         top: 26px;
         left: 20px;
+
         width: 45px;
         height: 45px;
     }
 }
+
 
 /* ======================================================= */
 /* ======================= ТЕЛЕФОНЫ ====================== */
@@ -385,48 +466,79 @@ main{
 
 @media (max-width: 768px){
     .package-main-block{
-        min-height: 430px;
-        padding: 0 6% 42px;
+        display: flex;
         align-items: flex-end;
-    }
 
-    .package-main-block-fon{
-        object-position: center center;
-        filter: brightness(0.62) saturate(1.05);
-    }
+        min-height: 500px;
+        padding: 0 6% 42px;
 
-    .package-main-block::before{
-        background:
-            linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 0.25) 0%,
-                rgba(0, 0, 0, 0.82) 100%
-            );
-    }
-
-    .package-main-block::after{
-        top: 18%;
-        right: 4%;
-        font-size: 180px;
+        background: #080808;
     }
 
     .package-main-block-logo{
-        top: 76px;
-        right: 6%;
-        width: 130px;
-        max-height: 110px;
+        top: 43%;
+        right: 50%;
+        z-index: 1;
+
+        width: min(78vw, 390px);
+        height: min(78vw, 390px);
+
+        opacity: 0.72;
+
+        transform: translate(50%, -50%);
+
+        -webkit-mask-image: radial-gradient(
+            circle,
+            #000 42%,
+            rgba(0, 0, 0, 0.62) 67%,
+            transparent 100%
+        );
+
+        mask-image: radial-gradient(
+            circle,
+            #000 42%,
+            rgba(0, 0, 0, 0.62) 67%,
+            transparent 100%
+        );
+    }
+
+    .package-main-block::before{
+        top: 42%;
+        right: 50%;
+
+        width: min(100vw, 520px);
+        height: min(100vw, 520px);
+
+        transform: translate(50%, -50%);
+    }
+
+    .package-main-block::after{
+        top: auto;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 58%;
+
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(8, 8, 8, 0.56) 40%,
+            #080808 88%
+        );
+
+        filter: blur(14px);
     }
 
     .package-main-block-text{
+        z-index: 3;
+
         width: 100%;
         max-width: 540px;
-        padding: 20px 22px 22px;
-        border-left-width: 3px;
-        border-radius: 0 16px 16px 0;
     }
 
     .package-main-block-text h1{
-        font-size: clamp(28px, 7vw, 42px);
+        font-size: clamp(29px, 8vw, 43px);
     }
 
     .package-main-block-text h1::after{
@@ -456,6 +568,7 @@ main{
     .ol-contant-block > li{
         min-height: 0;
         padding: 28px 24px 25px 82px;
+
         border-radius: 20px;
         font-size: 20px;
     }
@@ -463,11 +576,14 @@ main{
     .ol-contant-block > li::before{
         top: 25px;
         left: 20px;
+
         width: 42px;
         height: 42px;
+
         font-size: 19px;
     }
 }
+
 
 /* ======================================================= */
 /* =================== ОБЫЧНЫЕ ТЕЛЕФОНЫ ================= */
@@ -475,21 +591,15 @@ main{
 
 @media (max-width: 480px){
     .package-main-block{
-        min-height: 350px;
+        min-height: 390px;
         padding: 0 5% 30px;
     }
 
     .package-main-block-logo{
-        top: 68px;
-        right: 5%;
-        width: 104px;
-        max-height: 88px;
-    }
+        top: 42%;
 
-    .package-main-block-text{
-        padding: 17px 18px 19px;
-        border-left-width: 3px;
-        border-radius: 0 13px 13px 0;
+        width: min(82vw, 330px);
+        height: min(82vw, 330px);
     }
 
     .package-main-block-text h1{
@@ -532,6 +642,7 @@ main{
 
     .ol-contant-block > li{
         padding: 24px 18px 21px 67px;
+
         border-radius: 16px;
         font-size: 17px;
     }
@@ -539,13 +650,16 @@ main{
     .ol-contant-block > li::before{
         top: 21px;
         left: 15px;
+
         width: 35px;
         height: 35px;
+
         font-size: 16px;
     }
 
     .ol-contant-block > li > p{
         margin-top: 10px;
+
         font-size: 13.5px;
         line-height: 1.6;
     }
@@ -553,6 +667,7 @@ main{
     .other-ul{
         grid-template-columns: 1fr;
         gap: 8px;
+
         margin-top: 14px;
     }
 
@@ -561,18 +676,14 @@ main{
     }
 }
 
+
 /* ======================================================= */
 /* ================= УЗКИЕ ТЕЛЕФОНЫ ===================== */
 /* ======================================================= */
 
 @media (max-width: 360px){
     .package-main-block{
-        min-height: 310px;
-    }
-
-    .package-main-block-logo{
-        top: 64px;
-        width: 86px;
+        min-height: 340px;
     }
 
     .package-main-block-text h1{
