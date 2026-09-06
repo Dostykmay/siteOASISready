@@ -16,6 +16,7 @@ main{
 
     width: 100%;
     height: 380px;
+
     overflow: hidden;
 
     background-color: #111;
@@ -37,9 +38,11 @@ main{
 
 .seeds-main-block::after{
     content: "";
+
     position: absolute;
     inset: 0;
     z-index: 1;
+
     pointer-events: none;
 
     background:
@@ -80,6 +83,7 @@ main{
 
 .seeds-main-block-text h1::after{
     content: "";
+
     display: block;
 
     width: 82px;
@@ -87,6 +91,7 @@ main{
     margin-top: 20px;
 
     border-radius: 999px;
+
     background: rgb(245, 166, 35);
 }
 
@@ -95,20 +100,17 @@ main{
 /* =================== КАРТОЧКИ СЕМЯН =================== */
 /* ======================================================= */
 
-/*
-    Одна карточка = один спокойный цветовой фон.
-    Убираем тяжёлый вертикальный градиент внутри каждой секции.
-*/
 .seeds-cards{
     width: 100%;
     padding: 76px 8%;
     box-sizing: border-box;
 
     background: #171311;
+
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-/* Небольшое чередование карточек, чтобы каталог легче читался */
+/* Чередование спокойных фонов для лучшего разделения сортов */
 .seeds-cards:nth-of-type(even){
     background: #1d1612;
 }
@@ -134,68 +136,54 @@ main{
 /* ======================================================= */
 
 /*
-    Фото остаётся слева и следует за прокруткой
-    только в пределах текущей .seeds-cards.
+    Единый формат изображения 4:5.
+
+    При ширине 420px высота контейнера составит 525px.
+    position: sticky позволяет изображению оставаться
+    перед глазами во время чтения характеристик сорта.
 */
 .seeds-container-cards-image{
     position: sticky;
     top: 96px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     width: 100%;
-    height: 420px;
+    aspect-ratio: 4 / 5;
 
     overflow: hidden;
     align-self: start;
 
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.18);
+
+    background: rgba(0, 0, 0, 0.22);
+
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
 }
 
+/*
+    Фото заполняет блок без искажений.
+    При несовпадении пропорций исходника с 4:5
+    object-fit: cover аккуратно обрежет края.
+*/
 .seeds-container-cards-image img{
     display: block;
 
     width: 100%;
     height: 100%;
 
-    /*
-        Полностью показывает каждое исходное изображение.
-        Фото не обрезается и не искажается.
-    */
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 
     filter: brightness(0.96);
 
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.seeds-container-cards-image img{
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    /*
-        Не обрезает изображение.
-        Исходная пропорция файла сохраняется.
-    */
-    object-fit: contain;
-
-    border-radius: 20px;
-    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
-    filter: brightness(0.96);
-
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
 .seeds-container-cards-image img:hover{
     filter: brightness(1);
-    transform: scale(1.015);
+
+    transform: scale(1.025);
 }
 
 
@@ -230,14 +218,13 @@ main{
     letter-spacing: 0.5px;
 }
 
-/* Буква Z в названии «Zеландия» — цвета российского флага */
+/*
+    Буква Z в слове «Zеландия» окрашена
+    в белый, синий и красный цвета.
+*/
 .zelandiya-flag-letter{
     display: inline-block;
 
-    /*
-        Три горизонтальные полосы:
-        белая сверху, синяя посередине, красная снизу.
-    */
     background: linear-gradient(
         to bottom,
         #ffffff 0%,
@@ -248,26 +235,15 @@ main{
         #d52b1e 100%
     );
 
-    /*
-        Градиент становится заливкой именно текста буквы Z.
-    */
     -webkit-background-clip: text;
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
     color: transparent;
 
-    /*
-        Небольшая тонкая тень нужна только потому,
-        что верхняя белая часть Z находится на тёмном фоне.
-    */
     filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.65));
 }
 
-/*
-    Только значок зарегистрированного товарного знака.
-    Работает с твоей HTML-разметкой: <sup>®</sup>.
-*/
 .product-title sup{
     margin-left: 2px;
 
@@ -319,10 +295,6 @@ main{
     list-style: none;
 }
 
-/*
-    На двух колонках описание становится компактнее:
-    человеку не надо слишком долго прокручивать карточку.
-*/
 .features-list li{
     position: relative;
 
@@ -349,6 +321,7 @@ main{
     height: 7px;
 
     border-radius: 50%;
+
     background: rgb(245, 166, 35);
 }
 
@@ -420,6 +393,7 @@ main{
 
     .seeds-container-cards-image{
         top: 84px;
+        aspect-ratio: 4 / 5;
     }
 
     .features-list{
@@ -444,6 +418,7 @@ main{
 
     .seeds-main-block > img{
         object-position: 68% center;
+
         filter: brightness(0.58) saturate(0.95);
     }
 
@@ -459,29 +434,36 @@ main{
         padding: 46px 6%;
     }
 
-    /*
-        На телефоне карточка идёт вертикально:
-        изображение сверху, полностью сохранённое,
-        текст ниже. Sticky отключён.
-    */
     .seeds-container-cards{
         display: flex;
         flex-direction: column;
         gap: 28px;
     }
 
+    /*
+        На телефонах sticky отключается.
+        Изображение находится над текстом,
+        но всё ещё сохраняет формат 4:5.
+    */
     .seeds-container-cards-image{
         position: static;
 
         width: 100%;
-        max-width: 100%;
+        max-width: 430px;
+        aspect-ratio: 4 / 5;
+        margin: 0 auto;
+
+        border-radius: 16px;
     }
 
     .seeds-container-cards-image img{
         width: 100%;
-        height: auto;
+        height: 100%;
 
-        border-radius: 16px;
+        object-fit: cover;
+        object-position: center;
+
+        border-radius: 0;
     }
 
     .product-header{
@@ -523,6 +505,7 @@ main{
 
     .seeds-main-block-text{
         left: 5%;
+
         max-width: 85%;
     }
 
@@ -544,11 +527,14 @@ main{
         gap: 22px;
     }
 
+    .seeds-container-cards-image{
+        max-width: 100%;
+        border-radius: 14px;
+    }
+
     .product-title{
         font-size: 25px;
     }
-
-    
 
     .p-bold{
         font-size: 16px;
@@ -563,7 +549,8 @@ main{
     }
 
     .seeds-container-cards-guarantee{
-        padding: 18px 18px;
+        padding: 18px;
+
         border-radius: 12px;
     }
 
