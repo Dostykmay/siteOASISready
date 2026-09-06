@@ -1,736 +1,194 @@
-/* ======================================================= */
-/* ================= БАЗОВЫЕ НАСТРОЙКИ ================== */
-/* ======================================================= */
-
 main{
-    overflow-x: hidden;
-}
-
-
-/* ======================================================= */
-/* ========================== HERO ====================== */
-/* ======================================================= */
-
-.buran-hero{
-    position: relative;
-
-    display: flex;
-    align-items: flex-end;
-
-    min-height: 650px;
-    padding: 100px 8% 78px;
-    box-sizing: border-box;
-    overflow: hidden;
+    min-height: 100vh;
 
     background:
         radial-gradient(
-            circle at 80% 20%,
-            rgba(45, 123, 207, 0.28) 0%,
-            rgba(45, 123, 207, 0.08) 28%,
-            transparent 57%
+            circle at 84% 12%,
+            rgba(63, 151, 230, 0.30) 0%,
+            rgba(63, 151, 230, 0) 36%
         ),
         linear-gradient(
-            135deg,
-            #061326 0%,
-            #0b2c55 52%,
-            #06101e 100%
+            145deg,
+            #07172a 0%,
+            #0d315d 55%,
+            #1f5f9b 100%
         );
 }
 
-.buran-hero::before{
-    content: "";
+.buran-page{
+    display: flex;
+    align-items: center;
 
-    position: absolute;
-    top: -25%;
-    right: -6%;
-
-    width: min(68vw, 900px);
-    height: min(68vw, 900px);
-
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 50%;
-    pointer-events: none;
+    min-height: 100vh;
+    padding: 130px 8% 80px;
+    box-sizing: border-box;
 }
 
-.buran-hero::after{
-    content: "";
+.buran-page-container{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 470px);
+    align-items: center;
+    gap: 70px;
 
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    height: 230px;
-    pointer-events: none;
-
-    background: linear-gradient(
-        180deg,
-        transparent 0%,
-        rgba(2, 8, 17, 0.90) 100%
-    );
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
 }
 
-
-/* ======================================================= */
-/* ================== КОЛЛАЖ С МАСКОТОМ ================= */
-/* ======================================================= */
-
-.buran-hero-collage{
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-
-    opacity: 0.72;
+.buran-page-content{
+    max-width: 630px;
 }
 
-.buran-hero-photo{
-    position: absolute;
+.buran-label{
+    margin: 0 0 18px;
 
-    display: block;
-
-    object-fit: cover;
-
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
-
-    filter: brightness(0.82) saturate(1.05);
-}
-
-.buran-hero-photo-one{
-    top: 8%;
-    right: 8%;
-
-    width: min(28vw, 360px);
-    aspect-ratio: 1 / 1;
-
-    transform: rotate(5deg);
-}
-
-.buran-hero-photo-two{
-    top: 31%;
-    right: 30%;
-
-    width: min(24vw, 310px);
-    aspect-ratio: 1 / 1;
-
-    transform: rotate(-7deg);
-}
-
-.buran-hero-photo-three{
-    right: -2%;
-    bottom: -4%;
-
-    width: min(35vw, 460px);
-    aspect-ratio: 1 / 1;
-
-    transform: rotate(4deg);
-}
-
-.buran-hero-overlay{
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-
-    background: linear-gradient(
-        90deg,
-        rgba(3, 12, 24, 0.96) 0%,
-        rgba(3, 12, 24, 0.88) 33%,
-        rgba(3, 12, 24, 0.46) 62%,
-        rgba(3, 12, 24, 0.13) 100%
-    );
-}
-
-
-/* ======================================================= */
-/* ==================== HERO-ТЕКСТ ======================= */
-/* ======================================================= */
-
-.buran-hero-content{
-    position: relative;
-    z-index: 2;
-
-    max-width: 720px;
-}
-
-.buran-hero-label,
-.buran-section-label,
-.buran-final-label{
-    margin: 0 0 15px;
-
-    color: #9ed3ff;
-    font-family: "Avenir-Medium", sans-serif;
+    color: #8fd4ff;
+    font-family: "Avenir-Bold", sans-serif;
     font-size: 14px;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.7px;
     text-transform: uppercase;
 }
 
-.buran-hero h1{
-    margin: 0;
+.buran-page h1{
+    margin: 0 0 22px;
 
     color: white;
     font-family: "Avenir-Bold", sans-serif;
-    font-size: clamp(42px, 5vw, 68px);
-    line-height: 1.05;
+    font-size: clamp(36px, 4.3vw, 58px);
+    line-height: 1.12;
 
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.50);
+    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
 }
 
-.buran-hero h1::after{
+.buran-page h1::after{
     content: "";
+
     display: block;
 
-    width: 92px;
+    width: 76px;
     height: 4px;
     margin-top: 24px;
 
-    border-radius: 999px;
+    border-radius: 99px;
 
     background: linear-gradient(
         90deg,
-        #7fc4ff,
-        #ffffff
+        #9ce2ff,
+        #2f8ee1
     );
 }
 
-.buran-hero-description{
-    max-width: 600px;
-    margin: 24px 0 0;
+.buran-description{
+    margin: 0 0 16px;
 
-    color: rgba(255, 255, 255, 0.84);
+    color: rgba(244, 249, 255, 0.95);
     font-family: "Avenir-Medium", sans-serif;
-    font-size: 19px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.72;
 }
 
+.buran-description-secondary{
+    max-width: 580px;
 
-/* ======================================================= */
-/* ================== БЛОК О ПАРТНЁРСТВЕ ================ */
-/* ======================================================= */
-
-.buran-about{
-    padding: 88px 8%;
-    box-sizing: border-box;
-
-    background: #07101e;
+    color: rgba(213, 232, 248, 0.80);
 }
 
-.buran-about-container{
-    display: grid;
-    grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
-    gap: clamp(38px, 7vw, 110px);
-
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.buran-about-heading h2,
-.buran-values h2,
-.buran-gallery-heading h2,
-.buran-final h2{
+.buran-page-image{
     margin: 0;
-
-    color: white;
-    font-family: "Avenir-Bold", sans-serif;
-    font-size: clamp(30px, 3.4vw, 48px);
-    line-height: 1.15;
-}
-
-.buran-about-text{
-    padding-left: 32px;
-
-    border-left: 2px solid rgba(126, 196, 255, 0.62);
-}
-
-.buran-about-text p{
-    margin: 0 0 22px;
-
-    color: rgba(255, 255, 255, 0.78);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-}
-
-.buran-about-text p:last-child{
-    margin-bottom: 0;
-}
-
-
-/* ======================================================= */
-/* ===================== ЦЕННОСТИ ======================== */
-/* ======================================================= */
-
-.buran-values{
-    padding: 88px 8% 96px;
+    padding: 12px;
     box-sizing: border-box;
 
-    background: linear-gradient(
-        180deg,
-        #0b2544 0%,
-        #07101e 100%
-    );
-}
-
-.buran-values-container,
-.buran-gallery-container{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.buran-values h2{
-    margin-bottom: 40px;
-}
-
-.buran-values-grid{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.buran-value-card{
-    min-height: 225px;
-    padding: 28px;
-    box-sizing: border-box;
-
-    border: 1px solid rgba(126, 196, 255, 0.26);
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.06);
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.buran-value-card:hover{
-    transform: translateY(-7px);
-
-    border-color: rgba(158, 211, 255, 0.72);
-    background: rgba(255, 255, 255, 0.10);
-}
-
-.buran-value-number{
-    display: block;
-
-    margin-bottom: 30px;
-
-    color: #9ed3ff;
-    font-family: "Avenir-Bold", sans-serif;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-
-.buran-value-card h3{
-    margin: 0 0 12px;
-
-    color: white;
-    font-family: "Avenir-Bold", sans-serif;
-    font-size: 25px;
-}
-
-.buran-value-card p{
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.72);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
-}
-
-
-/* ======================================================= */
-/* ======================= ГАЛЕРЕЯ ======================= */
-/* ======================================================= */
-
-.buran-gallery{
-    padding: 90px 8% 105px;
-    box-sizing: border-box;
-
-    background: #07101e;
-}
-
-.buran-gallery-heading{
-    max-width: 760px;
-    margin-bottom: 42px;
-}
-
-.buran-gallery-grid{
-    display: grid;
-    grid-template-columns: 1.35fr 0.85fr;
-    gap: 28px;
-}
-
-.buran-gallery figure{
-    margin: 0;
-    overflow: hidden;
-
-    border: 1px solid rgba(126, 196, 255, 0.24);
+    border: 1px solid rgba(154, 222, 255, 0.40);
     border-radius: 22px;
 
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.09);
 
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.30);
+    box-shadow:
+        0 22px 48px rgba(0, 0, 0, 0.34),
+        0 0 30px rgba(61, 155, 228, 0.16);
 }
 
-.buran-gallery figure img{
+.buran-page-image img{
     display: block;
 
     width: 100%;
-    height: 360px;
+    min-height: 280px;
 
     object-fit: cover;
-    object-position: center;
 
-    filter: brightness(0.92);
-
-    transition: transform 0.4s ease, filter 0.4s ease;
+    border-radius: 13px;
 }
 
-.buran-gallery figure:hover img{
-    filter: brightness(1);
-    transform: scale(1.035);
-}
+.buran-page-image figcaption{
+    padding: 14px 8px 4px;
 
-.buran-gallery figcaption{
-    padding: 17px 20px 19px;
-
-    color: rgba(255, 255, 255, 0.80);
+    color: rgba(232, 244, 255, 0.78);
     font-family: "Avenir-Medium", sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-
-/* ======================================================= */
-/* ==================== ФИНАЛЬНЫЙ БЛОК ================== */
-/* ======================================================= */
-
-.buran-final{
-    position: relative;
-
-    padding: 100px 8%;
-    box-sizing: border-box;
-    overflow: hidden;
-
+    font-size: 13px;
+    line-height: 1.4;
     text-align: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(47, 130, 218, 0.34) 0%,
-            transparent 58%
-        ),
-        linear-gradient(
-            180deg,
-            #06101e 0%,
-            #0b2544 100%
-        );
 }
 
-.buran-final::before{
-    content: "❄";
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    color: rgba(255, 255, 255, 0.045);
-    font-size: min(44vw, 520px);
-    line-height: 1;
-    pointer-events: none;
-
-    transform: translate(-50%, -50%);
-}
-
-.buran-final h2,
-.buran-final p{
-    position: relative;
-    z-index: 1;
-}
-
-.buran-final h2{
-    max-width: 760px;
-    margin: 0 auto 22px;
-}
-
-.buran-final p:last-child{
-    max-width: 610px;
-    margin: 0 auto;
-
-    color: rgba(255, 255, 255, 0.78);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-}
-
-
-/* ======================================================= */
-/* ======================== FOOTER ======================= */
-/* ======================================================= */
-
-.footer{
-    background: linear-gradient(
-        180deg,
-        #0b2544 0%,
-        #1b5a93 100%
-    );
-}
-
-
-/* ======================================================= */
-/* ====================== ПЛАНШЕТЫ ======================= */
-/* ======================================================= */
-
-@media (max-width: 1024px){
-    .buran-hero{
-        min-height: 540px;
-        padding: 92px 6% 62px;
+@media (max-width: 850px){
+    .buran-page{
+        min-height: auto;
+        padding: 110px 6% 65px;
     }
 
-    .buran-hero-photo-one{
-        width: 290px;
-    }
-
-    .buran-hero-photo-two{
-        width: 240px;
-    }
-
-    .buran-hero-photo-three{
-        width: 340px;
-    }
-
-    .buran-about,
-    .buran-values,
-    .buran-gallery{
-        padding-right: 6%;
-        padding-left: 6%;
-    }
-
-    .buran-about-container{
-        gap: 50px;
-    }
-
-    .buran-values-grid{
-        gap: 18px;
-    }
-
-    .buran-gallery-grid{
-        gap: 20px;
-    }
-
-    .buran-gallery figure img{
-        height: 300px;
-    }
-}
-
-
-/* ======================================================= */
-/* ======================= ТЕЛЕФОНЫ ====================== */
-/* ======================================================= */
-
-@media (max-width: 768px){
-    .buran-hero{
-        min-height: 510px;
-        padding: 76px 6% 48px;
-    }
-
-    .buran-hero-collage{
-        opacity: 0.48;
-    }
-
-    .buran-hero-photo-one{
-        top: 9%;
-        right: 5%;
-
-        width: 190px;
-    }
-
-    .buran-hero-photo-two{
-        top: 28%;
-        right: 35%;
-
-        width: 145px;
-    }
-
-    .buran-hero-photo-three{
-        right: -7%;
-        bottom: 1%;
-
-        width: 230px;
-    }
-
-    .buran-hero-overlay{
-        background: linear-gradient(
-            180deg,
-            rgba(3, 12, 24, 0.55) 0%,
-            rgba(3, 12, 24, 0.90) 68%,
-            #030c18 100%
-        );
-    }
-
-    .buran-hero h1{
-        font-size: 42px;
-    }
-
-    .buran-hero-description{
-        font-size: 16px;
-    }
-
-    .buran-about,
-    .buran-values,
-    .buran-gallery{
-        padding: 60px 6%;
-    }
-
-    .buran-about-container{
+    .buran-page-container{
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 38px;
     }
 
-    .buran-about-text{
-        padding-left: 24px;
+    .buran-page-content{
+        max-width: none;
     }
 
-    .buran-values-grid{
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .buran-value-card{
-        min-height: 0;
-    }
-
-    .buran-gallery-grid{
-        grid-template-columns: 1fr;
-    }
-
-    .buran-gallery figure img{
-        height: 300px;
-    }
-
-    .buran-final{
-        padding: 74px 6%;
+    .buran-page-image{
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
     }
 }
-
-
-/* ======================================================= */
-/* =================== ОБЫЧНЫЕ ТЕЛЕФОНЫ ================= */
-/* ======================================================= */
 
 @media (max-width: 480px){
-    .buran-hero{
-        min-height: 440px;
-        padding: 66px 5% 36px;
+    .buran-page{
+        padding: 92px 5% 48px;
     }
 
-    .buran-hero-label,
-    .buran-section-label,
-    .buran-final-label{
-        margin-bottom: 11px;
+    .buran-label{
+        margin-bottom: 14px;
 
         font-size: 11px;
         letter-spacing: 1.2px;
     }
 
-    .buran-hero h1{
-        font-size: 33px;
+    .buran-page h1{
+        margin-bottom: 18px;
+
+        font-size: 31px;
     }
 
-    .buran-hero h1::after{
+    .buran-page h1::after{
         width: 60px;
         height: 3px;
-        margin-top: 16px;
+        margin-top: 17px;
     }
 
-    .buran-hero-description{
-        margin-top: 18px;
-
-        font-size: 14px;
-        line-height: 1.55;
-    }
-
-    .buran-hero-photo-one{
-        width: 145px;
-    }
-
-    .buran-hero-photo-two{
-        width: 110px;
-    }
-
-    .buran-hero-photo-three{
-        width: 175px;
-    }
-
-    .buran-about,
-    .buran-values,
-    .buran-gallery{
-        padding: 46px 5%;
-    }
-
-    .buran-about-heading h2,
-    .buran-values h2,
-    .buran-gallery-heading h2,
-    .buran-final h2{
-        font-size: 27px;
-    }
-
-    .buran-about-text{
-        padding-left: 18px;
-    }
-
-    .buran-about-text p{
-        font-size: 14px;
+    .buran-description{
+        font-size: 15px;
         line-height: 1.62;
     }
 
-    .buran-values h2{
-        margin-bottom: 26px;
-    }
+    .buran-page-image{
+        padding: 8px;
 
-    .buran-value-card{
-        padding: 22px;
         border-radius: 16px;
     }
 
-    .buran-value-number{
-        margin-bottom: 20px;
-        font-size: 13px;
-    }
+    .buran-page-image img{
+        min-height: 210px;
 
-    .buran-value-card h3{
-        font-size: 21px;
-    }
-
-    .buran-value-card p{
-        font-size: 14px;
-    }
-
-    .buran-gallery-heading{
-        margin-bottom: 26px;
-    }
-
-    .buran-gallery figure{
-        border-radius: 16px;
-    }
-
-    .buran-gallery figure img{
-        height: 220px;
-    }
-
-    .buran-gallery figcaption{
-        padding: 14px 16px 16px;
-        font-size: 13px;
-    }
-
-    .buran-final{
-        padding: 60px 5%;
-    }
-
-    .buran-final p:last-child{
-        font-size: 14px;
-        line-height: 1.6;
+        border-radius: 10px;
     }
 }
