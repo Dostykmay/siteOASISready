@@ -201,6 +201,40 @@ main{
     letter-spacing: 0.5px;
 }
 
+/* Буква Z в названии «Zеландия» — цвета российского флага */
+.zelandiya-flag-letter{
+    display: inline-block;
+
+    /*
+        Три горизонтальные полосы:
+        белая сверху, синяя посередине, красная снизу.
+    */
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ffffff 33.333%,
+        #0039a6 33.333%,
+        #0039a6 66.666%,
+        #d52b1e 66.666%,
+        #d52b1e 100%
+    );
+
+    /*
+        Градиент становится заливкой именно текста буквы Z.
+    */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /*
+        Небольшая тонкая тень нужна только потому,
+        что верхняя белая часть Z находится на тёмном фоне.
+    */
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.65));
+}
+
 /*
     Только значок зарегистрированного товарного знака.
     Работает с твоей HTML-разметкой: <sup>®</sup>.
@@ -484,6 +518,8 @@ main{
     .product-title{
         font-size: 25px;
     }
+
+    
 
     .p-bold{
         font-size: 16px;
