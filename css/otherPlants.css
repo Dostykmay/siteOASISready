@@ -48,7 +48,11 @@
 }
 
 #other-plants-title{
-    scroll-margin-top: 42vh;
+    /*
+        Высота fixed-шапки 70px + 20px запаса.
+        Предыдущий раздел останется выше экрана.
+    */
+    scroll-margin-top: 90px;
 }
 
 .plant-card img {
