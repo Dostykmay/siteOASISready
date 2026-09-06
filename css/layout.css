@@ -6,63 +6,128 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    min-height: 70px;
-    background-color: rgba(0, 0, 0, 0.72);
-    z-index: 1000;
+
     display: flex;
     align-items: center;
+
+    width: 100%;
+    min-height: 70px;
+
+    background-color: rgba(0, 0, 0, 0.72);
+
+    z-index: 1000;
 }
 
 .nav-container{
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
+
     text-align: center;
 }
 
 .nav-menu{
-    width: 100%;
-    margin: 0;
-    padding: 14px 0;
-    list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
+
+    width: 100%;
+    margin: 0;
+    padding: 14px 0;
+
+    list-style: none;
 }
 
 .menu-item{
     position: relative;
+
     display: block;
+
     margin: 0;
+
     background-color: rgba(233, 93, 5, 0.58);
+
     border: 1px solid rgba(223, 93, 5, 0.9);
     border-radius: 10px;
+
     box-shadow:
         0 8px 18px rgba(0, 0, 0, 0.22),
         0 0 22px 5px rgba(255, 255, 255, 0.15);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .menu-item:hover{
-    transform: scale(1.05);
     background-color: rgba(190, 70, 7, 0.82);
+
+    transform: scale(1.05);
 }
 
-/* Обычные ссылки и summary выглядят одинаково */
+
+/* ======================================================= */
+/* ================= КНОПКА ХК «БУРАН» ================== */
+/* ======================================================= */
+
+/*
+    Стили применяются только к пункту меню,
+    внутри которого находится ссылка .buran-menu-link.
+*/
+.menu-item:has(.buran-menu-link){
+    background: linear-gradient(
+        135deg,
+        rgba(13, 69, 128, 0.96),
+        rgba(26, 120, 204, 0.96)
+    );
+
+    border-color: rgba(142, 208, 255, 0.96);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.28),
+        0 0 22px 4px rgba(91, 181, 255, 0.26);
+}
+
+.menu-item:has(.buran-menu-link):hover{
+    background: linear-gradient(
+        135deg,
+        rgba(20, 94, 170, 1),
+        rgba(45, 145, 228, 1)
+    );
+}
+
+.buran-menu-link{
+    position: relative;
+}
+
+.buran-menu-link::before{
+    content: "❄";
+
+    margin-right: 4px;
+
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 15px;
+}
+
+
+/* ======================================================= */
+/* ============= ОСНОВНЫЕ ССЫЛКИ И SUMMARY ============== */
+/* ======================================================= */
+
 .menu-a{
-    width: 150px;
-    min-height: 40px;
-    padding: 0 10px;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
 
+    width: 150px;
+    min-height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+
     color: white;
-    font-family: 'Avenir-Bold', sans-serif;
+    font-family: "Avenir-Bold", sans-serif;
     font-size: 17px;
     line-height: 1.2;
     text-align: center;
@@ -73,16 +138,17 @@
     background: transparent;
 }
 
+
 /* ======================================================= */
 /* ================= ВЫПАДАЮЩИЕ СПИСКИ ================= */
 /* ======================================================= */
 
 .menu-drop-down-list{
     position: relative;
+
     width: 100%;
 }
 
-/* Убираем системный треугольник у summary */
 .menu-drop-down-list summary{
     list-style: none;
 }
@@ -92,87 +158,83 @@
     display: none;
 }
 
-/* Summary является кликабельной кнопкой */
 .menu-drop-down-list summary.menu-a{
     cursor: pointer;
     user-select: none;
 }
 
-/* Стрелка рядом с названием раздела */
 .dropdown-arrow{
-    width: 8px;
-    height: 8px;
     display: inline-block;
     flex: 0 0 auto;
-    margin-left: 5px;
+
+    width: 8px;
+    height: 8px;
     margin-top: -4px;
+    margin-left: 5px;
 
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
 
     transform: rotate(45deg);
+
     transition: transform 0.25s ease;
 }
 
-/* При раскрытии стрелка смотрит вверх */
 .menu-drop-down-list[open] .dropdown-arrow{
     transform: rotate(225deg);
 }
 
-/* На компьютере подменю располагается под своей кнопкой */
 .menu-drop-down-list-parts{
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
+
     z-index: 1100;
+
     width: 100%;
     min-width: 190px;
     padding: 0;
 }
 
-/* Ссылки внутри выпадающего меню */
 .menu-drop-down-list-parts a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     min-height: 40px;
     margin-top: 8px;
     padding: 8px 10px;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     color: white;
-    font-family: 'Avenir-Light', sans-serif;
+    font-family: "Avenir-Light", sans-serif;
     font-size: 15px;
     line-height: 1.2;
     text-align: center;
     text-decoration: none;
 
     background-color: rgba(70, 31, 9, 0.98);
+
     border: 1px solid rgba(233, 93, 5, 0.92);
     border-radius: 6px;
+
     box-shadow: 0 7px 16px rgba(0, 0, 0, 0.45);
 
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-/* Отдельный цвет ссылки на страницу партнёрства с ХК «Буран» */
-.menu-drop-down-list-parts a.buran-menu-link{
-    background-color: rgba(18, 83, 150, 0.98);
-    border-color: rgba(105, 184, 255, 0.95);
-}
-
-.menu-drop-down-list-parts a.buran-menu-link:hover,
-.menu-drop-down-list-parts a.buran-menu-link:focus{
-    background-color: rgba(26, 115, 196, 0.98);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .menu-drop-down-list-parts a:hover,
 .menu-drop-down-list-parts a:focus{
     background-color: rgba(175, 70, 8, 0.98);
-    transform: scale(1.03);
+
     outline: none;
+
+    transform: scale(1.03);
 }
+
 
 /* ======================================================= */
 /* ======================== FOOTER ======================= */
@@ -181,6 +243,7 @@
 .footer{
     width: 100%;
     min-height: 250px;
+
     background: linear-gradient(
         180deg,
         rgb(132, 129, 128) 0%,
@@ -189,15 +252,17 @@
 }
 
 .main-container-footer{
-    min-height: 250px;
-    padding-left: 90px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    min-height: 250px;
+    padding-left: 90px;
 }
 
 .information-footer{
     grid-column: 1;
     align-self: center;
+
     width: 250px;
     margin-top: 10px;
 }
@@ -205,6 +270,7 @@
 .logo-footer{
     grid-column: 3;
     justify-self: end;
+
     margin-top: 10px;
     margin-right: 60px;
 }
@@ -214,22 +280,27 @@
     min-height: 230px;
     margin: 0;
     padding: 0;
+
     object-fit: cover;
 }
 
 .information-footer-h1{
     display: inline-block;
+
     margin-bottom: 20px;
+
     color: white;
-    font-family: 'Avenir-Bold', sans-serif;
+    font-family: "Avenir-Bold", sans-serif;
 }
 
 .information-footer-contact{
     display: inline-block;
+
     color: rgb(218, 212, 212);
-    font-family: 'Avenir-Light', sans-serif;
+    font-family: "Avenir-Light", sans-serif;
     font-size: 20px;
 }
+
 
 /* ======================================================= */
 /* ====================== ГАМБУРГЕР ====================== */
@@ -242,6 +313,7 @@
 .burger-label{
     display: none;
 }
+
 
 /* ======================================================= */
 /* ====================== ПЛАНШЕТЫ ======================= */
@@ -258,45 +330,87 @@
     }
 }
 
+
 /* ======================================================= */
-/* ====================== ТЕЛЕФОНЫ ======================= */
+/* ======================= ТЕЛЕФОНЫ ====================== */
 /* ======================================================= */
 
 @media (max-width: 768px){
+    /* Шапка перестаёт быть чёрной полосой */
     .header{
-        min-height: 60px;
-        height: 60px;
-        padding: 0 16px;
-        box-sizing: border-box;
-        background-color: rgba(12, 8, 5, 0.95);
+        position: fixed;
+        top: 14px;
+        left: 14px;
+
+        width: auto;
+        min-height: 0;
+        height: auto;
+        padding: 0;
+
+        background: transparent;
+
+        z-index: 1000;
     }
 
     .nav-container{
         position: relative;
-        padding: 0;
+
         display: flex;
         align-items: center;
+
+        width: auto;
+        padding: 0;
     }
 
+    /* Кнопка-гамбургер */
     .burger-label{
-        width: 32px;
-        height: 26px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 5px;
+
+        width: 46px;
+        height: 46px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        background: rgba(35, 19, 10, 0.93);
+
+        border: 1px solid rgba(233, 93, 5, 0.95);
+        border-radius: 12px;
+
+        box-shadow:
+            0 5px 15px rgba(0, 0, 0, 0.45),
+            0 0 14px rgba(233, 93, 5, 0.20);
+
         cursor: pointer;
         z-index: 1200;
+
+        transition:
+            background-color 0.25s ease,
+            transform 0.25s ease;
+    }
+
+    .burger-label:hover{
+        background: rgba(88, 38, 11, 0.96);
+        transform: scale(1.04);
     }
 
     .burger-label span{
         display: block;
+
         width: 100%;
         height: 3px;
+
         background-color: white;
+
         border-radius: 2px;
+
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-        transition: transform 0.3s ease, opacity 0.3s ease;
+
+        transition:
+            transform 0.3s ease,
+            opacity 0.3s ease;
     }
 
     .burger-checkbox:checked ~ .burger-label span:nth-child(1){
@@ -311,57 +425,90 @@
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Меню скрыто, пока гамбургер не нажат */
+    /* Контейнер мобильного меню — без чёрного фона */
     .nav-menu{
-        display: none;
         position: absolute;
-        top: 60px;
-        left: -16px;
-        width: calc(100% + 32px);
-        max-height: calc(100vh - 60px);
+        top: 58px;
+        left: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 10px;
+
+        width: min(320px, calc(100vw - 28px));
+        max-height: calc(100vh - 80px);
         margin: 0;
-        padding: 16px 0 24px;
+        padding: 0;
         box-sizing: border-box;
 
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 12px;
-
         overflow-y: auto;
-        background-color: rgba(12, 8, 5, 0.97);
-        border-top: 1px solid rgba(233, 93, 5, 0.48);
+
+        background: transparent;
+        border: none;
     }
 
     .burger-checkbox:checked ~ .nav-menu{
         display: flex;
     }
 
-    /* Основные кнопки мобильного меню */
+    /* Основные кнопки меню */
     .menu-item{
         display: block;
-        width: 90%;
+
+        width: 100%;
         margin: 0;
-        background-color: rgba(48, 25, 12, 0.99);
+
+        background-color: rgba(48, 25, 12, 0.97);
+
         border-color: rgba(233, 93, 5, 0.98);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.62);
+
+        box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.54),
+            0 0 10px rgba(233, 93, 5, 0.10);
     }
 
     .menu-item:hover{
+        background-color: rgba(48, 25, 12, 0.97);
         transform: none;
-        background-color: rgba(48, 25, 12, 0.99);
+    }
+
+    /* Отдельная синяя кнопка «Буран» */
+    .menu-item:has(.buran-menu-link){
+        background: linear-gradient(
+            135deg,
+            rgba(12, 62, 117, 0.98),
+            rgba(24, 110, 191, 0.98)
+        );
+
+        border-color: rgba(142, 208, 255, 0.96);
+
+        box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.56),
+            0 0 16px rgba(72, 170, 255, 0.23);
+    }
+
+    .menu-item:has(.buran-menu-link):hover{
+        background: linear-gradient(
+            135deg,
+            rgba(12, 62, 117, 0.98),
+            rgba(24, 110, 191, 0.98)
+        );
     }
 
     .menu-a{
         width: 100%;
         min-height: 46px;
         height: auto;
+
         font-size: 16px;
     }
 
-    /* На телефоне подпункты становятся частью вертикального меню */
+    /* Подпункты раскрываются внутри своей карточки */
     .menu-drop-down-list-parts{
         position: static;
+
         width: 100%;
         min-width: 0;
         margin-top: 8px;
@@ -371,23 +518,29 @@
         width: calc(100% - 16px);
         min-height: 42px;
         margin: 8px auto 0;
-        background-color: rgba(102, 48, 12, 0.99);
+
+        background-color: rgba(102, 48, 12, 0.98);
+
         border-color: rgba(245, 144, 37, 0.95);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.40);
     }
 
+    /* Footer на телефонах */
     .footer{
         min-height: 0;
         padding: 30px 0;
     }
 
     .main-container-footer{
-        min-height: 0;
-        padding-left: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 20px;
+
+        min-height: 0;
+        padding-left: 0;
+
         text-align: center;
     }
 
@@ -407,9 +560,11 @@
 
     .information-footer-contact{
         display: block;
+
         font-size: 16px;
     }
 }
+
 
 /* ======================================================= */
 /* ================= УЗКИЕ ТЕЛЕФОНЫ ===================== */
