@@ -4,13 +4,16 @@
 
 .index-main-block{
     position: relative;
+
     width: 100%;
-    height: 700px;    
+    height: 700px;
+
     overflow: visible;
 }
 
 .index-main-block::before{
     content: "";
+
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +25,7 @@
     background: linear-gradient(
         180deg,
         rgba(223, 93, 5, 0.85) 0%,
-        rgba(223, 93, 5, 0.4) 25%,
+        rgba(223, 93, 5, 0.40) 25%,
         rgba(213, 217, 220, 0) 60%
     );
 }
@@ -34,11 +37,13 @@
     height: 100%;
 
     object-fit: cover;
+
     filter: brightness(0.3);
 }
 
 .index-main-block::after{
     content: "";
+
     position: absolute;
     bottom: 0;
     left: 0;
@@ -65,6 +70,7 @@
     height: 200px;
 
     object-fit: cover;
+
     filter: brightness(0.8);
 
     transform: translate(-50%, -50%);
@@ -89,7 +95,7 @@
     padding: 0;
 
     color: white;
-    font-family: 'Avenir-Bold';
+    font-family: "Avenir-Bold", sans-serif;
     font-size: 100px;
     letter-spacing: 10px;
 }
@@ -98,13 +104,19 @@
     margin-top: 0;
 
     color: rgba(255, 255, 255, 0.85);
-    font-family: 'Avenir-Light';
+    font-family: "Avenir-Light", sans-serif;
     font-size: 20px;
 }
+
+
 /* ======================================================= */
 /* ============ ЛОГОТИПЫ ВНИЗУ ПЕРВОГО БЛОКА ============ */
 /* ======================================================= */
 
+/*
+    Все логотипы имеют одинаковый размер области 210 × 110px.
+    Центральный логотип остаётся овалом, но не становится меньше.
+*/
 .index-main-block-partners{
     position: absolute;
     bottom: 34px;
@@ -114,7 +126,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 80px;
+    gap: 54px;
 
     width: 100%;
     padding: 0 40px;
@@ -133,107 +145,39 @@
     object-position: center;
 
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.70));
-    opacity: 1;
 
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
 }
 
-/* Второй логотип — овальная форма */
-/* ======================================================= */
-/* =========== ВТОРОЙ ЛОГОТИП: КОМПАКТНЫЙ ОВАЛ ========== */
-/* ======================================================= */
-
-/* ======================================================= */
-/* ============ ВТОРОЙ ЛОГОТИП — НАСТОЯЩИЙ ОВАЛ ========== */
-/* ======================================================= */
-
+/*
+    Центральный логотип расположен в области того же размера,
+    но обрезается по форме горизонтального овала.
+*/
 .index-main-block-partners img:nth-child(2){
-    width: 190px;
-    height: 100px;
+    width: 210px;
+    height: 110px;
 
     object-fit: cover;
     object-position: center;
 
-    /*
-        Обрезает изображение ровно в горизонтальный овал.
-        Проценты 50% / 50% дают полностью круглые боковые края.
-    */
     border-radius: 50% / 50%;
 
-    /*
-        clip-path гарантированно отрезает прямоугольные углы
-        у исходного изображения 16:9.
-    */
     clip-path: ellipse(50% 50% at 50% 50%);
-
-    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.70));
 }
 
-/* .index-main-block-partners img:nth-child(2){
-    padding: 0px 0px;
-    box-sizing: content-box;
-
-    background: rgba(255, 255, 255, 0.86);
-    border: 0.5px solid rgba(255, 255, 255, 0.96);
-    border-radius: 16px;
-
-    box-shadow:
-        0 3px 14px rgba(0, 0, 0, 0.38),
-        0 0 20px rgba(255, 255, 255, 0.30);
-
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-} */
-
-/* Небольшая анимация при наведении */
 @media (hover: hover){
     .index-main-block-partners img:hover{
         position: relative;
         z-index: 20;
 
-        opacity: 1;
-        transform: translateY(-4px) scale(2);
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.80));
+
+        transform: translateY(-4px) scale(1.12);
     }
 }
 
-/* Планшеты */
-@media (max-width: 1024px){
-    .index-main-block-partners{
-        bottom: 20px;
-        gap: 16px;
-    }
-
-    .index-main-block-partners img{
-        width: 88px;
-        height: 46px;
-    }
-}
-
-/* Телефоны */
-@media (max-width: 768px){
-    .index-main-block-partners{
-        bottom: 16px;
-        gap: 10px;
-    }
-
-    .index-main-block-partners img{
-        width: 68px;
-        height: 36px;
-    }
-}
-
-/* Очень узкие телефоны */
-@media (max-width: 400px){
-    .index-main-block-partners{
-        bottom: 12px;
-        gap: 6px;
-    }
-
-    .index-main-block-partners img{
-        width: 56px;
-        height: 30px;
-    }
-}
 
 /* ======================================================= */
 /* ================= БЛОК О КОМПАНИИ ==================== */
@@ -264,8 +208,9 @@
     max-width: 800px;
 
     color: rgb(210, 202, 202);
-    font-family: 'Avenir-Light';
+    font-family: "Avenir-Light", sans-serif;
     font-size: 42px;
+    line-height: 1.3;
 }
 
 .index-essence-company img{
@@ -273,8 +218,10 @@
     height: 450px;
 
     object-fit: cover;
+
     border-radius: 10px;
 }
+
 
 /* ======================================================= */
 /* =================== БЛОК ГАЛЕРЕИ ===================== */
@@ -303,12 +250,11 @@
     margin: 0 0 30px;
 
     color: rgb(255, 255, 255);
-    font-family: 'Avenir-Medium';
+    font-family: "Avenir-Medium", sans-serif;
     font-size: 36px;
     text-align: center;
 }
 
-/* ПК: 3 колонки, после раскрытия 15 фото = 5 строк по 3 */
 .index-photo-grid{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -318,21 +264,27 @@
     margin-bottom: 40px;
 }
 
-/* Размер одной крупной фотографии */
 .index-photo-item{
     width: 100%;
     height: 330px;
+
     overflow: hidden;
 
     border-radius: 16px;
+
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.30);
 
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .index-photo-item:hover{
-    transform: scale(1.25);
+    z-index: 2;
+
     box-shadow: 0 12px 28px rgba(223, 93, 5, 0.45);
+
+    transform: scale(1.08);
 }
 
 .index-photo-item img{
@@ -351,47 +303,53 @@
     transform: scale(1.05);
 }
 
-/* Checkbox невидим, но связан с кнопкой через label */
+
+/* ======================================================= */
+/* ================== ПОКАЗАТЬ ЕЩЁ ФОТО ================= */
+/* ======================================================= */
+
 .show-more-checkbox{
     position: absolute;
 
     width: 1px;
     height: 1px;
+
     overflow: hidden;
 
     opacity: 0;
+
     pointer-events: none;
 }
 
-/* Фото 7–15 скрыты, пока пользователь не нажал кнопку */
 .index-photo-item-extra{
     display: none;
 }
 
-/* После клика показываем оставшиеся девять фотографий */
 .show-more-checkbox:checked
 ~ .index-photo-grid
 .index-photo-item-extra{
     display: block;
 }
 
+
 /* ======================================================= */
 /* =================== КНОПКА ГАЛЕРЕИ =================== */
 /* ======================================================= */
 
 .index-photo-button{
-    width: fit-content;
-    height: 30px;
-    margin: 0 auto;
-    padding: 15px 40px;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 
+    width: fit-content;
+    min-height: 30px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    box-sizing: content-box;
+
     color: rgb(255, 255, 255);
-    font-family: 'Avenir-Medium';
+    font-family: "Avenir-Medium", sans-serif;
     font-size: 18px;
 
     cursor: pointer;
@@ -399,34 +357,40 @@
 
     border: 2px solid transparent;
     border-radius: 50px;
+
     background: linear-gradient(
         135deg,
         rgb(240, 180, 143),
         rgb(255, 120, 30)
     );
-    box-shadow: 0 4px 15px rgba(233, 93, 5, 0.3);
 
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 93, 5, 0.30);
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .index-photo-button:hover{
     color: rgb(233, 93, 5);
 
-    background: white;
     border-color: rgb(233, 93, 5);
+
+    background: white;
+
+    transform: translateY(-2px);
 }
 
-/* По умолчанию отображается «Показать ещё» */
 .index-photo-button-show{
     display: inline;
 }
 
-/* По умолчанию «Скрыть» не отображается */
 .index-photo-button-hide{
     display: none;
 }
 
-/* После клика показывается «Скрыть» */
 .show-more-checkbox:checked
 ~ .index-photo-button
 .index-photo-button-show{
@@ -450,7 +414,6 @@
     transform: translateX(5px);
 }
 
-/* При раскрытой галерее стрелка разворачивается */
 .show-more-checkbox:checked
 ~ .index-photo-button
 .index-photo-button-arrow{
@@ -463,12 +426,25 @@
     transform: rotate(90deg) translateX(2px);
 }
 
+
+/* ======================================================= */
+/* ======================== FOOTER ======================= */
+/* ======================================================= */
+
+.footer{
+    background: linear-gradient(
+        180deg,
+        rgb(73, 77, 78) 0%,
+        rgb(194, 70, 8) 100%
+    );
+}
+
+
 /* ======================================================= */
 /* ====================== ПЛАНШЕТЫ ======================= */
 /* ======================================================= */
 
 @media (max-width: 1024px){
-
     .index-main-block{
         height: 450px;
     }
@@ -486,6 +462,18 @@
         font-size: 18px;
     }
 
+    .index-main-block-partners{
+        bottom: 24px;
+        gap: 28px;
+        padding: 0 24px;
+    }
+
+    .index-main-block-partners img,
+    .index-main-block-partners img:nth-child(2){
+        width: 130px;
+        height: 68px;
+    }
+
     .index-essence-company{
         gap: 40px;
         padding: 50px 40px;
@@ -500,7 +488,6 @@
         height: 320px;
     }
 
-    /* До 1024px: всё ещё 3 фото в ряд */
     .index-photo-grid{
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
@@ -511,18 +498,19 @@
     }
 }
 
+
 /* ======================================================= */
-/* ====================== ТЕЛЕФОНЫ ======================= */
+/* ======================= ТЕЛЕФОНЫ ====================== */
 /* ======================================================= */
 
 @media (max-width: 768px){
-
     .index-main-block{
         height: 380px;
     }
 
     .index-main-block-logo{
         top: 25%;
+
         height: 100px;
     }
 
@@ -541,7 +529,20 @@
 
     .index-main-block-text p{
         padding: 0 10px;
+
         font-size: 15px;
+    }
+
+    .index-main-block-partners{
+        bottom: 18px;
+        gap: 12px;
+        padding: 0 12px;
+    }
+
+    .index-main-block-partners img,
+    .index-main-block-partners img:nth-child(2){
+        width: 88px;
+        height: 46px;
     }
 
     .index-essence-company{
@@ -555,6 +556,7 @@
 
     .index-essence-company p{
         max-width: 100%;
+
         font-size: 20px;
     }
 
@@ -572,7 +574,6 @@
         font-size: 26px;
     }
 
-    /* На телефонах — 2 фото в строке */
     .index-photo-grid{
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
@@ -588,16 +589,17 @@
 
     .index-photo-button{
         padding: 12px 28px;
+
         font-size: 15px;
     }
 }
+
 
 /* ======================================================= */
 /* ================= УЗКИЕ ТЕЛЕФОНЫ ===================== */
 /* ======================================================= */
 
 @media (max-width: 400px){
-
     .index-main-block{
         height: 320px;
     }
@@ -615,11 +617,22 @@
         font-size: 13px;
     }
 
+    .index-main-block-partners{
+        bottom: 14px;
+        gap: 6px;
+        padding: 0 8px;
+    }
+
+    .index-main-block-partners img,
+    .index-main-block-partners img:nth-child(2){
+        width: 65px;
+        height: 34px;
+    }
+
     .index-essence-company p{
         font-size: 17px;
     }
 
-    /* На узком телефоне — одно фото в строке */
     .index-photo-grid{
         grid-template-columns: 1fr;
     }
@@ -627,85 +640,21 @@
     .index-photo-item{
         height: 250px;
     }
-}
 
-/* для телефонов новое */
-/* ======================================================= */
-/* =========== АДАПТАЦИЯ ТРЁХ ЛОГОТИПОВ ДЛЯ ЭКРАНОВ ====== */
-/* ======================================================= */
+    .index-photo-button{
+        padding: 11px 24px;
 
-/* Планшеты и небольшие ноутбуки */
-@media (max-width: 1024px){
-    .index-main-block-partners{
-        bottom: 24px;
-        gap: 28px;
-        padding: 0 24px;
-    }
-
-    .index-main-block-partners img{
-        width: 130px;
-        height: 68px;
-    }
-
-    /* Второй логотип сохраняет форму овала */
-    .index-main-block-partners img:nth-child(2){
-        width: 120px;
-        height: 58px;
-
-        border-radius: 50%;
-        clip-path: ellipse(50% 50% at 50% 50%);
+        font-size: 14px;
     }
 }
 
-/* Телефоны */
-@media (max-width: 768px){
-    .index-main-block-partners{
-        bottom: 18px;
-        gap: 12px;
-        padding: 0 12px;
-    }
 
-    .index-main-block-partners img{
-        width: 88px;
-        height: 46px;
-    }
+/* ======================================================= */
+/* ================= HOVER ДЛЯ ТАЧ-НОУТБУКОВ ============ */
+/* ======================================================= */
 
-    /* Второй логотип-овал тоже уменьшаем */
-    .index-main-block-partners img:nth-child(2){
-        width: 80px;
-        height: 40px;
-
-        border-radius: 50%;
-        clip-path: ellipse(50% 50% at 50% 50%);
-    }
-
-    /*
-        На телефоне не увеличиваем логотипы в два раза:
-        иначе они выходят за экран и перекрывают контент.
-    */
+@media (max-width: 768px) and (hover: hover){
     .index-main-block-partners img:hover{
-        transform: translateY(-3px) scale(1.12);
-    }
-}
-
-/* Узкие телефоны */
-@media (max-width: 400px){
-    .index-main-block-partners{
-        bottom: 14px;
-        gap: 6px;
-        padding: 0 8px;
-    }
-
-    .index-main-block-partners img{
-        width: 65px;
-        height: 34px;
-    }
-
-    .index-main-block-partners img:nth-child(2){
-        width: 60px;
-        height: 30px;
-
-        border-radius: 50%;
-        clip-path: ellipse(50% 50% at 50% 50%);
+        transform: translateY(-3px) scale(1.08);
     }
 }
