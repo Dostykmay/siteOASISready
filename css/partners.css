@@ -293,6 +293,42 @@
     transition: color 0.3s ease;
 }
 
+/* ======================================================= */
+/* ======= БУКВА Z В ЛОГОТИПЕ «ZЕЛАНДИЯ» — ТРИКОЛОР ===== */
+/* ======================================================= */
+
+.zelandiya-flag-letter{
+    display: inline-block;
+
+    /*
+        Три горизонтальные полосы:
+        верхняя — белая,
+        средняя — синяя,
+        нижняя — красная.
+    */
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ffffff 33.333%,
+        #0039a6 33.333%,
+        #0039a6 66.666%,
+        #d52b1e 66.666%,
+        #d52b1e 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /*
+        Белая верхняя часть буквы остаётся заметной
+        на светлых участках логотипа или карточки.
+    */
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.75));
+}
+
 .partner-card:hover .partner-card-name{
     color: rgb(245, 166, 35);
 }
