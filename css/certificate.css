@@ -423,3 +423,86 @@
         font-size: 15px;
     }
 }
+
+/* ======================================================= */
+/* =============== РАЗДЕЛЫ: ПАТЕНТЫ И ПРАВА ============= */
+/* ======================================================= */
+
+.certificate-category{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 70px;
+}
+
+.certificate-category:last-child{
+    margin-bottom: 0;
+}
+
+.certificate-category-title{
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0 0 34px;
+
+    color: rgb(245, 166, 35);
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.2;
+}
+
+.certificate-category-title::after{
+    content: "";
+
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+
+    width: 74px;
+    height: 4px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        rgb(245, 166, 35),
+        rgb(223, 93, 5)
+    );
+}
+
+/* Один патент не растягивается на ширину всей сетки */
+.certificate-grid-patents{
+    justify-content: flex-start;
+}
+
+/* Для свидетельств сохраняется обычная сетка */
+.certificate-grid-rights{
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px){
+    .certificate-category{
+        margin-bottom: 52px;
+    }
+
+    .certificate-category-title{
+        margin-bottom: 27px;
+    }
+}
+
+@media (max-width: 480px){
+    .certificate-category{
+        margin-bottom: 40px;
+    }
+
+    .certificate-category-title{
+        font-size: 24px;
+    }
+
+    .certificate-category-title::after{
+        bottom: -9px;
+
+        width: 58px;
+        height: 3px;
+    }
+}
