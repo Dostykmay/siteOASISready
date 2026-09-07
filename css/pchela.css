@@ -1,21 +1,20 @@
 /* ======================================================= */
-/* ================= БАЗОВЫЕ НАСТРОЙКИ ================== */
+/* ========= ГЛАВНАЯ СТРАНИЦА ОПЫЛИТЕЛЕЙ =============== */
 /* ======================================================= */
 
 main{
     background: linear-gradient(
         180deg,
         #0a0a0a 0%,
-        #1a1210 12%,
-        rgb(70, 45, 20) 45%,
-        rgb(120, 66, 20) 78%,
+        #1a1210 14%,
+        rgb(70, 45, 20) 60%,
         rgb(150, 80, 20) 100%
     );
 }
 
 
 /* ======================================================= */
-/* ==================== HERO ФОТО ======================== */
+/* ========================= HERO ======================== */
 /* ======================================================= */
 
 .pchela-main-photo{
@@ -23,6 +22,7 @@ main{
 
     width: 100%;
     height: 520px;
+
     overflow: hidden;
 
     background: #111;
@@ -37,7 +37,7 @@ main{
     object-fit: cover;
     object-position: center;
 
-    filter: brightness(0.48) saturate(1.06);
+    filter: brightness(0.47) saturate(1.06);
 
     transition: transform 0.8s ease;
 }
@@ -59,13 +59,13 @@ main{
         linear-gradient(
             90deg,
             rgba(0, 0, 0, 0.78) 0%,
-            rgba(0, 0, 0, 0.45) 45%,
-            rgba(0, 0, 0, 0.08) 100%
+            rgba(0, 0, 0, 0.43) 48%,
+            rgba(0, 0, 0, 0.10) 100%
         ),
         linear-gradient(
             180deg,
-            rgba(0, 0, 0, 0.06) 0%,
-            rgba(10, 10, 10, 0.76) 100%
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(10, 10, 10, 0.74) 100%
         );
 }
 
@@ -97,20 +97,20 @@ main{
     font-family: "Avenir-Bold", sans-serif;
     font-size: clamp(38px, 5vw, 62px);
     line-height: 1.08;
-    letter-spacing: 0.5px;
 
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.72);
 }
 
 .pchela-main-photo-text h1::after{
     content: "";
+
     display: block;
 
     width: 90px;
     height: 4px;
     margin-top: 22px;
 
-    border-radius: 999px;
+    border-radius: 99px;
 
     background: linear-gradient(
         90deg,
@@ -121,7 +121,7 @@ main{
 
 
 /* ======================================================= */
-/* =================== ВСТУПИТЕЛЬНЫЙ БЛОК =============== */
+/* ====================== ВСТУПЛЕНИЕ ==================== */
 /* ======================================================= */
 
 .pchela-info{
@@ -130,7 +130,7 @@ main{
     text-align: center;
 }
 
-.pchela-info .text h2{
+.pchela-info-text h2{
     margin: 0 0 18px;
 
     color: white;
@@ -139,7 +139,7 @@ main{
     line-height: 1.15;
 }
 
-.pchela-info .text h2 span{
+.pchela-info-text h2 span{
     background: linear-gradient(
         135deg,
         #ffb703,
@@ -151,7 +151,7 @@ main{
     -webkit-text-fill-color: transparent;
 }
 
-.pchela-info .text p{
+.pchela-info-text > p{
     max-width: 860px;
     margin: 0 auto;
     padding: 25px 32px;
@@ -162,49 +162,62 @@ main{
     font-size: 18px;
     line-height: 1.7;
 
+    background: rgba(255, 255, 255, 0.055);
+
     border: 1px solid rgba(255, 183, 3, 0.25);
     border-radius: 24px;
-
-    background: rgba(255, 255, 255, 0.055);
 
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
 }
 
 
 /* ======================================================= */
-/* ================== ВЫБОР ОПЫЛИТЕЛЯ =================== */
+/* ==================== КАРТОЧКИ ТИПОВ ================== */
 /* ======================================================= */
 
-.pchela-info-content{
-    width: 100%;
-    padding: 32px 8% 82px;
+.pchela-types{
+    padding: 30px 8% 88px;
     box-sizing: border-box;
 }
 
-.pchela-info-content-aboutPchela{
+.pchela-types-container{
     width: 100%;
     max-width: 1100px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
 }
 
-.pchela-info-content-aboutPchela h2{
+.pchela-types-heading{
+    margin-bottom: 30px;
+}
+
+.pchela-types-heading p{
+    margin: 0 0 8px;
+
+    color: #ffb703;
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.pchela-types-heading h2{
     position: relative;
 
     display: inline-block;
 
-    margin: 0 0 22px;
+    margin: 0;
 
-    color: #ffb703;
+    color: white;
     font-family: "Avenir-Bold", sans-serif;
     font-size: clamp(27px, 3vw, 38px);
     line-height: 1.2;
 }
 
-.pchela-info-content-aboutPchela h2::after{
+.pchela-types-heading h2::after{
     content: "";
 
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 0;
 
     width: 72px;
@@ -219,276 +232,129 @@ main{
     );
 }
 
-.pchela-info-content-aboutPchela p{
-    max-width: 800px;
-    margin: 0;
-    padding-left: 20px;
-
-    color: rgba(240, 235, 230, 0.90);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-
-    border-left: 4px solid #ffb703;
-}
-
 .pollinators-navigation{
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
 }
 
 .pollinator-link{
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
 
-    min-height: 210px;
-    padding: 24px;
+    min-height: 260px;
+    padding: 28px;
     box-sizing: border-box;
 
+    overflow: hidden;
+
     color: white;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.055);
 
     border: 1px solid rgba(255, 183, 3, 0.30);
     border-radius: 22px;
-
-    background: rgba(255, 255, 255, 0.055);
 
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
 
     transition:
         transform 0.3s ease,
-        border-color 0.3s ease,
         background-color 0.3s ease,
+        border-color 0.3s ease,
         box-shadow 0.3s ease;
+}
+
+.pollinator-link::after{
+    content: "";
+
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 183, 3, 0.09);
+
+    transition: transform 0.35s ease;
 }
 
 .pollinator-link:hover,
 .pollinator-link:focus{
+    color: white;
+
+    background: rgba(255, 183, 3, 0.12);
+
+    border-color: rgba(255, 183, 3, 0.72);
+
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.30);
+
     outline: none;
 
     transform: translateY(-7px);
+}
 
-    border-color: rgba(255, 183, 3, 0.75);
-    background: rgba(255, 183, 3, 0.12);
+.pollinator-link:hover::after,
+.pollinator-link:focus::after{
+    transform: scale(1.28);
+}
 
-    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.30);
+.pollinator-link-icon,
+.pollinator-link-name,
+.pollinator-link-description,
+.pollinator-link-arrow{
+    position: relative;
+    z-index: 1;
 }
 
 .pollinator-link-icon{
     display: block;
 
-    margin-bottom: 13px;
+    margin-bottom: 18px;
 
-    font-size: 52px;
+    font-size: 50px;
     line-height: 1;
 }
 
 .pollinator-link-name{
+    margin-bottom: 10px;
+
     font-family: "Avenir-Bold", sans-serif;
-    font-size: 27px;
-    line-height: 1.2;
+    font-size: 28px;
+    line-height: 1.15;
+}
+
+.pollinator-link-description{
+    max-width: 240px;
+
+    color: rgba(240, 235, 230, 0.76);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .pollinator-link-arrow{
-    margin-top: 14px;
+    margin-top: auto;
+    padding-top: 18px;
 
     color: #ffb703;
-    font-size: 24px;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: 27px;
     line-height: 1;
 
     transition: transform 0.25s ease;
 }
 
-.pollinator-link:hover .pollinator-link-arrow{
-    transform: translateY(5px);
-}
-
-
-/* ======================================================= */
-/* ================== ДЕТАЛЬНЫЕ БЛОКИ =================== */
-/* ======================================================= */
-
-.pollinator-detail{
-    padding: 86px 8%;
-    box-sizing: border-box;
-
-    scroll-margin-top: 90px;
-}
-
-.pollinator-detail-bees{
-    background: rgba(13, 10, 7, 0.44);
-}
-
-.pollinator-detail-bumblebees{
-    background: rgba(255, 183, 3, 0.07);
-}
-
-.pollinator-detail-meliponines{
-    background: rgba(255, 255, 255, 0.055);
-}
-
-.pollinator-detail-container{
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.pollinator-detail-heading{
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    margin-bottom: 34px;
-}
-
-.pollinator-detail-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex: 0 0 auto;
-
-    width: 76px;
-    height: 76px;
-
-    font-size: 37px;
-
-    border: 1px solid rgba(255, 183, 3, 0.42);
-    border-radius: 50%;
-
-    background: rgba(255, 183, 3, 0.10);
-}
-
-.pollinator-detail-label{
-    margin: 0 0 6px;
-
-    color: #ffb703;
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.pollinator-detail-heading h2{
-    margin: 0;
-
-    color: white;
-    font-family: "Avenir-Bold", sans-serif;
-    font-size: clamp(30px, 3.4vw, 44px);
-    line-height: 1.1;
-}
-
-.pollinator-detail-text{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-
-    margin-bottom: 38px;
-}
-
-.pollinator-detail-text p{
-    margin: 0;
-    padding: 0 0 0 18px;
-
-    color: rgba(240, 235, 230, 0.90);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 16px;
-    line-height: 1.72;
-
-    border-left: 3px solid rgba(255, 183, 3, 0.78);
-}
-
-.pollinator-detail-facts{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-}
-
-.pollinator-fact{
-    padding: 22px 20px;
-    box-sizing: border-box;
-
-    border: 1px solid rgba(255, 183, 3, 0.26);
-    border-radius: 16px;
-
-    background: rgba(0, 0, 0, 0.16);
-}
-
-.pollinator-fact strong{
-    display: block;
-
-    margin-bottom: 7px;
-
-    color: #ffb703;
-    font-family: "Avenir-Bold", sans-serif;
-    font-size: 25px;
-    line-height: 1.15;
-}
-
-.pollinator-fact span{
-    display: block;
-
-    color: rgba(240, 235, 230, 0.76);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 14px;
-    line-height: 1.45;
-}
-
-
-/* ======================================================= */
-/* ==================== ФИНАЛЬНЫЙ БЛОК ================== */
-/* ======================================================= */
-
-.final-block{
-    position: relative;
-
-    padding: 62px 8%;
-    box-sizing: border-box;
-
-    text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        #ffb703 0%,
-        rgb(223, 93, 5) 55%,
-        rgb(150, 65, 15) 100%
-    );
-}
-
-.final-block h3{
-    max-width: 760px;
-    margin: 0 auto 14px;
-
-    color: white;
-    font-family: "Avenir-Bold", sans-serif;
-    font-size: clamp(28px, 3.2vw, 42px);
-    line-height: 1.2;
-}
-
-.final-block p{
-    max-width: 760px;
-    margin: 0 auto;
-
-    color: rgba(255, 255, 255, 0.94);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-}
-
-.footer{
-    background: linear-gradient(
-        180deg,
-        rgb(150, 65, 15) 0%,
-        rgb(115, 48, 12) 100%
-    );
+.pollinator-link:hover .pollinator-link-arrow,
+.pollinator-link:focus .pollinator-link-arrow{
+    transform: translateX(8px);
 }
 
 
@@ -502,8 +368,7 @@ main{
     }
 
     .pchela-info,
-    .pchela-info-content,
-    .pollinator-detail{
+    .pchela-types{
         padding-right: 6%;
         padding-left: 6%;
     }
@@ -512,13 +377,13 @@ main{
         padding-top: 62px;
     }
 
-    .pollinator-detail-text{
-        grid-template-columns: 1fr;
+    .pollinators-navigation{
         gap: 18px;
     }
 
-    .pollinator-detail-facts{
-        gap: 14px;
+    .pollinator-link{
+        min-height: 240px;
+        padding: 23px;
     }
 }
 
@@ -554,11 +419,11 @@ main{
         padding: 48px 6% 34px;
     }
 
-    .pchela-info .text h2{
+    .pchela-info-text h2{
         font-size: 31px;
     }
 
-    .pchela-info .text p{
+    .pchela-info-text > p{
         padding: 20px;
 
         font-size: 16px;
@@ -567,16 +432,12 @@ main{
         border-radius: 20px;
     }
 
-    .pchela-info-content{
-        padding: 26px 6% 54px;
+    .pchela-types{
+        padding: 26px 6% 58px;
     }
 
-    .pchela-info-content-aboutPchela h2{
+    .pchela-types-heading h2{
         font-size: 28px;
-    }
-
-    .pchela-info-content-aboutPchela p{
-        font-size: 16px;
     }
 
     .pollinators-navigation{
@@ -585,49 +446,28 @@ main{
     }
 
     .pollinator-link{
-        min-height: 150px;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 18px;
-
-        text-align: left;
+        min-height: 160px;
+        padding: 22px;
     }
 
     .pollinator-link-icon{
-        margin: 0;
+        margin-bottom: 10px;
 
         font-size: 42px;
     }
 
     .pollinator-link-name{
+        margin-bottom: 6px;
+
         font-size: 24px;
     }
 
     .pollinator-link-arrow{
-        margin: 0 0 0 auto;
-    }
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
 
-    .pollinator-detail{
-        padding: 58px 6%;
-    }
-
-    .pollinator-detail-heading{
-        margin-bottom: 28px;
-    }
-
-    .pollinator-detail-icon{
-        width: 64px;
-        height: 64px;
-
-        font-size: 31px;
-    }
-
-    .pollinator-detail-facts{
-        grid-template-columns: 1fr;
-    }
-
-    .final-block{
-        padding: 48px 6%;
+        padding: 0;
     }
 }
 
@@ -661,38 +501,31 @@ main{
         padding: 36px 5% 28px;
     }
 
-    .pchela-info .text h2{
+    .pchela-info-text h2{
         font-size: 25px;
     }
 
-    .pchela-info .text p{
+    .pchela-info-text > p{
         padding: 17px;
 
         font-size: 14px;
         line-height: 1.58;
     }
 
-    .pchela-info-content{
+    .pchela-types{
         padding: 22px 5% 42px;
     }
 
-    .pchela-info-content-aboutPchela h2{
-        margin-bottom: 18px;
+    .pchela-types-heading p{
+        font-size: 10px;
+    }
 
+    .pchela-types-heading h2{
         font-size: 23px;
     }
 
-    .pchela-info-content-aboutPchela p{
-        padding-left: 13px;
-
-        font-size: 14px;
-        line-height: 1.6;
-
-        border-left-width: 3px;
-    }
-
     .pollinator-link{
-        min-height: 118px;
+        min-height: 145px;
         padding: 18px;
 
         border-radius: 16px;
@@ -706,66 +539,16 @@ main{
         font-size: 21px;
     }
 
-    .pollinator-detail{
-        padding: 44px 5%;
-    }
+    .pollinator-link-description{
+        max-width: 230px;
 
-    .pollinator-detail-heading{
-        gap: 12px;
-    }
-
-    .pollinator-detail-icon{
-        width: 54px;
-        height: 54px;
-
-        font-size: 26px;
-    }
-
-    .pollinator-detail-label{
-        font-size: 10px;
-        letter-spacing: 1px;
-    }
-
-    .pollinator-detail-heading h2{
-        font-size: 27px;
-    }
-
-    .pollinator-detail-text{
-        gap: 15px;
-        margin-bottom: 26px;
-    }
-
-    .pollinator-detail-text p{
-        padding-left: 13px;
-
-        font-size: 14px;
-        line-height: 1.62;
-    }
-
-    .pollinator-fact{
-        padding: 17px 16px;
-
-        border-radius: 13px;
-    }
-
-    .pollinator-fact strong{
-        font-size: 21px;
-    }
-
-    .pollinator-fact span{
         font-size: 13px;
     }
 
-    .final-block{
-        padding: 38px 5%;
-    }
+    .pollinator-link-arrow{
+        right: 20px;
+        bottom: 20px;
 
-    .final-block h3{
         font-size: 24px;
-    }
-
-    .final-block p{
-        font-size: 14px;
-        line-height: 1.6;
     }
 }
