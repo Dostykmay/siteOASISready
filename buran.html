@@ -15,46 +15,48 @@
     <link rel="stylesheet" href="css/buran.css">
 
     <script src="js/include.js" defer></script>
-
-    <style>
-        .footer{
-            background: linear-gradient(
-                180deg,
-                #0b2544 0%,
-                #204d84 100%
-            );
-        }
-    </style>
 </head>
 
 <body>
     <div id="header-placeholder"></div>
 
     <main>
-        <section class="buran-page" aria-labelledby="buran-title">
-            <div class="buran-page-container">
+        <!-- ============================================== -->
+        <!-- HERO: ФОНОВАЯ ФОТОГРАФИЯ И НАЗВАНИЕ           -->
+        <!-- ============================================== -->
 
-                <div class="buran-page-content">
-                    <p class="buran-label">
-                        О.А.З.И.С × ХК «Буран»
-                    </p>
+        <section class="buran-hero" aria-labelledby="buran-title">
+            <img
+                class="buran-hero-image"
+                src="resource/Buran_page/буран4-converted.webp"
+                alt="Хоккейный клуб Буран"
+                fetchpriority="high"
+                decoding="async">
 
-                    <h1 id="buran-title">
-                        Поддерживаем воронежский хоккей
-                    </h1>
+            <div class="buran-hero-overlay"></div>
 
-                    <p class="buran-description">
-                        С сезона 2026/27 компания О.А.З.И.С является
-                        спонсором хоккейного клуба «Буран».
-                    </p>
+            <div class="buran-hero-content">
+                <p class="buran-hero-label">
+                    О.А.З.И.С × ХК «Буран»
+                </p>
 
-                    <p class="buran-description buran-description-secondary">
-                        Партнёрство объединяет стремление к развитию,
-                        системной работе и новым достижениям.
-                    </p>
-                </div>
+                <h1 id="buran-title">
+                    ХК «Буран»
+                </h1>
 
-                <figure class="buran-page-image">
+                <p class="buran-hero-description">
+                    Поддерживаем воронежский хоккей.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- ПАРТНЁРСТВО: ШАРФ И ТЕКСТ                     -->
+        <!-- ============================================== -->
+
+        <section class="buran-partnership" aria-labelledby="partnership-title">
+            <div class="buran-partnership-container">
+                <figure class="buran-scarf-image">
                     <img
                         src="resource/Buran_page/шарф_ОАЗИСБуран-converted.webp"
                         alt="Шарф с символикой О.А.З.И.С и хоккейного клуба Буран"
@@ -66,6 +68,25 @@
                     </figcaption>
                 </figure>
 
+                <div class="buran-partnership-content">
+                    <p class="buran-section-label">
+                        Партнёрство
+                    </p>
+
+                    <h2 id="partnership-title">
+                        Вместе к новым победам
+                    </h2>
+
+                    <p class="buran-description">
+                        С сезона 2026/27 компания О.А.З.И.С является
+                        спонсором хоккейного клуба «Буран».
+                    </p>
+
+                    <p class="buran-description buran-description-secondary">
+                        Партнёрство объединяет стремление к развитию,
+                        системной работе и новым достижениям.
+                    </p>
+                </div>
             </div>
         </section>
     </main>

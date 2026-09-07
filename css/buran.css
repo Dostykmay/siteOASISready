@@ -1,194 +1,492 @@
+/* ======================================================= */
+/* =================== СТРАНИЦА ХК «БУРАН» ============== */
+/* ======================================================= */
+
 main{
     min-height: 100vh;
 
+    background: linear-gradient(
+        180deg,
+        #061527 0%,
+        #0a2b54 48%,
+        #15558e 100%
+    );
+}
+
+/* ======================================================= */
+/* ==================== HERO С ФОТО ===================== */
+/* ======================================================= */
+
+.buran-hero{
+    position: relative;
+
+    width: 100%;
+    height: 560px;
+
+    overflow: hidden;
+
+    background: #061527;
+}
+
+.buran-hero-image{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.46) saturate(0.92);
+
+    transition: transform 0.9s ease;
+}
+
+.buran-hero:hover .buran-hero-image{
+    transform: scale(1.035);
+}
+
+.buran-hero-overlay{
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
     background:
-        radial-gradient(
-            circle at 84% 12%,
-            rgba(63, 151, 230, 0.30) 0%,
-            rgba(63, 151, 230, 0) 36%
+        linear-gradient(
+            90deg,
+            rgba(3, 13, 27, 0.88) 0%,
+            rgba(3, 13, 27, 0.62) 44%,
+            rgba(3, 13, 27, 0.17) 100%
         ),
         linear-gradient(
-            145deg,
-            #07172a 0%,
-            #0d315d 55%,
-            #1f5f9b 100%
+            180deg,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(3, 12, 24, 0.82) 100%
         );
 }
 
-.buran-page{
-    display: flex;
-    align-items: center;
+.buran-hero-content{
+    position: absolute;
+    top: 50%;
+    left: 8%;
 
-    min-height: 100vh;
-    padding: 130px 8% 80px;
-    box-sizing: border-box;
+    max-width: 700px;
+
+    transform: translateY(-50%);
 }
 
-.buran-page-container{
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 470px);
-    align-items: center;
-    gap: 70px;
+.buran-hero-label{
+    margin: 0 0 15px;
 
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-}
-
-.buran-page-content{
-    max-width: 630px;
-}
-
-.buran-label{
-    margin: 0 0 18px;
-
-    color: #8fd4ff;
+    color: #9ddfff;
     font-family: "Avenir-Bold", sans-serif;
     font-size: 14px;
-    letter-spacing: 1.7px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
 }
 
-.buran-page h1{
-    margin: 0 0 22px;
+.buran-hero-content h1{
+    margin: 0;
 
     color: white;
     font-family: "Avenir-Bold", sans-serif;
-    font-size: clamp(36px, 4.3vw, 58px);
-    line-height: 1.12;
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 1.04;
+    letter-spacing: -1px;
 
-    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 5px 24px rgba(0, 0, 0, 0.62);
 }
 
-.buran-page h1::after{
+.buran-hero-content h1::after{
     content: "";
 
     display: block;
 
-    width: 76px;
+    width: 88px;
     height: 4px;
-    margin-top: 24px;
+    margin-top: 23px;
 
-    border-radius: 99px;
+    border-radius: 999px;
 
     background: linear-gradient(
         90deg,
-        #9ce2ff,
-        #2f8ee1
+        #b4e9ff,
+        #42a9e6
+    );
+}
+
+.buran-hero-description{
+    margin: 20px 0 0;
+
+    color: rgba(239, 248, 255, 0.92);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+/* ======================================================= */
+/* ============= БЛОК ПАРТНЁРСТВА И ШАРФА ============== */
+/* ======================================================= */
+
+.buran-partnership{
+    position: relative;
+
+    padding: 88px 8% 94px;
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 14% 82%,
+            rgba(80, 172, 240, 0.18) 0%,
+            rgba(80, 172, 240, 0) 34%
+        ),
+        linear-gradient(
+            135deg,
+            #092647 0%,
+            #104577 55%,
+            #1c659e 100%
+        );
+}
+
+.buran-partnership::before{
+    content: "❄";
+
+    position: absolute;
+    top: -150px;
+    right: -60px;
+
+    color: rgba(190, 232, 255, 0.055);
+    font-size: 420px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transform: rotate(14deg);
+}
+
+.buran-partnership-container{
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(42px, 7vw, 100px);
+
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* ======================================================= */
+/* ================== ФОТО ШАРФА ======================== */
+/* ======================================================= */
+
+.buran-scarf-image{
+    position: relative;
+
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(171, 225, 255, 0.45);
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.32),
+        0 0 28px rgba(93, 184, 239, 0.14);
+
+    transform: rotate(-2deg);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.buran-scarf-image:hover{
+    box-shadow:
+        0 26px 50px rgba(0, 0, 0, 0.43),
+        0 0 42px rgba(120, 205, 250, 0.23);
+
+    transform: rotate(0deg) translateY(-6px);
+}
+
+.buran-scarf-image img{
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 14px;
+
+    filter: brightness(0.96) saturate(0.96);
+
+    transition:
+        transform 0.45s ease,
+        filter 0.35s ease;
+}
+
+.buran-scarf-image:hover img{
+    filter: brightness(1.04) saturate(1.04);
+
+    transform: scale(1.025);
+}
+
+.buran-scarf-image figcaption{
+    margin: 12px 5px 2px;
+
+    color: rgba(232, 246, 255, 0.78);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* ======================================================= */
+/* ================== ТЕКСТ ПАРТНЁРСТВА ================= */
+/* ======================================================= */
+
+.buran-partnership-content{
+    max-width: 590px;
+}
+
+.buran-section-label{
+    margin: 0 0 12px;
+
+    color: #9ddfff;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.buran-partnership-content h2{
+    margin: 0 0 25px;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(31px, 3.6vw, 48px);
+    line-height: 1.14;
+}
+
+.buran-partnership-content h2::after{
+    content: "";
+
+    display: block;
+
+    width: 72px;
+    height: 4px;
+    margin-top: 20px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #b4e9ff,
+        #42a9e6
     );
 }
 
 .buran-description{
-    margin: 0 0 16px;
+    margin: 0 0 18px;
+    padding-left: 18px;
 
     color: rgba(244, 249, 255, 0.95);
     font-family: "Avenir-Medium", sans-serif;
     font-size: 18px;
     line-height: 1.72;
+
+    border-left: 3px solid rgba(125, 207, 250, 0.88);
 }
 
 .buran-description-secondary{
-    max-width: 580px;
-
     color: rgba(213, 232, 248, 0.80);
+
+    border-left-color: rgba(125, 207, 250, 0.40);
 }
 
-.buran-page-image{
-    margin: 0;
-    padding: 12px;
-    box-sizing: border-box;
+/* ======================================================= */
+/* ======================== FOOTER ======================= */
+/* ======================================================= */
 
-    border: 1px solid rgba(154, 222, 255, 0.40);
-    border-radius: 22px;
-
-    background: rgba(255, 255, 255, 0.09);
-
-    box-shadow:
-        0 22px 48px rgba(0, 0, 0, 0.34),
-        0 0 30px rgba(61, 155, 228, 0.16);
+.footer{
+    background: linear-gradient(
+        180deg,
+        #15558e 0%,
+        #0b2544 56%,
+        #061527 100%
+    );
 }
 
-.buran-page-image img{
-    display: block;
+/* ======================================================= */
+/* ====================== ПЛАНШЕТЫ ======================= */
+/* ======================================================= */
 
-    width: 100%;
-    min-height: 280px;
-
-    object-fit: cover;
-
-    border-radius: 13px;
-}
-
-.buran-page-image figcaption{
-    padding: 14px 8px 4px;
-
-    color: rgba(232, 244, 255, 0.78);
-    font-family: "Avenir-Medium", sans-serif;
-    font-size: 13px;
-    line-height: 1.4;
-    text-align: center;
-}
-
-@media (max-width: 850px){
-    .buran-page{
-        min-height: auto;
-        padding: 110px 6% 65px;
+@media (max-width: 1024px){
+    .buran-hero{
+        height: 470px;
     }
 
-    .buran-page-container{
+    .buran-partnership{
+        padding: 72px 6% 78px;
+    }
+
+    .buran-partnership-container{
+        grid-template-columns: minmax(230px, 360px) minmax(0, 1fr);
+        gap: 48px;
+    }
+
+    .buran-description{
+        font-size: 16px;
+    }
+}
+
+/* ======================================================= */
+/* ======================= ТЕЛЕФОНЫ ====================== */
+/* ======================================================= */
+
+@media (max-width: 768px){
+    .buran-hero{
+        height: 390px;
+    }
+
+    .buran-hero-content{
+        top: auto;
+        right: 6%;
+        bottom: 40px;
+        left: 6%;
+
+        transform: none;
+    }
+
+    .buran-hero-label{
+        margin-bottom: 9px;
+
+        font-size: 11px;
+        letter-spacing: 1.3px;
+    }
+
+    .buran-hero-content h1{
+        font-size: 52px;
+    }
+
+    .buran-hero-content h1::after{
+        width: 64px;
+        height: 3px;
+        margin-top: 16px;
+    }
+
+    .buran-hero-description{
+        margin-top: 15px;
+
+        font-size: 16px;
+    }
+
+    .buran-partnership{
+        padding: 56px 6% 64px;
+    }
+
+    .buran-partnership-container{
         grid-template-columns: 1fr;
         gap: 38px;
     }
 
-    .buran-page-content{
+    .buran-scarf-image{
+        width: min(100%, 430px);
+        margin: 0 auto;
+    }
+
+    .buran-partnership-content{
         max-width: none;
     }
 
-    .buran-page-image{
-        width: 100%;
-        max-width: 540px;
-        margin: 0 auto;
+    .buran-description{
+        font-size: 16px;
     }
 }
 
+/* ======================================================= */
+/* =================== ОБЫЧНЫЕ ТЕЛЕФОНЫ ================= */
+/* ======================================================= */
+
 @media (max-width: 480px){
-    .buran-page{
-        padding: 92px 5% 48px;
+    .buran-hero{
+        height: 300px;
     }
 
-    .buran-label{
-        margin-bottom: 14px;
-
-        font-size: 11px;
-        letter-spacing: 1.2px;
+    .buran-hero-content{
+        right: 5%;
+        bottom: 27px;
+        left: 5%;
     }
 
-    .buran-page h1{
-        margin-bottom: 18px;
-
-        font-size: 31px;
+    .buran-hero-content h1{
+        font-size: 40px;
     }
 
-    .buran-page h1::after{
-        width: 60px;
-        height: 3px;
-        margin-top: 17px;
+    .buran-hero-description{
+        font-size: 14px;
+        line-height: 1.5;
     }
 
-    .buran-description{
-        font-size: 15px;
-        line-height: 1.62;
+    .buran-partnership{
+        padding: 43px 5% 50px;
     }
 
-    .buran-page-image{
-        padding: 8px;
+    .buran-partnership-container{
+        gap: 27px;
+    }
+
+    .buran-scarf-image{
+        padding: 7px;
 
         border-radius: 16px;
     }
 
-    .buran-page-image img{
-        min-height: 210px;
-
+    .buran-scarf-image img{
         border-radius: 10px;
+    }
+
+    .buran-scarf-image figcaption{
+        margin-top: 8px;
+
+        font-size: 11px;
+    }
+
+    .buran-section-label{
+        margin-bottom: 9px;
+
+        font-size: 10px;
+        letter-spacing: 1.1px;
+    }
+
+    .buran-partnership-content h2{
+        margin-bottom: 20px;
+
+        font-size: 27px;
+    }
+
+    .buran-partnership-content h2::after{
+        width: 56px;
+        height: 3px;
+        margin-top: 15px;
+    }
+
+    .buran-description{
+        padding-left: 13px;
+
+        font-size: 14px;
+        line-height: 1.62;
+
+        border-left-width: 2px;
     }
 }
