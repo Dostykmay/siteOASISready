@@ -355,7 +355,7 @@ main{
 .footer{
     background: linear-gradient(
         180deg,
-        rgb(83, 49, 19) 0%,
+        #2e1c0d 0%,
         rgb(184, 93, 18) 100%
     );
 }
