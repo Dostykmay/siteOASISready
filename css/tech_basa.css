@@ -850,3 +850,106 @@ main{
         top: 13px;
     }
 }
+
+/* ======================================================= */
+/* ==== МОБИЛЬНАЯ ВЕРСИЯ: ВСЕ ФОТО ВИДНЫ ПОЛНОСТЬЮ ====== */
+/* ======================================================= */
+
+@media (max-width: 768px){
+    /*
+        Веер почвообрабатывающей техники превращается
+        в обычную сетку 2 × 2. Три фото не перекрываются.
+    */
+    .techno-fan-gallery{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .techno-fan-gallery .techno-fan-photo,
+    .techno-fan-photo-one,
+    .techno-fan-photo-two,
+    .techno-fan-photo-three{
+        position: static;
+
+        display: block;
+
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+        border: 2px solid rgba(255, 255, 255, 0.78);
+        border-radius: 12px;
+
+        filter: brightness(0.96);
+
+        transform: none;
+    }
+
+    /*
+        Веер послеуборочной подготовки также становится
+        обычной сеткой: все четыре изображения видны.
+    */
+    .techno-postharvest-fan-gallery{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .techno-postharvest-fan-photo,
+    .techno-postharvest-fan-photo-one,
+    .techno-postharvest-fan-photo-two,
+    .techno-postharvest-fan-photo-three,
+    .techno-postharvest-fan-photo-four{
+        position: static;
+
+        display: block;
+
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+        border: 2px solid rgba(255, 255, 255, 0.78);
+        border-radius: 12px;
+
+        filter: brightness(0.96);
+
+        transform: none;
+    }
+}
+
+
+/* ======================================================= */
+/* =============== ОБЫЧНЫЕ ТЕЛЕФОНЫ: 1 ФОТО ============= */
+/* ======================================================= */
+
+@media (max-width: 480px){
+    /*
+        На узких экранах каждая фотография занимает
+        отдельную строку: ничего не сжимается и не обрезается.
+    */
+    .techno-fan-gallery,
+    .techno-postharvest-fan-gallery{
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .techno-fan-gallery .techno-fan-photo,
+    .techno-postharvest-fan-photo{
+        border-radius: 10px;
+    }
+}
