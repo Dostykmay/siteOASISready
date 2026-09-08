@@ -97,6 +97,83 @@ main{
 
 
 /* ======================================================= */
+/* ================= РАЗДЕЛЫ КАТАЛОГА =================== */
+/* ======================================================= */
+
+.seeds-category{
+    width: 100%;
+    padding: 70px 8% 42px;
+    box-sizing: border-box;
+
+    background: #171311;
+}
+
+.seeds-category-container{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.seeds-category-label{
+    margin: 0 0 10px;
+
+    color: rgba(245, 166, 35, 0.80);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.seeds-category h2{
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0 0 25px;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+}
+
+.seeds-category h2::after{
+    content: "";
+
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+
+    width: 82px;
+    height: 4px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        rgb(223, 93, 5),
+        rgb(245, 166, 35)
+    );
+}
+
+.seeds-category-description{
+    max-width: 640px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.seeds-category-herbs{
+    padding-top: 82px;
+
+    background: #1d1612;
+}
+
+
+/* ======================================================= */
 /* =================== КАРТОЧКИ СЕМЯН =================== */
 /* ======================================================= */
 
@@ -110,7 +187,6 @@ main{
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-/* Чередование спокойных фонов для лучшего разделения сортов */
 .seeds-cards:nth-of-type(even){
     background: #1d1612;
 }
@@ -135,13 +211,6 @@ main{
 /* ================== ЛЕВАЯ КОЛОНКА ===================== */
 /* ======================================================= */
 
-/*
-    Единый формат изображения 4:5.
-
-    При ширине 420px высота контейнера составит 525px.
-    position: sticky позволяет изображению оставаться
-    перед глазами во время чтения характеристик сорта.
-*/
 .seeds-container-cards-image{
     position: sticky;
     top: 96px;
@@ -159,11 +228,6 @@ main{
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
 }
 
-/*
-    Фото заполняет блок без искажений.
-    При несовпадении пропорций исходника с 4:5
-    object-fit: cover аккуратно обрежет края.
-*/
 .seeds-container-cards-image img{
     display: block;
 
@@ -218,10 +282,6 @@ main{
     letter-spacing: 0.5px;
 }
 
-/*
-    Буква Z в слове «Zеландия» окрашена
-    в белый, синий и красный цвета.
-*/
 .zelandiya-flag-letter{
     display: inline-block;
 
@@ -245,11 +305,18 @@ main{
 }
 
 .product-title sup{
-    margin-left: 2px;
+    display: inline-block;
 
-    font-size: 0.42em;
-    line-height: 0;
+    margin-left: 3px;
+
+    color: rgba(255, 229, 176, 0.96);
+    font-family: Arial, sans-serif;
+    font-size: 0.38em;
+    font-weight: 700;
+    line-height: 1;
     vertical-align: super;
+
+    transform: translateY(-0.08em);
 }
 
 .product-subtitle{
@@ -382,6 +449,14 @@ main{
         object-position: 70% center;
     }
 
+    .seeds-category{
+        padding: 58px 6% 36px;
+    }
+
+    .seeds-category-herbs{
+        padding-top: 68px;
+    }
+
     .seeds-cards{
         padding: 60px 6%;
     }
@@ -430,6 +505,25 @@ main{
         font-size: 34px;
     }
 
+    .seeds-category{
+        padding: 46px 6% 30px;
+    }
+
+    .seeds-category h2{
+        margin-bottom: 21px;
+
+        font-size: 32px;
+    }
+
+    .seeds-category-description{
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .seeds-category-herbs{
+        padding-top: 55px;
+    }
+
     .seeds-cards{
         padding: 46px 6%;
     }
@@ -440,11 +534,6 @@ main{
         gap: 28px;
     }
 
-    /*
-        На телефонах sticky отключается.
-        Изображение находится над текстом,
-        но всё ещё сохраняет формат 4:5.
-    */
     .seeds-container-cards-image{
         position: static;
 
@@ -519,6 +608,39 @@ main{
         margin-top: 15px;
     }
 
+    .seeds-category{
+        padding: 36px 5% 25px;
+    }
+
+    .seeds-category-label{
+        margin-bottom: 8px;
+
+        font-size: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    .seeds-category h2{
+        margin-bottom: 18px;
+
+        font-size: 27px;
+    }
+
+    .seeds-category h2::after{
+        bottom: -10px;
+
+        width: 60px;
+        height: 3px;
+    }
+
+    .seeds-category-description{
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .seeds-category-herbs{
+        padding-top: 46px;
+    }
+
     .seeds-cards{
         padding: 34px 5%;
     }
@@ -529,6 +651,7 @@ main{
 
     .seeds-container-cards-image{
         max-width: 100%;
+
         border-radius: 14px;
     }
 
