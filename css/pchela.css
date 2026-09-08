@@ -314,14 +314,48 @@ main{
     z-index: 1;
 }
 
+
+/* ======================================================= */
+/* ================= ИЗОБРАЖЕНИЯ НАСЕКОМЫХ ============== */
+/* ======================================================= */
+
 .pollinator-link-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 64px;
+    margin-bottom: 18px;
+}
+
+.pollinator-link-icon img{
     display: block;
 
-    margin-bottom: 18px;
+    width: 100%;
+    height: 100%;
 
-    font-size: 50px;
-    line-height: 1;
+    object-fit: contain;
+    object-position: center;
+
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35));
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
+
+.pollinator-link:hover .pollinator-link-icon img,
+.pollinator-link:focus .pollinator-link-icon img{
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.45));
+
+    transform: translateY(-3px) rotate(-4deg) scale(1.08);
+}
+
+
+/* ======================================================= */
+/* ======================== ТЕКСТ ======================== */
+/* ======================================================= */
 
 .pollinator-link-name{
     margin-bottom: 10px;
@@ -451,9 +485,9 @@ main{
     }
 
     .pollinator-link-icon{
+        width: 62px;
+        height: 52px;
         margin-bottom: 10px;
-
-        font-size: 42px;
     }
 
     .pollinator-link-name{
@@ -532,7 +566,9 @@ main{
     }
 
     .pollinator-link-icon{
-        font-size: 34px;
+        width: 52px;
+        height: 44px;
+        margin-bottom: 8px;
     }
 
     .pollinator-link-name{
