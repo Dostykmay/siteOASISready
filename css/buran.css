@@ -490,3 +490,222 @@ main{
         border-left-width: 2px;
     }
 }
+
+/* ======================================================= */
+/* =================== ССЫЛКИ ХК «БУРАН» ================ */
+/* ======================================================= */
+
+.buran-links{
+    padding: 76px 8% 88px;
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(86, 174, 245, 0.16) 0%,
+            rgba(86, 174, 245, 0) 35%
+        ),
+        linear-gradient(
+            145deg,
+            #0d315d 0%,
+            #15558e 100%
+        );
+}
+
+.buran-links-container{
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.buran-links-heading{
+    margin-bottom: 32px;
+}
+
+.buran-links-heading h2{
+    margin: 0;
+
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: clamp(30px, 3.5vw, 43px);
+    line-height: 1.16;
+}
+
+.buran-links-heading h2::after{
+    content: "";
+
+    display: block;
+
+    width: 72px;
+    height: 4px;
+    margin-top: 18px;
+
+    border-radius: 99px;
+
+    background: linear-gradient(
+        90deg,
+        #b4e9ff,
+        #42a9e6
+    );
+}
+
+.buran-links-list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.buran-external-link{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    min-height: 122px;
+    padding: 23px 24px;
+    box-sizing: border-box;
+
+    color: white;
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(171, 225, 255, 0.34);
+    border-radius: 18px;
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.buran-external-link:hover,
+.buran-external-link:focus{
+    color: white;
+
+    background: rgba(158, 220, 255, 0.14);
+
+    border-color: rgba(190, 237, 255, 0.80);
+
+    box-shadow:
+        0 20px 35px rgba(0, 0, 0, 0.30),
+        0 0 24px rgba(104, 198, 250, 0.14);
+
+    outline: none;
+
+    transform: translateY(-5px);
+}
+
+.buran-external-link-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 48px;
+    height: 48px;
+
+    color: #d7f3ff;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: 23px;
+    line-height: 1;
+
+    background: rgba(75, 174, 231, 0.18);
+
+    border: 1px solid rgba(165, 229, 255, 0.40);
+    border-radius: 50%;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.buran-external-link:hover .buran-external-link-icon,
+.buran-external-link:focus .buran-external-link-icon{
+    background: rgba(75, 174, 231, 0.32);
+
+    transform: rotate(8deg) scale(1.08);
+}
+
+.buran-external-link-content{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.buran-external-link-title{
+    color: white;
+    font-family: "Avenir-Bold", sans-serif;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.buran-external-link-description{
+    color: rgba(224, 242, 255, 0.76);
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+
+/* ======================================================= */
+/* ======================= ТЕЛЕФОНЫ ====================== */
+/* ======================================================= */
+
+@media (max-width: 768px){
+    .buran-links{
+        padding: 56px 6% 64px;
+    }
+
+    .buran-links-list{
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px){
+    .buran-links{
+        padding: 42px 5% 50px;
+    }
+
+    .buran-links-heading{
+        margin-bottom: 25px;
+    }
+
+    .buran-links-heading h2{
+        font-size: 27px;
+    }
+
+    .buran-links-heading h2::after{
+        width: 56px;
+        height: 3px;
+        margin-top: 15px;
+    }
+
+    .buran-external-link{
+        gap: 13px;
+
+        min-height: 106px;
+        padding: 18px 17px;
+
+        border-radius: 14px;
+    }
+
+    .buran-external-link-icon{
+        width: 40px;
+        height: 40px;
+
+        font-size: 19px;
+    }
+
+    .buran-external-link-title{
+        font-size: 15px;
+    }
+
+    .buran-external-link-description{
+        font-size: 12px;
+    }
+}
