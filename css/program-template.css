@@ -621,3 +621,134 @@ main .program-directions .program-directions-title{
 .sunflower-directions .program-directions-list li:nth-child(4){
     margin-bottom: 0;
 }
+
+/* ======================================================= */
+/* ================= КНОПКА НАЗАД К КАТАЛОГУ ============= */
+/* ======================================================= */
+
+/*
+    Кнопка находится поверх hero-блока.
+
+    Чтобы она не конфликтовала с фото и текстом:
+    - z-index: 3 выше, чем фон/затемнения hero;
+    - hero использует position: relative, которое у тебя уже есть;
+    - top/left задают положение в верхнем левом углу.
+*/
+.program-back-link{
+    position: absolute;
+    top: 28px;
+    left: 6%;
+    z-index: 3;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 16px 10px 12px;
+
+    color: rgba(255, 255, 255, 0.96);
+    text-decoration: none;
+
+    font-family: "Avenir-Medium", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+
+    background: rgba(10, 10, 10, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* Сама стрелка рисуется символом, поэтому отдельная картинка не нужна */
+.program-back-link__arrow{
+    display: inline-block;
+
+    color: rgba(255, 165, 90, 0.98);
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    line-height: 0.7;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Эффект при наведении */
+.program-back-link:hover{
+    color: #ffffff;
+
+    background: rgba(255, 115, 0, 0.32);
+    border-color: rgba(255, 185, 120, 0.82);
+
+    transform: translateX(-4px);
+}
+
+
+.program-back-link:hover .program-back-link__arrow{
+    transform: translateX(-3px);
+}
+
+
+/* Видимая обводка для навигации клавиатурой */
+.program-back-link:focus-visible{
+    outline: 3px solid rgba(255, 202, 148, 0.95);
+    outline-offset: 4px;
+}
+
+
+/* ======================================================= */
+/* ======================= АДАПТИВ ======================= */
+/* ======================================================= */
+
+@media (max-width: 768px){
+    .program-back-link{
+        top: 18px;
+        left: 5%;
+
+        gap: 8px;
+        padding: 9px 13px 9px 10px;
+
+        font-size: 13px;
+    }
+
+    .program-back-link__arrow{
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 480px){
+    .program-back-link{
+        top: 14px;
+
+        padding: 8px 11px 8px 9px;
+
+        font-size: 12px;
+    }
+
+    .program-back-link__arrow{
+        font-size: 18px;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce){
+    .program-back-link,
+    .program-back-link__arrow{
+        transition: none;
+    }
+}
